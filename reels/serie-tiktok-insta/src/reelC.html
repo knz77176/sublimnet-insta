@@ -1,0 +1,58 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Pourquoi SublimNet</title>
+<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="fonts/playfair.css"><link rel="stylesheet" href="engine.css">
+<style>
+.face{position:absolute;inset:0} .clean{opacity:0}
+.qm{font-family:var(--serif);font-style:italic;font-weight:800;font-size:200px;line-height:1;position:absolute;left:0;right:0;top:34px;text-align:center}
+.white .qm{background:linear-gradient(95deg,#7a4d9e,#5a6cc0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.white .num{background:linear-gradient(95deg,#7a4d9e,#5a6cc0);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em}
+.pill{position:absolute;padding:5px 12px;border-radius:999px;font-weight:800;font-size:12.5px;letter-spacing:.12em;color:#fff;z-index:12}
+.bub{position:absolute;font-size:25px;font-weight:600;padding:14px 22px;border-radius:26px;white-space:nowrap}
+
+</style></head>
+<body data-timeline="tC.json"><div id="stage"><div id="persp"><div id="world">
+<div class="tile white" style="left:124px;top:180px"></div>
+<div class="tile dark" style="left:124px;top:516px"></div>
+<div class="tile white" style="left:124px;top:852px"></div>
+<div class="tile dark" style="left:124px;top:1188px"></div>
+<div class="tile white" style="left:124px;top:1524px"></div>
+<div class="tile dark" style="left:124px;top:1860px"></div>
+<div class="tile dark" style="left:1804px;top:180px"></div>
+<div class="tile white" style="left:1804px;top:516px"></div>
+<div class="tile dark" style="left:1804px;top:852px"></div>
+<div class="tile white" style="left:1804px;top:1188px"></div>
+<div class="tile dark" style="left:1804px;top:1524px"></div>
+<div class="tile white" style="left:1804px;top:1860px"></div>
+<div class="tile white" style="left:460px;top:4px"></div>
+<div class="tile dark wide" id="msgs" style="left:796px;top:4px"><div class="pad"><div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;border-radius:50%;background:#f08a3c;display:grid;place-items:center;font-weight:800;font-size:20px">L</div><div style="width:44px;height:44px;border-radius:50%;background:#2fb36b;display:grid;place-items:center;font-weight:800;font-size:20px;margin-left:-22px;border:3px solid #1d1e22">S</div><div style="font-weight:700;font-size:28px;margin-left:8px">Les voisins</div><div style="margin-left:auto;color:#8b8d96;font-size:21px">maintenant</div></div></div><div class="bub" id="mb1" style="left:36px;top:112px;background:#3a3b41;color:#fff;opacity:0">Tu connais un pro pour le canapé ?</div><div class="bub" id="mb2" style="right:36px;top:194px;background:linear-gradient(95deg,#7a4d9e,#5a6cc0);color:#fff;opacity:0">SublimNet, sans hésiter 👌</div></div>
+<div class="tile dark" style="left:1468px;top:4px"></div>
+<div class="tile white" id="r1" style="left:460px;top:340px"><div class="pad"><div class="num" style="font-size:112px">1</div><div style="position:absolute;left:0;bottom:0"><div class="lbl">À domicile</div><div class="desc" style="margin-top:6px">On vient chez vous</div></div></div></div>
+<div class="tile dark" id="r2" style="left:796px;top:340px"><div class="pad"><div class="num" style="font-size:112px">2</div><div style="position:absolute;left:0;bottom:0"><div class="lbl">Google</div><div class="desc" style="margin-top:6px"><span style="color:#F5B301;letter-spacing:2px" id="stars">★★★★★</span> 5,0</div></div></div></div>
+<div class="tile grad" id="r3" style="left:1132px;top:340px"><div class="pad"><div class="num" style="font-size:112px">3</div><div style="position:absolute;left:0;bottom:0"><div class="lbl">7j/7</div><div class="desc" style="margin-top:6px">07:30 · 14:30</div></div></div></div>
+<div class="tile white" style="left:1468px;top:340px"></div>
+<div class="tile navy" id="r4" style="left:460px;top:700px"><div class="pad"><div class="num" style="font-size:112px">4</div><div style="position:absolute;left:0;bottom:0"><div class="lbl">Déplacement</div><div class="desc" style="margin-top:6px">Offert · 20 km</div></div></div></div>
+<div class="tile dark" style="left:460px;top:1036px"></div>
+<div class="tile white" style="left:460px;top:1372px"></div>
+<div class="tile dark" style="left:460px;top:1708px"></div>
+<div class="tile white" id="r5" style="left:1468px;top:700px"><div class="pad"><div class="num" style="font-size:112px">5</div><div style="position:absolute;left:0;bottom:0"><div class="lbl">En ligne</div><div class="desc" style="margin-top:6px">Réservé en 1 min</div></div></div></div>
+<div class="tile dark" style="left:1468px;top:1036px"></div>
+<div class="tile white" style="left:1468px;top:1372px"></div>
+<div class="tile dark" style="left:1468px;top:1708px"></div>
+<div class="tile grad wide" style="left:796px;top:1916px"><div class="pad"><div class="lbl">À domicile</div><div class="big" style="font-size:66px;margin-top:26px;font-style:italic">Auto · Canapé · Matelas</div></div></div>
+<div id="phone"></div>
+</div></div>
+<div id="fog"></div><div id="cap"></div><div id="veil"></div><div id="end"></div>
+</div>
+<script>
+window.scene = (t, A) => {
+  const X = A.TL.x;
+  for (const [id, tt] of [['mb1', X.mb1], ['mb2', X.mb2]]) {
+    const q = A.eob(A.P(t, tt, tt + 0.35)); const e = A.$('#'+id);
+    e.style.opacity = A.P(t, tt, tt + 0.12).toFixed(3); e.style.transform = `scale(${(0.6 + 0.4 * q).toFixed(3)})`;
+    e.style.transformOrigin = id === 'mb1' ? '0 50%' : '100% 50%';
+  }
+  const s = A.P(t, X.stars, X.stars + 0.8); const n = Math.round(s * 5);
+  A.$('#stars').innerHTML = '★'.repeat(n) + `<span style="color:#55565c">${'★'.repeat(5 - n)}</span>`;
+};
+</script>
+<script src="engine.js"></script>
+</body></html>

@@ -1,0 +1,31 @@
+{
+ "A": [
+  ["a1", "Miettes, poils, taches sur les sièges…"],
+  ["a2", "Votre voiture mérite mieux."],
+  ["a3", "Avec SublimNet, on vient la nettoyer chez vous."],
+  ["a4", "La preuve en image."],
+  ["a5", "Express : aspiration, plastiques et vitres. Dès cinquante euros."],
+  ["a6", "Confort : les sièges en plus. Dès quatre-vingt-dix euros."],
+  ["a7", "Sept jours sur sept, à Bordeaux et alentours."],
+  ["a8", "SublimNet. Réservez sur Sublim Net point com."]
+ ],
+ "B": [
+  ["b1", "Nettoyage à domicile : combien ça coûte ?"],
+  ["b2", "Un canapé ? Dès quarante euros."],
+  ["b3", "Un matelas ? Dès trente-cinq euros."],
+  ["b4", "Votre voiture ? Dès quarante-cinq euros."],
+  ["b5", "Le déplacement est offert jusqu'à vingt kilomètres."],
+  ["b6", "Et le total s'affiche avant de réserver."],
+  ["b7", "SublimNet. Réservez sur Sublim Net point com."]
+ ],
+ "C": [
+  ["c1", "Pourquoi choisir SublimNet ?"],
+  ["c2", "Un : on vient chez vous."],
+  ["c3", "Deux : cinq étoiles sur Google."],
+  ["c4", "Trois : sept jours sur sept."],
+  ["c5", "Quatre : le déplacement est offert."],
+  ["c6", "Cinq : vous réservez en ligne, en une minute."],
+  ["c7", "SublimNet. Sublime, et net."],
+  ["c8", "Réservez sur Sublim Net point com."]
+ ]
+}

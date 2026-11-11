@@ -1,0 +1,69 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Voiture comme neuve</title>
+<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="fonts/playfair.css"><link rel="stylesheet" href="engine.css">
+<style>
+.face{position:absolute;inset:0} .clean{opacity:0}
+.qm{font-family:var(--serif);font-style:italic;font-weight:800;font-size:200px;line-height:1;position:absolute;left:0;right:0;top:34px;text-align:center}
+.white .qm{background:linear-gradient(95deg,#7a4d9e,#5a6cc0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.white .num{background:linear-gradient(95deg,#7a4d9e,#5a6cc0);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em}
+.pill{position:absolute;padding:5px 12px;border-radius:999px;font-weight:800;font-size:12.5px;letter-spacing:.12em;color:#fff;z-index:12}
+.bub{position:absolute;font-size:25px;font-weight:600;padding:14px 22px;border-radius:26px;white-space:nowrap}
+
+</style></head>
+<body data-timeline="tA.json"><div id="stage"><div id="persp"><div id="world">
+<div class="tile white" style="left:124px;top:180px"></div>
+<div class="tile dark" style="left:124px;top:516px"></div>
+<div class="tile white" style="left:124px;top:852px"></div>
+<div class="tile dark" style="left:124px;top:1188px"></div>
+<div class="tile white" style="left:124px;top:1524px"></div>
+<div class="tile dark" style="left:124px;top:1860px"></div>
+<div class="tile dark" style="left:1804px;top:180px"></div>
+<div class="tile white" style="left:1804px;top:516px"></div>
+<div class="tile dark" style="left:1804px;top:852px"></div>
+<div class="tile white" style="left:1804px;top:1188px"></div>
+<div class="tile dark" style="left:1804px;top:1524px"></div>
+<div class="tile white" style="left:1804px;top:1860px"></div>
+<div class="tile white" style="left:460px;top:4px"></div>
+<div class="tile dark wide" id="notif" style="left:796px;top:4px"><div class="pad" id="notifIn" style="opacity:0"><div style="display:flex;align-items:center;gap:16px"><div style="width:64px;height:64px;border-radius:16px;background:#fff;display:grid;place-items:center"><img src="assets/logo.svg" style="width:56px"></div><div class="lbl" style="color:#c39ae0">SublimNet</div><div style="margin-left:auto;color:#8b8d96;font-size:21px">maintenant</div></div><div style="font-family:var(--serif);font-weight:700;font-size:44px;margin-top:26px">Votre intervenant arrive 🚗</div><div class="desc" style="margin-top:12px">Nettoyage auto · chez vous · 14:30</div></div></div>
+<div class="tile dark" style="left:1468px;top:4px"></div>
+<div class="tile white" id="e1" style="left:460px;top:340px"><div class="face dirty" id="e1d"><div class="pad"><div class="emoji">🍪</div><div class="lbl" style="margin-top:38px">Miettes</div></div></div><div class="face clean" id="e1c"><div class="pad"><div class="emoji">✨</div><div class="lbl" style="margin-top:38px">Propre</div></div></div></div>
+<div class="tile dark" id="e2" style="left:796px;top:340px"><div class="face dirty" id="e2d"><div class="pad"><div class="emoji">🐾</div><div class="lbl" style="margin-top:38px">Poils</div></div></div><div class="face clean" id="e2c"><div class="pad"><div class="emoji">✨</div><div class="lbl" style="margin-top:38px">Propre</div></div></div></div>
+<div class="tile white" id="e3" style="left:1132px;top:340px"><div class="face dirty" id="e3d"><div class="pad"><div class="emoji">☕</div><div class="lbl" style="margin-top:38px">Taches</div></div></div><div class="face clean" id="e3c"><div class="pad"><div class="emoji">✨</div><div class="lbl" style="margin-top:38px">Propre</div></div></div></div>
+<div class="tile white" style="left:1468px;top:340px"></div>
+<div class="tile white" id="tExp" style="left:460px;top:700px"><div class="pad"><div class="lbl">Express</div><div id="nExpw"><div class="desc" style="margin-top:14px">dès</div><div class="big" style="font-size:98px"><span id="nExp">0</span><span style="font-size:70px"> €</span></div></div><div class="desc" style="margin-top:10px">Aspiration · plastiques · vitres</div></div></div>
+<div class="tile dark" id="t7j" style="left:460px;top:1036px"><div class="pad"><div class="lbl">7j/7</div><div class="big" style="font-size:72px;margin-top:22px">07:30</div><div class="big" style="font-size:72px;margin-top:8px">14:30</div></div></div>
+<div class="tile white" style="left:460px;top:1372px"><div class="pad"><div class="lbl">Google</div><div class="big" style="font-size:104px;margin-top:14px">5,0</div><div style="color:#F5B301;font-size:30px;letter-spacing:3px;margin-top:10px">★★★★★</div></div></div>
+<div class="tile dark" style="left:460px;top:1708px"></div>
+<div class="tile grad" id="tConf" style="left:1468px;top:700px"><div class="pad"><div class="lbl">Confort</div><div id="nConfw"><div class="desc" style="margin-top:14px">dès</div><div class="big" style="font-size:98px"><span id="nConf">0</span><span style="font-size:70px"> €</span></div></div><div class="desc" style="margin-top:10px">Sièges inclus</div></div></div>
+<div class="tile dark" id="tExt" style="left:1468px;top:1036px"><div class="pad"><div class="lbl">Extérieur</div><div id="nExtw"><div class="desc" style="margin-top:14px">dès</div><div class="big" style="font-size:98px"><span id="nExt">45</span><span style="font-size:70px"> €</span></div></div><div class="desc" style="margin-top:10px">Carrosserie · jantes</div></div></div>
+<div class="tile dark" style="left:1468px;top:1372px"></div>
+<div class="tile white" style="left:1468px;top:1708px"></div>
+<div class="tile navy wide" id="tBdx" style="left:796px;top:1916px"><div class="pad"><div class="lbl">Bordeaux &amp; alentours</div><div class="big" style="font-size:76px;margin-top:22px">Déplacement offert</div></div></div>
+<div id="phone"></div>
+</div></div>
+<div id="fog"></div><div id="cap"></div><div id="veil"></div><div id="end"></div>
+</div>
+<script>
+window.sceneInit = (A) => {
+  const vp = A.$('#s_hero');
+  vp.insertAdjacentHTML('beforeend', `<div id="seam" style="position:absolute;left:194px;top:0;width:2.5px;height:630px;background:linear-gradient(#fff0,#fff,#fff0);box-shadow:0 0 14px #fff;z-index:12;opacity:0"></div>
+    <div class="pill" id="pAv" style="left:22px;top:560px;background:rgba(20,22,30,.72)">AVANT</div>
+    <div class="pill" id="pAp" style="left:300px;top:560px;background:linear-gradient(95deg,#7a4d9e,#5a6cc0)">APRÈS</div>`);
+  A.TL.pops = (A.TL.pops || []).concat([{id:'pAv', t:A.TL.x.avant}, {id:'pAp', t:A.TL.x.apres}]);
+};
+window.scene = (t, A) => {
+  const X = A.TL.x;
+  for (const k of ['e1','e2','e3']) {
+    const q = A.P(t, X.clean + (k==='e2'?0.08:k==='e3'?0.16:0), X.clean + 0.45 + (k==='e2'?0.08:k==='e3'?0.16:0));
+    const d = A.$('#'+k+'d'), c = A.$('#'+k+'c');
+    const pop = A.P(t, X[k], X[k] + 0.4);
+    d.style.opacity = (1 - q).toFixed(3); d.style.transform = `scale(${(0.55 + 0.45*A.eob(pop)) * (1 - 0.3*q)})`;
+    c.style.opacity = q.toFixed(3); c.style.transform = `scale(${0.6 + 0.4*A.eob(q)}) rotate(${(1-q)*-20}deg)`;
+  }
+  A.$('#notifIn').style.opacity = A.P(t, X.notif, X.notif + 0.3).toFixed(3);
+  A.$('#notifIn').style.transform = `translateY(${(1 - A.eo(A.P(t, X.notif, X.notif + 0.4))) * 30}px)`;
+  const s = A.P(t, X.avant - 0.1, X.avant + 0.4) * (1 - A.P(t, X.seamOut, X.seamOut + 0.3));
+  A.$('#seam').style.opacity = s.toFixed(3);
+};
+</script>
+<script src="engine.js"></script>
+</body></html>
