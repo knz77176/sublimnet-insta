@@ -83,13 +83,13 @@ A = {
     "counts": [{"id": "nExp", "t": p.w("a5", "dès"), "to": 50}, {"id": "nConf", "t": p.w("a6", "dès"), "to": 90}],
     "x": {"e1": p.w("a1", "miettes"), "e2": p.w("a1", "poils"), "e3": p.w("a1", "taches"), "clean": p.w("a2", "mieux"),
           "notif": on("a3") + 0.25, "avant": p.w("a4", "preuve"), "apres": p.w("a4", "image"), "seamOut": on("a5") - 0.3},
-    "captions": [cap(on("a1") - 0.15, on("a2") - 0.4, "Miettes, poils,", "taches…"),
-                 cap(on("a2") - 0.1, on("a3") - 0.35, "Votre voiture", "mérite mieux."),
-                 cap(on("a3") - 0.1, p.w("a3", "on") - 0.4, "Avec", "SublimNet,"),
-                 cap(p.w("a3", "on") - 0.05, on("a4") - 0.35, "On vient", "chez vous."),
-                 cap(on("a4") - 0.1, on("a5") - 0.35, "La preuve", "en image."),
-                 cap(on("a5") - 0.1, on("a6") - 0.35, "Express", "dès 50 €."),
-                 cap(on("a6") - 0.1, on("a7") - 0.35, "Confort", "dès 90 €."),
+    "captions": [cap(on("a1") - 0.15, on("a2") - 0.42, "Miettes, poils,", "taches…"),
+                 cap(on("a2") - 0.1, on("a3") - 0.42, "Votre voiture", "mérite mieux."),
+                 cap(on("a3") - 0.1, p.w("a3", "on") - 0.42, "Avec", "SublimNet,"),
+                 cap(p.w("a3", "on") - 0.05, on("a4") - 0.42, "On vient", "chez vous."),
+                 cap(on("a4") - 0.1, on("a5") - 0.42, "La preuve", "en image."),
+                 cap(on("a5") - 0.1, on("a6") - 0.42, "Express", "dès 50 €."),
+                 cap(on("a6") - 0.1, on("a7") - 0.42, "Confort", "dès 90 €."),
                  cap(on("a7") - 0.1, on("a8") - 0.55, "7j/7,", "à Bordeaux.")],
     "endcard": {"tag": "Votre voiture, comme neuve.", "sub": "NETTOYAGE AUTO À DOMICILE · BORDEAUX"},
 }
@@ -124,12 +124,12 @@ B = {
     "counts": [{"id": "nCan", "t": p.w("b2", "dès"), "to": 40}, {"id": "nMat", "t": p.w("b3", "dès"), "to": 35},
                {"id": "nAuto", "t": p.w("b4", "dès"), "to": 45}, {"id": "nKm", "t": p.w("b5", "vingt") - 0.2, "to": 20}],
     "x": {"type": [on("b1") + 0.1, on("b1") + 1.5], "wob": [on("b1"), on("b2") - 0.2]},
-    "captions": [cap(on("b1") - 0.15, p.w("b1", "combien") - 0.4, "Nettoyage", "à domicile :"),
-                 cap(p.w("b1", "combien") - 0.05, on("b2") - 0.4, "Combien", "ça coûte ?"),
-                 cap(on("b2") - 0.1, on("b3") - 0.35, "Canapé", "dès 40 €."),
-                 cap(on("b3") - 0.1, on("b4") - 0.35, "Matelas", "dès 35 €."),
-                 cap(on("b4") - 0.1, on("b5") - 0.35, "Voiture", "dès 45 €."),
-                 cap(on("b5") - 0.1, on("b6") - 0.35, "Déplacement", "offert."),
+    "captions": [cap(on("b1") - 0.15, p.w("b1", "combien") - 0.42, "Nettoyage", "à domicile :"),
+                 cap(p.w("b1", "combien") - 0.05, on("b2") - 0.42, "Combien", "ça coûte ?"),
+                 cap(on("b2") - 0.1, on("b3") - 0.42, "Canapé", "dès 40 €."),
+                 cap(on("b3") - 0.1, on("b4") - 0.42, "Matelas", "dès 35 €."),
+                 cap(on("b4") - 0.1, on("b5") - 0.42, "Voiture", "dès 45 €."),
+                 cap(on("b5") - 0.1, on("b6") - 0.42, "Déplacement", "offert."),
                  cap(on("b6") - 0.1, on("b7") - 0.55, "Zéro", "surprise.")],
     "endcard": {"tag": "Les prix, sans surprise."},
 }
@@ -138,7 +138,7 @@ B["sfx"] = sfx_common(B, {"keysSearch": [B["x"]["type"][0], B["x"]["type"][1], 2
                           "tap": [h["t0"] + 0.15 for h in B["hl"]]})
 
 # ------------------------------------------------------------------ C
-p = Plan("C", ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"], {"c2": 0.55, "c3": 0.5, "c4": 0.5, "c5": 0.55, "c6": 0.55, "c7": 0.6, "c8": 0.45})
+p = Plan("C", ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"], {"c2": 0.55, "c3": 0.5, "c4": 0.5, "c5": 0.55, "c6": 0.55, "c7": 0.9, "c8": 0.45})
 on = p.on
 phoneOn = on("c5") - 0.5
 mins = p.w("c6", "minute")
@@ -161,11 +161,11 @@ C = {
     "pulses": [{"id": "r1", "t": p.w("c2", "on")}, {"id": "r2", "t": p.w("c3", "cinq")}, {"id": "r3", "t": p.w("c4", "sept")},
                {"id": "r4", "t": p.w("c5", "offert")}, {"id": "r5", "t": p.w("c6", "réservez")}],
     "x": {"mb1": 0.3, "mb2": p.w("c1", "sublimnet"), "stars": p.w("c3", "cinq")},
-    "captions": [cap(on("c1") - 0.15, on("c2") - 0.4, "Pourquoi", "SublimNet ?"),
-                 cap(on("c2") - 0.1, on("c3") - 0.35, "1. On vient", "chez vous."),
-                 cap(on("c3") - 0.1, on("c4") - 0.35, "2. Cinq étoiles", "sur Google."),
-                 cap(on("c4") - 0.1, on("c5") - 0.35, "3. Sept jours", "sur sept."),
-                 cap(on("c5") - 0.1, on("c6") - 0.35, "4. Déplacement", "offert."),
+    "captions": [cap(on("c1") - 0.15, on("c2") - 0.42, "Pourquoi", "SublimNet ?"),
+                 cap(on("c2") - 0.1, on("c3") - 0.42, "1. On vient", "chez vous."),
+                 cap(on("c3") - 0.1, on("c4") - 0.42, "2. Cinq étoiles", "sur Google."),
+                 cap(on("c4") - 0.1, on("c5") - 0.42, "3. Sept jours", "sur sept."),
+                 cap(on("c5") - 0.1, on("c6") - 0.42, "4. Déplacement", "offert."),
                  cap(on("c6") - 0.1, on("c7") - 0.55, "5. Réservé", "en une minute.")],
     "endcard": {"tag": "Sublime, et net."},
 }

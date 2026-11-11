@@ -3,13 +3,14 @@
 3 vidéos 1080×1920 (9:16), 30 i/s, son normalisé à -14 LUFS, prêtes pour TikTok et Instagram.
 Même style que le reel « réservation » : widgets façon iPhone, téléphone avec les vraies captures du site,
 textes animés en **Playfair Display**, logo et couleurs SublimNet (violet #774B92, bleu #4F74B9, marine #0D3857).
-Voix off : ElevenLabs, voix « Maliras'care », modèle Eleven v4. Musique et bruitages créés pour les vidéos (libres de droits).
+Voix off : ElevenLabs, voix « Sophie – Engaging and Warm » (modèle v4), prises générées sur elevenlabs.io (`src/vo_sophie/`).
+Musique et bruitages créés pour les vidéos (libres de droits). Version précédente avec la voix « Maliras'care » : `src/vo_maliras/`.
 
 | Fichier | Durée | Sujet |
 |---|---|---|
-| `01-voiture-comme-neuve.mp4` | 28,7 s | Intérieur auto : miettes → propre, preuve avant/après, Express dès 50 €, Confort dès 90 € |
-| `02-prix-sans-surprise.mp4` | 22,9 s | Les prix : canapé dès 40 €, matelas dès 35 €, voiture dès 45 €, déplacement offert, total affiché |
-| `03-pourquoi-sublimnet.mp4` | 23,7 s | 5 raisons : à domicile, 5,0 sur Google, 7j/7, déplacement offert, réservation en 1 minute |
+| `01-voiture-comme-neuve.mp4` | 26,1 s | Intérieur auto : miettes → propre, preuve avant/après, Express dès 50 €, Confort dès 90 € |
+| `02-prix-sans-surprise.mp4` | 21,0 s | Les prix : canapé dès 40 €, matelas dès 35 €, voiture dès 45 €, déplacement offert, total affiché |
+| `03-pourquoi-sublimnet.mp4` | 21,8 s | 5 raisons : à domicile, 5,0 sur Google, 7j/7, déplacement offert, réservation en 1 minute |
 
 Prix « dès » = tarifs citadine / plus petite taille de la grille tarifaire.
 
@@ -46,7 +47,9 @@ réservation en 1 minute. Sublime, et net. 👉 sublimnet.com
 
 ## Refaire le rendu (`src/`)
 
-1. Voix : `python3 vo_gen.py vo_lines.json A vo/A <voice_id> eleven_v4` (idem B, C) – horodatage des mots dans `vo/<R>/words.json`.
+1. Voix : une prise MP3 par vidéo (texte de `vo_lines.json`), alignée mot à mot avec l'API ElevenLabs *forced-alignment*
+   (`alignement.json`), puis découpée en phrases : `python3 split_take.py prise.mp3 alignement.json vo_lines.json A vo/A` (idem B, C).
+   Variante tout-API : `python3 vo_gen.py vo_lines.json A vo/A <voice_id> eleven_v4`.
 2. Calage : `python3 make_pages.py && python3 plan.py` → `reelA/B/C.html` + `tA/tB/tC.json`.
 3. Images : servir `src/` (`python3 -m http.server 8766`) puis `render_all.sh <dossier> 8766 A B C`
    (chemins à adapter dans le script).
