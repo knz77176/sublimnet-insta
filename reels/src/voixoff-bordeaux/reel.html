@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SublimNet reel</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --purple:#774B92; --navy:#0D3857; --page:#FAFBFC; --border:#E1E6EC; --grey:#5B6575;
+  --g1:#774F9B; --g2:#4F74B9; --ink:#14213A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#e7e9ee}
+#stage{position:absolute;inset:0;overflow:hidden;font-family:Manrope,sans-serif;
+  background:radial-gradient(110% 70% at 50% 42%,#f4f5f8 0%,#e8eaef 55%,#dadde5 100%)}
+#persp{position:absolute;inset:0;perspective:2600px;perspective-origin:540px 1000px}
+#world{position:absolute;left:0;top:0;width:2240px;height:2240px;transform-origin:0 0;transform-style:preserve-3d}
+
+/* ---------- tiles ---------- */
+.tile{position:absolute;width:300px;height:300px;border-radius:66px;overflow:hidden;
+  box-shadow:0 46px 70px -26px rgba(28,38,70,.30),0 10px 22px rgba(28,38,70,.08)}
+.tile.wide{width:636px}
+.white{background:linear-gradient(165deg,#ffffff 0%,#f2f3f6 100%)}
+.dark{background:linear-gradient(165deg,#2c2d32 0%,#151619 100%)}
+.navy{background:linear-gradient(165deg,#164a72 0%,#0b2c46 100%)}
+.grad{background:linear-gradient(160deg,#8a5aae 0%,#6a63b4 45%,#4f74b9 100%)}
+.wx{background:linear-gradient(170deg,#4d86e6 0%,#2a5cc0 60%,#1e47a0 100%)}
+.tile .pad{position:absolute;inset:34px 36px}
+.lbl{font-weight:800;font-size:23px;letter-spacing:.06em;text-transform:uppercase}
+.big{font-weight:700;letter-spacing:-.03em;line-height:1}
+
+/* messages */
+#msgs .head{display:flex;align-items:center;gap:14px}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;margin-right:-24px;border:3px solid #1d1e22}
+#msgs .name{color:#fff;font-weight:700;font-size:28px;margin-left:30px}
+#msgs .when{color:#8b8d96;font-size:21px;margin-left:auto}
+.bub{position:absolute;left:36px;background:#3a3b41;color:#fff;font-size:25px;font-weight:600;padding:14px 22px;border-radius:26px;white-space:nowrap;transform-origin:0 50%}
+
+/* phone */
+#phone{position:absolute;left:834px;top:700px;width:560px;height:1180px;border-radius:86px;
+  background:linear-gradient(150deg,#3a3c42,#16171a 40%,#2a2b30);padding:18px;
+  box-shadow:0 70px 110px -30px rgba(20,28,55,.45),0 14px 30px rgba(20,28,55,.18),inset 0 0 0 2px #55575e}
+#screen{position:relative;width:524px;height:1144px;border-radius:68px;overflow:hidden;background:#000}
+#content{position:absolute;left:0;top:0;width:390px;height:851px;transform:scale(1.34359);transform-origin:0 0;overflow:hidden}
+.layer{position:absolute;inset:0;overflow:hidden}
+#island{position:absolute;left:134px;top:11px;width:122px;height:35px;border-radius:20px;background:#000;z-index:50}
+.status{position:absolute;left:0;top:0;width:390px;height:47px;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:6px 30px 0 44px;font-weight:700;font-size:16px;color:#111}
+.status svg{display:block}
+#off{position:absolute;inset:0;background:#000;z-index:60}
+
+/* search screen */
+#scrSearch{background:#F2F2F7}
+#scrSearch h1{position:absolute;left:18px;top:62px;font-size:31px;font-weight:800;letter-spacing:-.02em;color:#111}
+.sfield{position:absolute;left:16px;right:16px;top:108px;height:40px;border-radius:11px;background:#E3E3E9;display:flex;align-items:center;padding:0 12px;gap:8px;font-size:17px;color:#111}
+.sfield .ph{color:#8E8E93}
+.caret{display:inline-block;width:2px;height:21px;background:#3b82f6;margin-left:1px;vertical-align:middle}
+.sugg{position:absolute;left:16px;right:16px;top:170px}
+.sugg .t{font-size:13px;font-weight:700;color:#8E8E93;text-transform:uppercase;letter-spacing:.05em;margin:0 4px 8px}
+.sugg .r{display:flex;align-items:center;gap:10px;background:#fff;padding:13px 14px;font-size:16px;color:#111;border-bottom:1px solid #ececf0}
+.sugg .r:first-of-type{border-radius:12px 12px 0 0}.sugg .r:last-child{border-radius:0 0 12px 12px;border:0}
+#resCard{position:absolute;left:16px;right:16px;top:170px;background:#fff;border-radius:16px;padding:14px;display:flex;gap:13px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+#resCard .ico{width:62px;height:62px;border-radius:15px;background:#fff;border:1px solid #eceef2;display:grid;place-items:center;flex:none}
+#resCard .ico img{width:54px}
+#resCard b{font-size:18px;font-weight:800;color:#111;display:block}
+#resCard .st{font-size:13px;color:#F5A623;letter-spacing:1px}
+#resCard .st span{color:#555;letter-spacing:0;font-weight:600}
+#resCard .d{font-size:13px;color:#666}
+#resCard .u{font-size:13px;color:#2f6fe0;font-weight:600}
+#kbd{position:absolute;left:0;right:0;bottom:0;height:276px;background:#D2D4DA;padding:8px 3px 0}
+.krow{display:flex;justify-content:center;gap:6px;margin-bottom:11px}
+.key{width:33px;height:43px;border-radius:6px;background:#fff;box-shadow:0 1px 0 #898a8d;display:grid;place-items:center;font-size:21px;color:#111;position:relative}
+.key.sp{background:#ABB0BA}
+.key.pop::after{content:attr(data-k);position:absolute;bottom:20px;left:-9px;width:51px;height:62px;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);display:grid;place-items:center;font-size:32px}
+
+/* site */
+#scrSite{background:var(--page)}
+#scrSite .status{background:var(--page)}
+#vp{position:absolute;left:0;top:47px;width:390px;height:804px;overflow:hidden}
+#pageInner{position:relative;width:390px}
+#hero{display:block;width:390px;height:629.6px}
+#sticky{position:absolute;left:0;top:0;width:390px;height:62px;background:rgba(250,251,252,.97);border-bottom:1px solid #e6e9ee;display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:20}
+#sticky img{height:34px}
+#sticky .burger{width:22px;height:15px;border-top:2.5px solid var(--navy);border-bottom:2.5px solid var(--navy);position:relative}
+#sticky .burger::after{content:"";position:absolute;left:0;right:0;top:4.2px;border-top:2.5px solid var(--navy)}
+#prog{position:absolute;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--g2));z-index:21}
+#bars{position:absolute;left:0;right:0;bottom:0;z-index:20}
+.cbar{height:66px;background:#fff;border-top:1px solid #e8ebef;display:flex;gap:9px;padding:9px 16px}
+.cbar div{border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:600}
+.cbar .call{flex:0 0 120px;border:1.5px solid #e1e5ea;color:#334}
+.cbar .wa{flex:1;background:#25D366;color:#0c3b22}
+.sbar{height:46px;background:#F6F7F9;display:grid;place-items:center}
+.sbar span{background:#d9dbe0;border-radius:16px;padding:6px 40px;font-size:13px;font-weight:600;color:#333}
+
+.book{padding:34px 22px 0}
+.intro{text-align:center;color:var(--grey);font-size:14.5px;line-height:1.55;margin:0 8px 30px}
+.step{display:flex;align-items:center;gap:13px;margin:6px 0 16px}
+.num{width:31px;height:31px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;display:grid;place-items:center;font-family:"Barlow Condensed";font-weight:700;font-size:16px}
+.step h3{font-family:"Barlow Condensed";font-weight:700;font-size:25px;color:var(--navy);letter-spacing:-.01em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.card{border:1.5px solid var(--border);border-radius:14px;padding:15px 16px;background:var(--page);position:relative}
+.card b{display:block;font-family:"Barlow Condensed";font-weight:700;font-size:18.5px;color:var(--navy)}
+.card span{display:block;color:var(--grey);font-size:13.5px;line-height:1.4;margin-top:3px}
+.card em{display:block;font-style:normal;color:var(--purple);font-weight:800;font-size:16.5px;margin-top:6px}
+.card.sel{border-color:var(--purple);background:#F4F0F7;box-shadow:0 0 0 1px var(--purple)}
+#svc{margin-bottom:0}
+#optsWrap{overflow:hidden}
+#opts{padding-top:14px}
+.sec{height:40px}
+.hint{color:var(--grey);font-size:14px;line-height:1.55;margin:-4px 0 14px}
+.input{height:52px;border:1.5px solid var(--border);border-radius:14px;display:flex;align-items:center;padding:0 16px;font-size:16px;color:var(--navy);background:var(--page);margin-bottom:12px;white-space:nowrap;overflow:hidden}
+.input .ph{color:#9aa3af}
+.input.focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(119,75,146,.15)}
+.input.date{width:66%;justify-content:center}
+.input.af{transition:none}
+.btnOutline{display:inline-flex;height:48px;align-items:center;padding:0 22px;border:1.5px solid var(--border);border-radius:14px;color:#3d4756;font-size:15.5px;font-weight:600;background:var(--page)}
+.info{margin-top:14px;background:#F2F3F7;border-radius:14px;padding:15px 16px;color:#2c3645;font-size:15px;line-height:1.55}
+.info b{color:var(--navy);font-weight:800}
+.info .ok{color:#178a4c}
+.slots{margin-top:2px}
+.slot{height:54px;border:1.5px solid var(--border);border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:18px;color:var(--navy);background:var(--page)}
+.slot.sel{border-color:var(--purple);background:#F4F0F7;box-shadow:0 0 0 1px var(--purple);color:var(--purple)}
+.recap{background:#F2F3F7;border-radius:16px;padding:18px 20px 14px;margin-top:6px}
+.recap h4{font-family:"Barlow Condensed";font-weight:700;font-size:20px;color:var(--navy);margin-bottom:6px}
+.rrow{display:flex;justify-content:space-between;font-size:15px;color:#4b5563;padding:9px 0;border-bottom:1px solid #e3e6eb}
+.rrow.tot{border-bottom:0;border-top:2px solid #e3e6eb;font-family:"Barlow Condensed";font-weight:700;font-size:21px;color:var(--navy);padding-top:12px}
+.rdate{font-size:14px;color:#6b7280;padding-top:2px}
+.btnPrimary{margin:16px 0 0;height:56px;border-radius:14px;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:600;position:relative;box-shadow:0 10px 20px -8px rgba(119,75,146,.55)}
+.spin{position:absolute;width:24px;height:24px;border-radius:50%;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;opacity:0}
+.footer{margin:40px -22px 0;background:var(--navy);height:300px}
+
+#tap{position:absolute;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(40,40,60,.22);border:2px solid rgba(255,255,255,.85);box-shadow:0 0 0 1px rgba(0,0,0,.08);z-index:70;opacity:0;pointer-events:none}
+
+#dim{position:absolute;inset:0;background:rgba(10,20,35,.35);z-index:30;opacity:0}
+#sheet{position:absolute;left:0;right:0;bottom:0;height:430px;background:#fff;border-radius:26px 26px 0 0;z-index:31;padding:16px 26px 0;text-align:center;box-shadow:0 -10px 30px rgba(0,0,0,.12)}
+#sheet .grab{width:40px;height:5px;border-radius:3px;background:#d5d8de;margin:0 auto 22px}
+#sheet h2{font-family:"Barlow Condensed";font-weight:700;font-size:29px;color:var(--navy);margin:14px 0 4px}
+#sheet p.sub{color:#178a4c;font-weight:700;font-size:14.5px;margin-bottom:16px}
+#sheet .det{background:#F2F3F7;border-radius:14px;padding:6px 16px;text-align:left}
+#sheet .det div{display:flex;justify-content:space-between;font-size:14.5px;color:#4b5563;padding:9px 0;border-bottom:1px solid #e3e6eb}
+#sheet .det div:last-child{border:0}
+#sheet .det b{color:var(--navy);font-weight:800}
+
+/* captions */
+#fog{position:absolute;left:0;right:0;top:0;height:420px;z-index:99;background:linear-gradient(180deg,rgba(238,240,244,1) 0%,rgba(238,240,244,.94) 52%,rgba(238,240,244,0) 100%)}
+#cap{position:absolute;left:0;right:0;top:118px;height:140px;text-align:center;font-weight:800;font-size:78px;letter-spacing:-.035em;color:var(--ink);z-index:100;white-space:nowrap}
+#cap .w{display:inline-block;margin:0 .12em}
+#cap .acc{background:linear-gradient(95deg,#7a4d9e 0%,#5a6cc0 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .04em .08em}
+
+/* end card */
+#veil{position:absolute;inset:0;background:rgba(244,245,248,.62);opacity:0;z-index:90}
+#end{position:absolute;inset:0;z-index:95;opacity:1}
+#end > *{position:absolute;left:0;right:0;text-align:center}
+#endLogo{top:560px;left:150px;right:auto;width:780px}
+#endLogo img{width:780px;display:block}
+#endTag{top:860px;font-family:"Barlow Condensed";font-weight:700;font-size:50px;letter-spacing:.14em;color:var(--navy)}
+#endSub{top:932px;font-size:33px;font-weight:600;color:#566070}
+#endStars{top:1010px;font-size:30px;font-weight:700;color:#3a4352}
+#endStars i{font-style:normal;color:#F5B301;letter-spacing:4px;margin-right:12px}
+#endBar{top:1150px;left:150px;right:auto;width:780px;height:108px;border-radius:54px;background:#fff;box-shadow:0 26px 50px -18px rgba(28,38,70,.35),0 4px 10px rgba(28,38,70,.08);display:flex;align-items:center;padding:0 40px;gap:22px;font-size:42px;font-weight:700;color:var(--ink);text-align:left}
+#endBar .caret{height:48px;width:3px;background:#5a6cc0}
+#endBtn{top:1318px;left:265px;right:auto;width:550px;height:106px;border-radius:53px;background:linear-gradient(95deg,#7a4d9e,#5a6cc0);color:#fff;font-size:38px;font-weight:700;display:grid;place-items:center;box-shadow:0 22px 40px -14px rgba(119,75,146,.6)}
+#endFoot{top:1480px;font-size:28px;font-weight:600;color:#6b7383;letter-spacing:.02em}
+#fade{position:absolute;inset:0;background:#000;opacity:0;z-index:200}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="persp">
+    <div id="world">
+      <!-- column A fillers -->
+      <div class="tile white" style="left:124px;top:180px"></div>
+      <div class="tile dark"  style="left:124px;top:516px"></div>
+      <div class="tile white" style="left:124px;top:852px"></div>
+      <div class="tile dark"  style="left:124px;top:1188px"></div>
+      <div class="tile white" style="left:124px;top:1524px"></div>
+      <div class="tile dark"  style="left:124px;top:1860px"></div>
+      <!-- column E fillers -->
+      <div class="tile dark"  style="left:1804px;top:180px"></div>
+      <div class="tile white" style="left:1804px;top:516px"></div>
+      <div class="tile dark"  style="left:1804px;top:852px"></div>
+      <div class="tile white" style="left:1804px;top:1188px"></div>
+      <div class="tile dark"  style="left:1804px;top:1524px"></div>
+      <div class="tile white" style="left:1804px;top:1860px"></div>
+
+      <!-- top row -->
+      <div class="tile white" style="left:460px;top:4px"></div>
+      <div class="tile wide dark" id="msgs" style="left:796px;top:4px">
+        <div class="pad">
+          <div class="head">
+            <div class="av" style="background:#f08a3c">L</div>
+            <div class="av" style="background:#8a5aae">M</div>
+            <div class="av" style="background:#2fb36b">S</div>
+            <div class="name">La coloc</div><div class="when">maintenant</div>
+          </div>
+        </div>
+        <div class="bub" id="b1" style="top:112px">Qui a renversé le café sur le canapé ?? ☕</div>
+        <div class="bub" id="b2" style="top:192px">Et t'as vu l'état de la voiture 😬</div>
+      </div>
+      <div class="tile dark" style="left:1468px;top:4px"></div>
+
+      <div class="tile white" id="clock" style="left:460px;top:340px">
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="126" fill="#fff"/>
+          <g id="ticks"></g>
+          <g id="nums" font-family="Manrope" font-weight="700" font-size="25" fill="#1a1a1a" text-anchor="middle"></g>
+          <line id="hh" x1="150" y1="150" x2="150" y2="92" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+          <line id="mh" x1="150" y1="150" x2="150" y2="54" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+          <line id="sh" x1="150" y1="170" x2="150" y2="44" stroke="#8a5aae" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="150" cy="150" r="7" fill="#111"/><circle cx="150" cy="150" r="3.2" fill="#8a5aae"/>
+        </svg>
+      </div>
+      <div class="tile dark" id="date" style="left:796px;top:340px">
+        <div class="pad">
+          <div class="lbl" style="color:#b88ad6">Samedi</div>
+          <div class="big" style="color:#fff;font-size:150px;margin-top:4px">14</div>
+          <div style="color:#8b8d96;font-size:27px;font-weight:600;margin-top:6px">novembre</div>
+        </div>
+      </div>
+      <div class="tile wx" id="weather" style="left:1132px;top:340px">
+        <div class="pad" style="color:#fff">
+          <div style="font-size:27px;font-weight:700">Bordeaux <span style="font-size:20px">➤</span></div>
+          <div class="big" style="font-size:104px;font-weight:500;margin-top:6px">12°</div>
+          <div style="margin-top:14px;display:flex;align-items:center;gap:10px;font-size:22px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;background:#ffd23f;box-shadow:0 0 12px #ffd23f"></span>Ensoleillé</div>
+          <div style="font-size:21px;font-weight:600;opacity:.85;margin-top:6px">H:15° B:7°</div>
+        </div>
+      </div>
+      <div class="tile white" style="left:1468px;top:340px"></div>
+
+      <!-- column B -->
+      <div class="tile white" style="left:460px;top:700px">
+        <div class="pad">
+          <div class="lbl" style="color:#774B92">Google</div>
+          <div class="big" style="font-size:104px;color:#14213A;margin-top:12px">5,0</div>
+          <div style="color:#F5B301;font-size:30px;letter-spacing:3px;margin-top:8px">★★★★★</div>
+          <div style="color:#6b7280;font-size:22px;font-weight:600;margin-top:2px">14 avis</div>
+        </div>
+      </div>
+      <div class="tile dark" style="left:460px;top:1036px">
+        <div class="pad">
+          <div class="lbl" style="color:#b88ad6">7j/7</div>
+          <div class="big" style="font-size:74px;color:#fff;margin-top:14px">07:30</div>
+          <div class="big" style="font-size:74px;color:#fff;margin-top:8px">14:30</div>
+          <div style="color:#8b8d96;font-size:22px;font-weight:600;margin-top:10px">créneaux</div>
+        </div>
+      </div>
+      <div class="tile white" style="left:460px;top:1372px"></div>
+      <div class="tile dark" style="left:460px;top:1708px"></div>
+
+      <!-- column D -->
+      <div class="tile grad" style="left:1468px;top:700px">
+        <div class="pad" style="color:#fff">
+          <div class="lbl" style="opacity:.85">Déplacement</div>
+          <div class="big" style="font-size:96px;margin-top:16px">20 km</div>
+          <div style="font-size:27px;font-weight:700;margin-top:14px">offerts</div>
+        </div>
+      </div>
+      <div class="tile white" style="left:1468px;top:1036px">
+        <div class="pad">
+          <div class="lbl" style="color:#774B92">Canapé</div>
+          <div style="color:#6b7280;font-size:22px;font-weight:600;margin-top:14px">dès</div>
+          <div class="big" style="font-size:96px;color:#14213A">40 €</div>
+          <div style="color:#6b7280;font-size:22px;font-weight:600;margin-top:10px">2 à 7 places</div>
+        </div>
+      </div>
+      <div class="tile dark" style="left:1468px;top:1372px"></div>
+      <div class="tile white" style="left:1468px;top:1708px"></div>
+
+      <!-- bottom -->
+      <div class="tile wide navy" style="left:796px;top:1916px">
+        <div class="pad" style="color:#fff">
+          <div class="lbl" style="opacity:.7">À domicile</div>
+          <div style="font-family:'Barlow Condensed';font-weight:700;font-size:64px;letter-spacing:.02em;margin-top:18px">AUTO · CANAPÉ · MATELAS</div>
+        </div>
+      </div>
+
+      <!-- phone -->
+      <div id="phone">
+        <div id="screen">
+          <div id="content">
+            <!-- search screen -->
+            <div class="layer" id="scrSearch">
+              <div class="status"><span>10:02</span><span class="sicons"></span></div>
+              <h1>Rechercher</h1>
+              <div class="sfield"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8E8E93" stroke-width="2.6"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/></svg><span id="sq"></span></div>
+              <div class="sugg" id="sugg">
+                <div class="t">Suggestions</div>
+                <div class="r">🔎 Nettoyage canapé Bordeaux</div>
+                <div class="r">🔎 Lavage auto à domicile</div>
+                <div class="r">🔎 Nettoyage matelas</div>
+              </div>
+              <div id="resCard">
+                <div class="ico"><img src="assets/logo.svg" alt=""></div>
+                <div><b>SublimNet</b><div class="st">★★★★★ <span>5,0 · 14 avis</span></div><div class="d">Nettoyage à domicile · Bordeaux</div><div class="u">sublimnet.com</div></div>
+              </div>
+              <div id="kbd"></div>
+            </div>
+
+            <!-- site -->
+            <div class="layer" id="scrSite">
+              <div class="status"><span>10:02</span><span class="sicons"></span></div>
+              <div id="vp">
+                <div id="pageInner">
+                  <img id="hero" src="assets/hero.jpg" alt="">
+                  <section class="book" id="book">
+                    <p class="intro">07:30 ou 14:30, 7j/7. Réservation en ligne automatique et définitive.</p>
+                    <div class="step" id="st1"><span class="num">1</span><h3>Quel service ?</h3></div>
+                    <div class="grid2" id="svc">
+                      <div class="card" id="cAuto"><b>Auto</b><span>Extérieur, intérieur ou les deux</span></div>
+                      <div class="card" id="cCanape"><b>Canapé</b><span>De 2 places à 7 places</span></div>
+                      <div class="card" id="cMatelas"><b>Matelas</b><span>1 place, 2 places, enfant</span></div>
+                    </div>
+                    <div id="optsWrap">
+                      <div class="grid2" id="opts">
+                        <div class="card"><b>2 places</b><em>40€</em></div>
+                        <div class="card" id="o3"><b>3 places</b><em>50€</em></div>
+                        <div class="card"><b>4 places</b><em>60€</em></div>
+                        <div class="card"><b>6 places</b><em>80€</em></div>
+                        <div class="card"><b>7 places</b><em>90€</em></div>
+                        <div class="card"><b>Fauteuil / chaise</b><em>20€</em></div>
+                      </div>
+                    </div>
+                    <div class="sec"></div>
+                    <div class="step" id="st2"><span class="num">2</span><h3>Où intervenir ?</h3></div>
+                    <p class="hint">Rayon de 20 km offert. Au-delà, 0.75€/km sur le dépassement uniquement.</p>
+                    <div class="input" id="addr"><span class="ph">Votre adresse complète</span><span class="val"></span></div>
+                    <div class="btnOutline" id="calc">Calculer la distance</div>
+                    <div id="res2Wrap" style="overflow:hidden"><div class="info" id="res2">Distance estimée : <b>2.5 km</b> — Frais de déplacement : <b class="ok">Offerts</b></div></div>
+                    <div class="sec"></div>
+                    <div class="step" id="st3"><span class="num">3</span><h3>Quel créneau ?</h3></div>
+                    <p class="hint">Délai minimum de 24h avant le créneau.</p>
+                    <div class="input date" id="date2"><span class="ph">jj/mm/aaaa</span><span class="val"></span></div>
+                    <div class="grid2 slots"><div class="slot" id="s0730">07:30</div><div class="slot" id="s1430">14:30</div></div>
+                    <div class="sec"></div>
+                    <div class="step" id="st4"><span class="num">4</span><h3>Vos coordonnées</h3></div>
+                    <div class="input af" id="f1"><span class="ph">Nom complet</span><span class="val"></span></div>
+                    <div class="input af" id="f2"><span class="ph">Téléphone</span><span class="val"></span></div>
+                    <div class="input af" id="f3"><span class="ph">E-mail</span><span class="val"></span></div>
+                    <div class="recap">
+                      <h4>Récapitulatif</h4>
+                      <div class="rrow"><span>Canapé · 3 places</span><span>50€</span></div>
+                      <div class="rrow"><span>Frais de déplacement (2.5 km)</span><span>Offerts</span></div>
+                      <div class="rrow tot"><span>Total</span><span>50.00€</span></div>
+                      <div class="rdate">2026-11-15 à 14:30</div>
+                    </div>
+                    <div class="btnPrimary" id="confirm"><span id="confirmTxt">Confirmer la réservation</span><i class="spin" id="spin"></i></div>
+                    <div class="footer"></div>
+                  </section>
+                </div>
+                <div id="sticky"><img src="assets/logo.svg" alt=""><div class="burger"></div></div>
+                <div id="prog"></div>
+                <div id="bars">
+                  <div class="cbar"><div class="call">📞 Appeler</div><div class="wa">WhatsApp</div></div>
+                  <div class="sbar"><span>sublimnet.com</span></div>
+                </div>
+                <div id="dim"></div>
+                <div id="sheet">
+                  <div class="grab"></div>
+                  <svg width="92" height="92" viewBox="0 0 92 92">
+                    <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#774F9B"/><stop offset="1" stop-color="#4F74B9"/></linearGradient></defs>
+                    <circle id="ckC" cx="46" cy="46" r="40" fill="none" stroke="url(#cg)" stroke-width="5" stroke-linecap="round" transform="rotate(-90 46 46)" stroke-dasharray="251.3" stroke-dashoffset="251.3"/>
+                    <path id="ckP" d="M28 47 L41 60 L65 34" fill="none" stroke="url(#cg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/>
+                  </svg>
+                  <h2>Réservation confirmée</h2>
+                  <p class="sub">Merci Jean, à demain !</p>
+                  <div class="det">
+                    <div><span>Prestation</span><b>Canapé · 3 places</b></div>
+                    <div><span>Créneau</span><b>Dim. 15 nov. · 14:30</b></div>
+                    <div><span>Adresse</span><b>12 rue de la Paix, Bordeaux</b></div>
+                    <div><span>Total</span><b>50.00€</b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tap"></div>
+            <div id="island"></div>
+            <div id="off"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fog"></div>
+  <div id="cap"></div>
+  <div id="veil"></div>
+  <div id="end">
+    <div id="endLogo"><img src="assets/logo.svg" alt=""></div>
+    <div id="endTag">NETTOYAGE À DOMICILE</div>
+    <div id="endSub">Auto · Canapé · Matelas — Bordeaux</div>
+    <div id="endStars"><i>★★★★★</i>5,0 sur Google</div>
+    <div id="endBar"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6b7383" stroke-width="2.6"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/></svg><span id="url"></span><i class="caret" id="urlCaret"></i></div>
+    <div id="endBtn">Réserver en ligne</div>
+    <div id="endFoot">Bordeaux &amp; alentours · 7j/7</div>
+  </div>
+  <div id="fade"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const P = (t, a, b) => clamp((t - a) / (b - a));
+const eio = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const eo = x => 1 - Math.pow(1 - x, 3);
+const eo5 = x => 1 - Math.pow(1 - x, 5);
+const eob = x => { const c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+let TL;
+const K = 1.34359;             // content scale inside the screen
+const PH = { x: 834, y: 700 }; // phone position in world
+
+/* ---------- static builders ---------- */
+function buildStatic() {
+  // status icons
+  const icons = `<svg width="78" height="14" viewBox="0 0 78 14"><g fill="#111"><rect x="0" y="9" width="3.4" height="5" rx="1"/><rect x="5" y="6.5" width="3.4" height="7.5" rx="1"/><rect x="10" y="4" width="3.4" height="10" rx="1"/><rect x="15" y="1" width="3.4" height="13" rx="1"/></g><path d="M31 4.5a10 10 0 0 1 13 0M33.5 7.5a6.2 6.2 0 0 1 8 0M36 10.4a2.4 2.4 0 0 1 3 0" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="51" y="1" width="23" height="12" rx="3.5" fill="none" stroke="#111" stroke-opacity=".45"/><rect x="53" y="3" width="16" height="8" rx="2" fill="#111"/><rect x="75.5" y="4.5" width="1.8" height="5" rx="1" fill="#111" fill-opacity=".45"/></svg>`;
+  document.querySelectorAll('.sicons').forEach(e => e.innerHTML = icons);
+  // clock ticks + numbers
+  let tk = '', nm = '';
+  for (let i = 0; i < 60; i++) {
+    const a = i * 6 * Math.PI / 180, big = i % 5 === 0;
+    const r1 = big ? 112 : 116, r2 = 121;
+    tk += `<line x1="${150 + r1 * Math.sin(a)}" y1="${150 - r1 * Math.cos(a)}" x2="${150 + r2 * Math.sin(a)}" y2="${150 - r2 * Math.cos(a)}" stroke="${big ? '#222' : '#bbb'}" stroke-width="${big ? 3 : 1.5}"/>`;
+  }
+  for (let h = 1; h <= 12; h++) {
+    const a = h * 30 * Math.PI / 180;
+    nm += `<text x="${150 + 92 * Math.sin(a)}" y="${150 - 92 * Math.cos(a) + 9}">${h}</text>`;
+  }
+  $('#ticks').innerHTML = tk; $('#nums').innerHTML = nm;
+  // keyboard
+  const rows = ['azertyuiop', 'qsdfghjklm', '⇧wxcvbn\'⌫'];
+  let kb = '';
+  rows.forEach((r, i) => {
+    kb += '<div class="krow">';
+    for (const c of r) {
+      const sp = c === '⇧' || c === '⌫';
+      kb += `<div class="key${sp ? ' sp' : ''}" data-k="${c}" style="${sp ? 'width:44px' : ''}">${c}</div>`;
+    }
+    kb += '</div>';
+  });
+  kb += '<div class="krow"><div class="key sp" style="width:88px;font-size:16px">123</div><div class="key" style="width:186px;font-size:16px">espace</div><div class="key" style="width:94px;font-size:15px;background:#2f7cf6;color:#fff">rechercher</div></div>';
+  $('#kbd').innerHTML = kb;
+  // tile list for fly-in
+  window.TILES = [...document.querySelectorAll('#world > .tile, #phone')].map(el => {
+    const x = parseFloat(el.style.left || 834), y = parseFloat(el.style.top || 700);
+    const d = Math.hypot(x + 150 - 1114, y + 150 - 1150) / 1500;
+    return { el, delay: d * 0.28 + (el.id === 'phone' ? 0.08 : 0) };
+  });
+}
+
+/* offset of el relative to an ancestor (layout coords, ignores transforms) */
+function off(el, anc) {
+  let x = 0, y = 0, e = el;
+  while (e && e !== anc) { x += e.offsetLeft; y += e.offsetTop; e = e.offsetParent; }
+  return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+}
+
+/* ---------- captions ---------- */
+let capIdx = -2;
+function renderCaption(t) {
+  const caps = TL.captions;
+  let idx = -1;
+  for (let i = 0; i < caps.length; i++) if (t >= caps[i].in - 0.01 && t < caps[i].out + 0.35) idx = i;
+  const el = $('#cap');
+  if (idx !== capIdx) {
+    capIdx = idx;
+    if (idx < 0) { el.innerHTML = ''; return; }
+    const c = caps[idx];
+    const wa = c.a.split(' ').map(w => `<span class="w">${w}</span>`).join('');
+    const wb = c.b.split(' ').map(w => `<span class="w acc">${w}</span>`).join('');
+    el.innerHTML = wa + wb;
+  }
+  if (idx < 0) return;
+  const c = caps[idx];
+  const ws = el.querySelectorAll('.w');
+  const nA = c.a.split(' ').length;
+  ws.forEach((w, i) => {
+    const isAcc = i >= nA;
+    const d = c.in + i * 0.07 + (isAcc ? 0.12 : 0);
+    const q = eo(P(t, d, d + (isAcc ? 0.5 : 0.38)));
+    const outq = eio(P(t, c.out, c.out + 0.3));
+    const blur = (1 - q) * (isAcc ? 18 : 10) + outq * 10;
+    w.style.opacity = (q * (1 - outq)).toFixed(3);
+    w.style.filter = `blur(${blur.toFixed(2)}px)`;
+    w.style.transform = `translateY(${((1 - q) * 34 - outq * 26).toFixed(1)}px)`;
+  });
+}
+
+/* ---------- camera ---------- */
+function focusPoint(name, scroll) {
+  const el = $('#' + name), o = off(el, $('#pageInner'));
+  return { cx: PH.x + 18 + (o.x + o.w / 2) * K, cy: PH.y + 18 + (47 + o.y - scroll + o.h / 2) * K };
+}
+function camera(t, scroll) {
+  let st = { ...TL.camStart };
+  for (const m of TL.cam) {
+    const q = eio(P(t, m.t[0], m.t[1]));
+    if (t < m.t[0]) break;
+    let to = { ...m.to };
+    if (to.focus) Object.assign(to, focusPoint(to.focus, scroll));
+    const nx = {};
+    for (const k of ['cx', 'cy', 's', 'rx', 'rz', 'ay']) nx[k] = lerp(st[k], to[k] ?? st[k], q);
+    st = nx;
+  }
+  // subtle life
+  st.cy += Math.sin(t * 0.7) * 5; st.rz += Math.sin(t * 0.45) * 0.35;
+  return st;
+}
+
+/* ---------- scroll ---------- */
+function scrollAt(t) {
+  const pi = $('#pageInner');
+  const top = id => off($('#' + id), pi).y;
+  const segs = [
+    [TL.scrollForm, () => top('book') - 62 + 4],
+    [TL.scrollOpts, () => top('st1') - 62 - 10],
+    [TL.scrollStep2, () => top('st2') - 62 - 12],
+    [TL.scrollStep3, () => top('st3') - 62 - 12],
+    [TL.scrollStep4, () => top('st4') - 62 - 12],
+  ];
+  let s = 0;
+  for (const [r, f] of segs) {
+    if (t < r[0]) break;
+    s = lerp(s, f(), eio(P(t, r[0], r[1])));
+  }
+  return s;
+}
+
+/* ---------- typing helper ---------- */
+function typed(str, t, r) { const n = Math.floor(P(t, r[0], r[1]) * str.length + (t >= r[0] ? 1 : 0)); return str.slice(0, clamp(n, 0, str.length)); }
+const blink = t => (Math.floor(t * 2.2) % 2 === 0);
+
+/* ---------- main render ---------- */
+function render(t) {
+  const T = TL;
+  // tiles fly-in
+  for (const ti of TILES) {
+    const q = eo5(P(t, ti.delay - 0.32, ti.delay + 0.7));
+    ti.el.style.transform = `translate3d(0, ${((1 - q) * 160).toFixed(1)}px, ${((1 - q) * -1100).toFixed(1)}px)`;
+    ti.el.style.opacity = clamp(q * 1.6).toFixed(3);
+  }
+
+  // clock
+  const vm = lerp(7 * 60 + 15, 600, eio(P(t, 0.15, 1.8))) + Math.max(0, t - 1.8) / 60;
+  $('#hh').setAttribute('transform', `rotate(${(vm / 60 % 12) * 30} 150 150)`);
+  $('#mh').setAttribute('transform', `rotate(${(vm % 60) * 6} 150 150)`);
+  $('#sh').setAttribute('transform', `rotate(${(t * 6 + 120) % 360} 150 150)`);
+
+  // messages
+  [['#b1', T.msg1], ['#b2', T.msg2]].forEach(([s, tt]) => {
+    const q = eob(P(t, tt, tt + 0.35));
+    const e = $(s); e.style.opacity = clamp(P(t, tt, tt + 0.12)); e.style.transform = `scale(${(0.6 + 0.4 * q).toFixed(3)}) translateY(${((1 - q) * 20).toFixed(1)}px)`;
+  });
+
+  // ---------- phone screens ----------
+  $('#off').style.opacity = (1 - eo(P(t, T.phoneOn, T.phoneOn + 0.35))).toFixed(3);
+  // search
+  const q1 = typed('sublimnet', t, T.typeSearch);
+  $('#sq').innerHTML = (q1 ? `<span>${q1}</span>` : `<span class="ph">Rechercher</span>`) + (t < T.tapResult && blink(t) ? '<i class="caret"></i>' : '');
+  const showRes = P(t, T.result, T.result + 0.25);
+  $('#resCard').style.opacity = showRes; $('#resCard').style.transform = `translateY(${(1 - eo(showRes)) * 14}px)`;
+  $('#sugg').style.opacity = 1 - P(t, T.typeSearch[0] + 0.2, T.typeSearch[0] + 0.45);
+  // key pops
+  document.querySelectorAll('.key.pop').forEach(k => k.classList.remove('pop'));
+  if (t >= T.typeSearch[0] && t <= T.typeSearch[1] + 0.12) {
+    const n = 'sublimnet'.length, i = clamp(Math.floor(P(t, T.typeSearch[0], T.typeSearch[1]) * n), 0, n - 1);
+    const local = (t - T.typeSearch[0]) - i * (T.typeSearch[1] - T.typeSearch[0]) / n;
+    if (local < 0.075) { const k = document.querySelector(`.key[data-k="${'sublimnet'[i]}"]`); k && k.classList.add('pop'); }
+  }
+  // site open
+  const so = eo(P(t, T.siteOpen[0], T.siteOpen[1]));
+  $('#scrSite').style.opacity = so.toFixed(3);
+  $('#scrSite').style.transform = `scale(${(0.93 + 0.07 * so).toFixed(4)})`;
+  $('#scrSearch').style.opacity = (1 - so * 0.9).toFixed(3);
+
+  // cards
+  const hl = (id, tt) => { const q = P(t, tt, tt + 0.12) * (1 - P(t, tt + 0.38, tt + 0.6)); $(id).style.transform = `scale(${1 + 0.035 * q})`; $(id).style.boxShadow = q > 0 ? `0 8px 22px -8px rgba(119,75,146,${0.45 * q})` : ''; };
+  hl('#cAuto', T.hlAuto); hl('#cMatelas', T.hlMatelas);
+  if (t < T.tapCanape) hl('#cCanape', T.hlCanape); else $('#cCanape').style.transform = '';
+  $('#cCanape').classList.toggle('sel', t >= T.tapCanape + 0.05);
+  $('#o3').classList.toggle('sel', t >= T.tap3p + 0.05);
+  const oh = $('#opts').scrollHeight;
+  $('#optsWrap').style.height = (oh * eio(P(t, T.optsOpen[0], T.optsOpen[1]))).toFixed(1) + 'px';
+  $('#opts').style.opacity = P(t, T.optsOpen[0] + 0.1, T.optsOpen[1] + 0.1);
+
+  // address
+  const addr = '12 rue de la Paix, 33000 Bordeaux';
+  const av = typed(addr, t, T.typeAddr);
+  const aEl = $('#addr');
+  aEl.classList.toggle('focus', t >= T.typeAddr[0] - 0.15 && t < T.tapCalc);
+  aEl.querySelector('.ph').style.display = av ? 'none' : '';
+  aEl.querySelector('.val').innerHTML = av + (t >= T.typeAddr[0] - 0.15 && t < T.tapCalc && blink(t) ? '<i class="caret" style="background:#774B92"></i>' : '');
+  const rh = $('#res2').offsetHeight + 14;
+  $('#res2Wrap').style.height = (rh * eio(P(t, T.result2, T.result2 + 0.3))).toFixed(1) + 'px';
+  $('#res2').style.opacity = P(t, T.result2 + 0.08, T.result2 + 0.35);
+
+  // date & slots
+  const dEl = $('#date2');
+  dEl.classList.toggle('focus', t >= T.tapDate && t < T.tap1430);
+  dEl.querySelector('.ph').style.display = t >= T.dateFill ? 'none' : '';
+  dEl.querySelector('.val').textContent = t >= T.dateFill ? '15 nov. 2026' : '';
+  $('#s1430').classList.toggle('sel', t >= T.tap1430 + 0.05);
+
+  // autofill
+  const af = t >= T.autofill;
+  [['#f1', 'Jean Dupont'], ['#f2', '06 12 34 56 78'], ['#f3', 'jean.dupont@mail.fr']].forEach(([s, v], i) => {
+    const e = $(s); const on = t >= T.autofill + i * 0.06;
+    e.querySelector('.ph').style.display = on ? 'none' : '';
+    e.querySelector('.val').textContent = on ? v : '';
+    const fl = on ? 1 - P(t, T.autofill + 0.25, T.autofill + 0.8) : 0;
+    e.style.background = fl > 0 ? `rgba(255,236,170,${0.75 * fl})` : '';
+  });
+
+  // confirm + sheet
+  const sp = t >= T.tapConfirm + 0.05 && t < T.sheet[1];
+  $('#spin').style.opacity = sp ? 1 : 0; $('#spin').style.transform = `rotate(${t * 720}deg)`;
+  $('#confirmTxt').style.opacity = sp ? 0 : 1;
+  const sq = eo(P(t, T.sheet[0], T.sheet[1]));
+  $('#sheet').style.transform = `translateY(${((1 - sq) * 105).toFixed(2)}%)`;
+  $('#dim').style.opacity = sq.toFixed(3);
+  $('#ckC').setAttribute('stroke-dashoffset', (251.3 * (1 - eio(P(t, T.check[0], T.check[0] + 0.35)))).toFixed(2));
+  $('#ckP').setAttribute('stroke-dashoffset', (60 * (1 - eo(P(t, T.check[0] + 0.25, T.check[1])))).toFixed(2));
+
+  // scroll + sticky header
+  const scroll = scrollAt(t);
+  $('#pageInner').style.transform = `translateY(${-scroll.toFixed(2)}px)`;
+  const stq = P(scroll, 380, 470);
+  $('#sticky').style.opacity = stq; $('#sticky').style.transform = `translateY(${(1 - stq) * -62}px)`;
+  const total = $('#pageInner').offsetHeight - 804;
+  $('#prog').style.width = (390 * clamp(scroll / total)).toFixed(1) + 'px';
+
+  // taps
+  const taps = [
+    [T.tapResult, '#resCard', 'abs'], [T.tapReserve, null, 'hero'], [T.tapCanape, '#cCanape'], [T.tap3p, '#o3'],
+    [T.tapCalc, '#calc'], [T.tapDate, '#date2'], [T.tap1430, '#s1430'], [T.tapConfirm, '#confirm']
+  ];
+  const tapEl = $('#tap'); tapEl.style.opacity = 0;
+  for (const [tt, sel, mode] of taps) {
+    if (t < tt - 0.12 || t > tt + 0.4) continue;
+    let x, y;
+    if (mode === 'abs') { const o = off($(sel), $('#scrSearch')); x = o.x + o.w / 2; y = o.y + o.h / 2; }
+    else if (mode === 'hero') { x = 195; y = 47 + 629.6 * 0.601 - scroll; }
+    else { const o = off($(sel), $('#pageInner')); x = o.x + o.w / 2; y = 47 + o.y - scroll + o.h / 2; }
+    const a = P(t, tt - 0.12, tt), b = P(t, tt + 0.05, tt + 0.4);
+    tapEl.style.left = x + 'px'; tapEl.style.top = y + 'px';
+    tapEl.style.opacity = (eo(a) * (1 - b)).toFixed(3);
+    tapEl.style.transform = `scale(${(1.25 - 0.35 * eo(a) + 0.5 * b).toFixed(3)})`;
+    // pressed element feedback
+    const pe = sel && mode !== 'abs' ? $(sel) : null;
+    const press = P(t, tt - 0.04, tt + 0.02) * (1 - P(t, tt + 0.06, tt + 0.22));
+    if (pe && press > 0) pe.style.transform = `scale(${1 - 0.04 * press})`;
+    else if (pe && sel !== '#cCanape') pe.style.transform = '';
+  }
+
+  // camera
+  const c = camera(t, scroll);
+  $('#world').style.transform = `translate(540px, ${c.ay.toFixed(2)}px) rotateX(${c.rx.toFixed(3)}deg) rotateZ(${c.rz.toFixed(3)}deg) scale(${c.s.toFixed(4)}) translate(${-c.cx.toFixed(2)}px, ${-c.cy.toFixed(2)}px)`;
+
+  renderCaption(t);
+
+  // end card
+  const E = T.end;
+  const bq = eio(P(t, E.blur[0], E.blur[1]));
+  $('#persp').style.filter = bq > 0 ? `blur(${(bq * 26).toFixed(2)}px)` : 'none';
+  $('#persp').style.transform = `scale(${1 + bq * 0.06})`;
+  $('#veil').style.opacity = bq.toFixed(3);
+  const lq = P(t, E.logo[0], E.logo[1]);
+  $('#endLogo').style.clipPath = `inset(-20% ${(100 - eio(lq) * 100).toFixed(2)}% -20% 0)`;
+  $('#endLogo').style.opacity = lq > 0 ? 1 : 0;
+  $('#endLogo').style.transform = `translateY(${(1 - eo(lq)) * 20}px) scale(${0.96 + 0.04 * eo(lq)})`;
+  const fadeIn = (s, tt, dy = 24) => { const q = eo(P(t, tt, tt + 0.45)); $(s).style.opacity = q.toFixed(3); $(s).style.transform = `translateY(${((1 - q) * dy).toFixed(1)}px)`; };
+  fadeIn('#endTag', E.tag); fadeIn('#endSub', E.tag + 0.12); fadeIn('#endStars', E.stars); fadeIn('#endBar', E.bar, 30); fadeIn('#endFoot', E.bar + 0.2);
+  const bt = P(t, E.btn, E.btn + 0.45);
+  $('#endBtn').style.opacity = clamp(bt * 3).toFixed(3);
+  $('#endBtn').style.transform = `scale(${(0.6 + 0.4 * eob(bt)).toFixed(3)})`;
+  const u = typed('sublimnet', t, E.url1) + (t >= E.url2[0] ? typed('.com', t, E.url2) : '');
+  $('#url').textContent = u;
+  $('#urlCaret').style.opacity = (t < E.url1[0] || t > E.url2[1] + 0.3) ? (blink(t) ? 1 : 0) : 1;
+  $('#fade').style.opacity = P(t, E.fadeOut[0], E.fadeOut[1]) * 0; // keep end card (no fade to black)
+}
+
+window.__ready = (async () => {
+  TL = await (await fetch('timeline.json')).json();
+  buildStatic();
+  await document.fonts.ready;
+  const imgs = [...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; }));
+  await Promise.all(imgs);
+  render(0);
+  return true;
+})();
+</script>
+</body>
+</html>
