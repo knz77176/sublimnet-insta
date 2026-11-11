@@ -195,7 +195,7 @@ for key, tt in TL["vo"].items():
     i = int(tt * SR); s = s[: N - i]
     vo[i:i + len(s)] += s
 # gentle presence / de-mud
-vo = hp(vo, 90) + 0.25 * bp(vo, 2500, 6000)
+vo = hp(vo, 90) + 0.1 * bp(vo, 2500, 6000)
 
 # ducking envelope from VO activity
 act = np.abs(vo) > 0.02

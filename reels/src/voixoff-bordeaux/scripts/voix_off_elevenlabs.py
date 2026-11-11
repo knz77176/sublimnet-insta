@@ -8,7 +8,7 @@ ELEVENLABS_API_KEY.
 Chaque phrase est générée séparément (une piste par phrase) avec les
 horodatages par caractère, pour caler l'animation sur la voix.
 """
-import base64, json, os, sys, urllib.request
+import base64, json, os, sys, urllib.error, urllib.request
 
 OUT = sys.argv[1]
 VOICE = sys.argv[2] if len(sys.argv) > 2 else os.environ.get("ELEVENLABS_VOICE_ID", "")
@@ -25,7 +25,7 @@ LINES = [
     ("l07", "Vous choisissez votre créneau."),
     ("l08", "Vous confirmez. Et c'est réservé."),
     ("l09", "Une minute suffit. On vient chez vous."),
-    ("l10", "SublimNet. Réservez en ligne, sur sublimnet point com."),
+    ("l10", "SublimNet. Réservez en ligne, sur Sublim Net point com."),
 ]
 
 
@@ -35,8 +35,11 @@ def call(path, body=None):
         headers["xi-api-key"] = os.environ["ELEVENLABS_API_KEY"]
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(API + path, data=data, headers=headers, method="POST" if data else "GET")
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"ElevenLabs {e.code}: {e.read()[:500].decode(errors='replace')}")
 
 
 def main():
@@ -56,7 +59,7 @@ def main():
             body["previous_text"] = LINES[i - 1][1]
         if i + 1 < len(LINES):
             body["next_text"] = LINES[i + 1][1]
-        r = call(f"/text-to-speech/{VOICE}/with-timestamps?output_format=mp3_44100_192", body)
+        r = call(f"/text-to-speech/{VOICE}/with-timestamps?output_format=mp3_44100_128", body)
         with open(f"{OUT}/{key}.mp3", "wb") as f:
             f.write(base64.b64decode(r["audio_base64"]))
         meta[key] = {"text": text, "alignment": r.get("alignment")}
