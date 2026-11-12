@@ -1,128 +1,146 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><title>SublimNet TikTok – Prix</title>
+<html lang="fr"><head><meta charset="utf-8"><title>SublimNet TikTok – Combien ça coûte</title>
 <link rel="stylesheet" href="pfd/pfd.css">
 <link rel="stylesheet" href="tk.css">
 <style>
-.dk{position:absolute;inset:0;background:rgba(14,11,29,.55)}
-.bgx{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(22px) brightness(.38) saturate(.7)}
-.pcard{position:absolute;left:90px;width:900px;top:300px;height:820px;border-radius:60px;background:linear-gradient(170deg,rgba(42,30,77,.92),rgba(14,11,29,.95));border:3px solid rgba(139,124,199,.7);
-  box-shadow:0 0 70px rgba(139,124,199,.35),0 40px 80px rgba(0,0,0,.5);text-align:center;z-index:30}
-.pcard .em{font-family:'Noto Color Emoji';font-size:170px;line-height:1;margin-top:60px}
-.pcard .nm{font-weight:900;font-size:84px;margin-top:20px}
-.pcard .ds{font-weight:800;font-size:40px;color:#C9C2E3;margin-top:6px}
-.pcard .pr{display:flex;justify-content:center;align-items:baseline;gap:18px;margin-top:40px;font-weight:900}
-.pcard .pr small{font-size:56px;color:#C9C2E3}
-.pcard .pr .num{font-size:190px;letter-spacing:-.03em;color:#fff;display:inline-flex;align-items:baseline}
-.dg{display:inline-block;height:1.05em;overflow:hidden;position:relative;line-height:1.05em}
-.dg span{display:block}
-.sp{display:inline-block}
-#sDep{background:radial-gradient(70% 45% at 50% 42%,#2A1E4D 0%,#0E0B1D 75%)}
-#ring{position:absolute;left:540px;top:820px;border-radius:50%;border:6px dashed #8B7CC7;transform:translate(-50%,-50%);box-shadow:0 0 40px rgba(139,124,199,.45),inset 0 0 60px rgba(139,124,199,.25)}
-#phone{position:absolute;left:250px;top:340px;width:580px;height:1060px;border-radius:80px;background:#0E0B1D;border:14px solid #1d1636;box-shadow:0 0 0 3px #3A3A52,0 40px 100px rgba(0,0,0,.6),0 0 80px rgba(139,124,199,.3);overflow:hidden;z-index:30}
-#phone img{position:absolute;left:0;top:130px;width:100%;height:auto;object-fit:contain;inset:auto}
-#phone .hd{position:absolute;left:0;right:0;top:0;height:130px;background:#fff;display:grid;place-items:center}
-#phone .hd img{position:static;width:300px;height:auto;object-fit:contain}
 #sEnd{background:radial-gradient(70% 45% at 50% 40%,#3a2870 0%,#1a1236 45%,#0E0B1D 80%)}
 .cta{position:absolute;left:90px;right:90px;height:150px;border-radius:75px;display:grid;place-items:center;font-weight:900;font-size:62px;z-index:50}
+.spark{position:absolute;width:40px;height:40px;z-index:25}
+#pip{position:absolute;left:46px;top:330px;width:300px;height:533px;border-radius:30px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(14,11,29,.6);z-index:20}
+#pip img,.full #pip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#pip .lab{left:14px;bottom:14px;top:auto;font-size:30px;padding:8px 18px}
+.pcard{position:absolute;left:150px;top:520px;width:780px;height:700px;border-radius:56px;background:linear-gradient(160deg,#2A1E4D,#16102c);border:4px solid #5A3B8C;
+  box-shadow:0 40px 100px rgba(0,0,0,.55),0 0 80px rgba(139,124,199,.35);text-align:center;z-index:10}
+.pcard .em{font-family:'Noto Color Emoji';font-size:170px;line-height:1;margin-top:60px}
+.pcard h3{font-size:92px;font-weight:900;margin-top:16px}
+.pcard p{font-size:38px;color:#C9C2E3;font-weight:700;margin-top:4px}
+.pcard .pr{font-size:170px;font-weight:900;line-height:1.1;margin-top:20px;filter:drop-shadow(0 0 30px rgba(139,124,199,.7))}
+.pcard .pr small{font-size:52px;color:#C9C2E3;font-weight:800}
+#okb{position:absolute;left:0;right:0;top:1180px;text-align:center;z-index:20}
+#okb i{display:inline-grid;place-items:center;width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#8B7CC7,#5A3B8C);font-style:normal;font-size:64px;box-shadow:0 0 40px rgba(139,124,199,.7);vertical-align:middle}
+#okb b{display:inline-block;vertical-align:middle;margin-left:24px;font-size:54px;font-weight:900;text-align:left;line-height:1.1}
+#okb b small{display:block;font-size:34px;color:#C9C2E3;font-weight:700}
 </style></head>
 <body><div id="stage"><div id="world"></div>
 <div id="cap"></div><div id="vig"></div><div id="flash"></div><div id="prog"></div></div>
-<script src="adkit.js"></script><script src="tk.js"></script>
+<script src="adkit.js"></script><script src="tk.js"></script><script src="tk2.js"></script>
 <script>
-const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, WE, typed, fmt} = K;
+const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, WE} = K;
 let T = {};
-function rollNum(v, dec = 0) {
-  const cents = v * Math.pow(10, dec); const s = String(Math.floor(cents)); let html = '', k = s.length - 1;
-  for (const ch of s) { const unit = Math.pow(10, k); const x = cents / unit; const d = Math.floor(x) % 10; let f = x - Math.floor(x); f = k === 0 ? f : clamp((f - 0.9) * 10);
-    html += `<span class="dg"><span style="transform:translateY(${(-f * 100).toFixed(1)}%)">${d}</span><span style="transform:translateY(${(-f * 100).toFixed(1)}%)">${(d + 1) % 10}</span></span>`; k--; }
-  return html;
-}
-const card = (id, bg, em, nm, ds) => `<div class="full" id="${id}"><div class="bgx" style="background-image:url(${bg})"></div>
-  <div class="pcard"><div class="em">${em}</div><div class="nm">${nm}</div><div class="ds">${ds}</div><div class="pr"><small>dès</small><span class="num" id="${id}n"></span><small>€</small></div></div></div>`;
+const STAR = '<svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#fff"/></svg>';
+const RC = 760 / 603; // recap card scale
+const rc = (x, y, w, h, pad = 8) => `left:${(x * RC - pad).toFixed(1)}px;top:${(y * RC - pad).toFixed(1)}px;width:${(w * RC + 2 * pad).toFixed(1)}px;height:${(h * RC + 2 * pad).toFixed(1)}px`;
 function build() {
   const w = $('#world');
   w.insertAdjacentHTML('beforeend', `
-  <div class="full" id="sHook"><div class="full" id="m1"><img src="assets/seat_av.jpg"></div><div class="full" id="m2"><img src="assets/wheel_av.jpg"></div><div class="full" id="m3"><img src="assets/seat_av.jpg" style="object-position:20% 40%"></div><div class="dk"></div>
-     <div class="hook white" id="h1" style="top:520px;font-size:96px"><span>Combien ça coûte</span></div>
-     <div class="hook violet" id="h2" style="top:680px;font-size:108px"><span>VRAIMENT ? 🤔</span></div>
-     <div class="chip" id="h3" style="left:250px;top:900px">🏠 À domicile · Bordeaux</div></div>
-  ${card('sCan', 'assets/s_canape.jpg', '🛋️', 'Canapé', '2 places · jusqu\'à 7 places')}
-  ${card('sMat', 'assets/s_matelas.jpg', '🛏️', 'Matelas', 'Enfant · 1 ou 2 places')}
-  ${card('sVoi', 'assets/seat_ap.jpg', '🚗', 'Voiture', 'Extérieur · citadine')}
-  <div class="full" id="sDep"><div id="ring"></div>
-     <div class="abs" id="pinA" style="left:470px;top:700px;width:140px;height:170px"><svg viewBox="0 0 24 28" width="140" height="170"><path d="M12 27s10-8.6 10-16.4A10 10 0 002 10.6C2 18.4 12 27 12 27z" fill="#8B7CC7" stroke="#fff" stroke-width="1.2"/><circle cx="12" cy="10.5" r="4" fill="#fff"/></svg></div>
-     <div class="hook white" id="d1" style="top:330px;font-size:92px"><span>Le déplacement ?</span></div>
-     <div class="stamp" id="st" style="left:180px;top:620px;font-size:150px;color:#C9C2E3;background:rgba(90,59,140,.85);box-shadow:0 0 60px rgba(139,124,199,.6)">OFFERT</div>
-     <div class="chip" id="d2" style="left:270px;top:1040px">📍 jusqu'à 20 km</div></div>
-  <div class="full" id="sTot" style="background:radial-gradient(70% 45% at 50% 45%,#2A1E4D 0%,#0E0B1D 75%)">
-     <div id="phone"><div class="hd"><img src="assets/logo.png"></div><img src="assets/recap.jpg"><div id="okb" style="position:absolute;left:0;right:0;top:640px;text-align:center"><div style="width:150px;height:150px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,#8B7CC7,#5A3B8C);display:grid;place-items:center;font-size:84px;box-shadow:0 0 50px rgba(139,124,199,.6)">✓</div><div style="margin-top:26px;font-weight:900;font-size:42px">Total affiché</div><div style="margin-top:8px;font-weight:700;font-size:32px;color:#C9C2E3">pas de frais cachés</div></div></div>
-     <div class="hook white" id="t1" style="top:200px;font-size:76px"><span>Le total, avant de réserver</span></div>
-     <div class="sticker" id="t2" style="left:540px;top:560px;font-size:70px;transform-origin:50% 50%">0 surprise ✅</div></div>
+  <div class="full" id="sHook"><img class="clip" id="vAv" src="assets/clips/tapis_av/001.jpg"></div>
+  <div class="full" id="sDoor"><img src="assets/door_av.jpg"><img id="dap" src="assets/door_ap.jpg" style="clip-path:inset(0 0 0 100%)">
+     <div class="seam" id="dseam" style="left:100%"><i>✨</i></div>
+     <div class="lab av" id="dla" style="left:50px;top:1560px">AVANT</div><div class="lab ap" id="dlp" style="right:50px;top:1560px">APRÈS</div></div>
+  <div class="full" id="sMat"><img class="clip" id="vAp" src="assets/clips/tapis_ap/001.jpg">
+     <div id="pip"><img class="clip" id="vPip" src="assets/clips/tapis_av/001.jpg"><div class="lab av">AVANT</div></div>
+     <div class="lab ap" id="mlp" style="right:50px;top:1560px">APRÈS</div></div>
+  <div class="full dark" id="sCan">
+     <div class="phone" style="left:310px;top:380px"><img src="assets/sc_canape.jpg"><div class="hl" id="hlC" style="${TK2.hlStyle(36, 348, 258, 120)}"></div></div>
+     <div class="hook white" id="hC" style="top:170px;font-size:84px"><span>Un canapé ? 🛋️</span></div>
+     <div class="sticker" id="pC" style="left:560px;top:960px;font-size:96px"><small>Canapé 2 places</small>dès 40 €</div></div>
+  <div class="full dark" id="sMt">
+     <div class="phone" style="left:310px;top:380px"><img src="assets/sc_matelas.jpg"><div class="hl" id="hlM" style="${TK2.hlStyle(37, 566, 256, 122)}"></div></div>
+     <div class="hook white" id="hM" style="top:170px;font-size:84px"><span>Un matelas ? 🛏️</span></div>
+     <div class="sticker" id="pM" style="left:560px;top:1000px;font-size:96px"><small>Matelas enfant</small>dès 35 €</div></div>
+  <div class="full dark" id="sVoi">
+     <div class="pcard" id="pcV"><div class="em">🚗</div><h3>Voiture</h3><p>Extérieur · citadine</p><div class="pr"><small>dès </small><span id="nV">0</span><small> €</small></div></div>
+     <div class="hook white" id="hV" style="top:300px;font-size:84px"><span>Votre voiture ? 🚗</span></div></div>
+  <div class="full dark" id="sDep">
+     <div class="phone" style="left:310px;top:380px"><img src="assets/sc_distance.jpg"><div class="hl" id="hlD" style="${TK2.hlStyle(39, 375, 560, 115)}"></div></div>
+     <div class="hook white" id="hD" style="top:170px;font-size:84px"><span>Le déplacement ?</span></div>
+     <div class="stamp" id="st" style="left:300px;top:930px;font-size:130px;color:#C9C2E3;background:rgba(90,59,140,.92);box-shadow:0 0 60px rgba(139,124,199,.6)">OFFERT</div>
+     <div class="chip" id="km" style="left:330px;top:1200px">📍 jusqu'à 20 km</div></div>
+  <div class="full dark" id="sTot">
+     <div class="card" id="rcard" style="left:160px;top:370px;width:760px"><img src="assets/sc_recap.jpg">
+        <div class="hl" id="hlT" style="${rc(40, 300, 530, 52)}"></div><div class="hl" id="hlO" style="${rc(470, 214, 100, 42)}"></div></div>
+     <div class="hook white" id="hT" style="top:170px;font-size:76px"><span>Le total, avant de réserver</span></div>
+     <div class="sticker" id="sur" style="left:600px;top:1040px;font-size:64px">0 surprise ✅</div>
+     <div id="okb"><i>✓</i><b>Total affiché<small>pas de frais cachés</small></b></div></div>
   <div class="full" id="sEnd">
      <div class="badge" id="bd" style="left:300px;top:330px;width:480px;height:480px"><img src="assets/logo.png"></div>
      <div class="hook white" id="e1" style="top:900px;font-size:66px"><span>Réservez en 1 minute 👇</span></div>
      <div class="cta" id="e2" style="top:1060px;background:linear-gradient(95deg,#5A3B8C,#8B7CC7);box-shadow:0 0 50px rgba(139,124,199,.55)">sublimnet.com</div>
-     <div class="hook dark" id="e3" style="top:1290px;font-size:44px"><span>Enregistre pour plus tard 📌</span></div></div>`);
+     <div class="hook dark" id="e3" style="top:1290px;font-size:44px"><span>Enregistre pour plus tard 📌</span></div></div>
+  <div class="hook white" id="h1" style="top:300px;font-size:96px"><span>Combien ça coûte</span></div>
+  <div class="hook violet" id="h2" style="top:450px;font-size:96px"><span>VRAIMENT ? 🤔</span></div>
+  <div class="chip" id="h3" style="left:260px;top:640px">🏠 À domicile · Bordeaux</div>
+  <div class="hook white" id="hR" style="top:170px;font-size:84px"><span>Le résultat ✨</span></div>`);
+  T.sparks = Array.from({ length: 10 }, (_, i) => { const s = el('div', 'spark', STAR, w); return { s, x: 120 + (i * 97) % 860, y: 300 + (i * 211) % 1200, d: i * 0.13 }; });
   T.t = {
-    m2: 0.95, m3: 1.75, h1: 0.1, h2: W('b1', 'combien') - 0.05, h3: W('b1', 'coûte') + 0.1,
-    can: on('b2') - 0.1, dCan: W('b2', 'dès'), mat: on('b3') - 0.1, dMat: W('b3', 'dès'), voi: on('b4') - 0.1, dVoi: W('b4', 'dès'),
-    dep: on('b5') - 0.1, st: W('b5', 'offert') - 0.08, d2: W('b5', 'vingt') - 0.1,
-    tot: on('b6') - 0.1, t2: W('b6', 'réserver') - 0.1, end: on('b7') - 0.12, e1: W('b7', 'réservez') - 0.1, e2: W('b7', 'sublim', 1) - 0.05, e3: end('b7') - 0.1,
+    h1: 0.1, h2: W('b1', 'combien') - 0.05, h3: W('b1', 'coûte') + 0.1, door: W('b1', 'combien') - 0.05,
+    rv0: end('b1') + 0.05, rv1: end('b1') + 0.8, mat: end('b1') + 1.45,
+    can: on('b2') - 0.08, dCan: W('b2', 'dès') - 0.1, mt: on('b3') - 0.08, dMat: W('b3', 'dès') - 0.1,
+    voi: on('b4') - 0.08, dVoi: W('b4', 'dès') - 0.1, dep: on('b5') - 0.08, st: W('b5', 'offert') - 0.08,
+    tot: on('b6') - 0.08, t2: W('b6', 'avant') - 0.1, end: on('b7') - 0.12, e1: W('b7', 'réservez') - 0.1, e2: W('b7', 'sublim') - 0.05, e3: end('b7') - 0.1,
   };
   const t = T.t;
-  T.cuts = [t.m2, t.m3, t.can, t.mat, t.voi, t.dep, t.tot, t.end];
-  T.punch = [{ t: 0.05, z: 0.12, shake: 10 }, { t: t.m2, z: 0.1 }, { t: t.m3, z: 0.1 }, { t: t.h2, z: 0.08, shake: 10 }, { t: t.can, z: 0.12 }, { t: t.dCan + 0.45, z: 0.06, shake: 8 },
-    { t: t.mat, z: 0.12 }, { t: t.dMat + 0.45, z: 0.06, shake: 8 }, { t: t.voi, z: 0.12 }, { t: t.dVoi + 0.45, z: 0.06, shake: 8 }, { t: t.dep, z: 0.1 }, { t: t.st + 0.18, z: 0.14, shake: 22, dur: 0.6 },
-    { t: t.tot, z: 0.1 }, { t: t.t2, z: 0.05, shake: 6 }, { t: t.end, z: 0.12 }, { t: t.e2, z: 0.06, shake: 6 }];
-  TK.buildCaptions(null, { replace: { quarante: '40', 'trente-cinq': '35', 'quarante-cinq': '45', vingt: '20', euros: '€', 'kilomètres': 'km', sublimnet: 'SublimNet' },
+  T.cuts = [t.door, t.mat, t.can, t.mt, t.voi, t.dep, t.tot, t.end];
+  // punches only on graphic scenes (photos and clips stay whole, no zoom)
+  T.punch = [{ t: t.can, z: 0.08 }, { t: t.dCan, z: 0.05, shake: 5 }, { t: t.mt, z: 0.08 }, { t: t.dMat, z: 0.05, shake: 5 }, { t: t.voi, z: 0.08 }, { t: t.dVoi + 0.45, z: 0.06, shake: 8 },
+    { t: t.dep, z: 0.08 }, { t: t.st + 0.18, z: 0.12, shake: 20, dur: 0.6 }, { t: t.tot, z: 0.08 }, { t: t.t2, z: 0.05, shake: 6 }, { t: t.end, z: 0.1 }, { t: t.e2, z: 0.05, shake: 5 }];
+  TK.buildCaptions(null, { replace: { quarante: '40', 'trente-cinq': '35', 'quarante-cinq': '45', vingt: '20', euros: '€', kilomètres: 'km', sublimnet: 'SublimNet' },
     merge: [[['sublim', 'net', 'point', 'com'], 'sublimnet.com']], skip: ['b7'] });
 }
 const vis = (tt, a, b) => tt >= a && tt < b ? 1 : 0;
 function render(tt) {
   const t = T.t, D = K.VO.duration;
-  $('#sHook').style.opacity = vis(tt, -1, t.can);
-  $('#m1').style.opacity = vis(tt, -1, t.m2); $('#m2').style.opacity = vis(tt, t.m2, t.m3); $('#m3').style.opacity = vis(tt, t.m3, 99);
-  ['#m1', '#m2', '#m3'].forEach((s, i) => { $(s + ' img').style.transform = `scale(${(1.15 + 0.08 * (tt - [0, t.m2, t.m3][i])).toFixed(4)})`; });
-  const h1 = $('#h1'); const a1 = TK.pop(h1, tt, t.h1, 0.45, 0.3, 2.4); h1.style.transform = `scale(${a1}) rotate(${(1 - clamp(a1)) * -6}deg)`;
-  const h2 = $('#h2'); const a2 = TK.pop(h2, tt, t.h2, 0.45, 0.2, 2.6); h2.style.transform = `scale(${a2}) rotate(${-3 + (1 - clamp(a2)) * 8}deg)`;
-  const h3 = $('#h3'); const a3 = TK.pop(h3, tt, t.h3, 0.4, 0.4); h3.style.transform = `scale(${a3})`;
-  // price cards
-  [['#sCan', t.can, t.mat, t.dCan, 40], ['#sMat', t.mat, t.voi, t.dMat, 35], ['#sVoi', t.voi, t.dep, t.dVoi, 45]].forEach(([s, a, b, d, v]) => {
-    const e = $(s); e.style.opacity = vis(tt, a, b);
-    const c = e.querySelector('.pcard'); const q = eob(P(tt, a, a + 0.45), 1.8); c.style.transform = `translateY(${((1 - q) * 160).toFixed(1)}px) scale(${(0.85 + 0.15 * q).toFixed(3)})`;
-    e.querySelector('.em').style.transform = `scale(${(0.5 + 0.5 * eob(P(tt, a + 0.1, a + 0.5), 2.6)).toFixed(3)}) rotate(${Math.sin(tt * 4) * 4}deg)`;
-    const val = v * eo(P(tt, d - 0.1, d + 0.45)); const n = $(s + 'n'); n.innerHTML = rollNum(val);
-    const g = Math.sin(P(tt, d + 0.4, d + 0.9) * Math.PI); n.parentElement.style.filter = `drop-shadow(0 0 ${18 + 30 * g}px rgba(201,194,227,${0.55 + 0.4 * g}))`;
-    n.style.transform = `scale(${(1 + 0.08 * g).toFixed(3)})`; n.style.display = 'inline-flex';
-    e.querySelector('.bgx').style.transform = `scale(${(1.05 + 0.03 * (tt - a)).toFixed(4)})`;
-  });
-  // deplacement
-  $('#sDep').style.opacity = vis(tt, t.dep, t.tot);
-  const d1 = $('#d1'); const b1 = TK.pop(d1, tt, t.dep + 0.05, 0.4, 0.3, 2.4); d1.style.transform = `scale(${b1})`;
-  const pin = $('#pinA'); const pq = P(tt, t.dep + 0.1, t.dep + 0.7); pin.style.opacity = (clamp(pq * 5) * (1 - P(tt, t.st, t.st + 0.12))).toFixed(3); pin.style.transform = `translateY(${(-(1 - K.spring(pq * 3, 9, 5)) * 120).toFixed(1)}px)`;
-  const st = $('#st'); const sq = P(tt, t.st, t.st + 0.22); st.style.opacity = sq > 0 ? 1 : 0;
-  st.style.transform = `rotate(-10deg) scale(${(2.6 - 1.6 * eo4(sq)).toFixed(3)})`;
-  const ring = $('#ring'); const rr = eo(P(tt, t.d2 - 0.1, t.d2 + 0.8)); const R = 120 + 660 * rr; ring.style.width = R + 'px'; ring.style.height = R + 'px'; ring.style.opacity = clamp(rr * 3);
-  const d2 = $('#d2'); const b2 = TK.pop(d2, tt, t.d2, 0.4, 0.4); d2.style.transform = `scale(${b2})`;
-  // total
-  $('#sTot').style.opacity = vis(tt, t.tot, t.end);
-  const ph = $('#phone'); const phq = eob(P(tt, t.tot, t.tot + 0.5), 1.6); ph.style.transform = `translateY(${((1 - phq) * 300).toFixed(1)}px) rotate(${(1 - phq) * 8 - 2}deg)`;
-  ph.querySelector(':scope > img').style.transform = `translateY(${(-60 * eio(P(tt, t.tot + 0.4, t.t2))).toFixed(1)}px)`;
-  const ok = $('#okb'); const oq = eob(P(tt, t.t2 - 0.35, t.t2 + 0.1), 2.2); ok.style.opacity = clamp(P(tt, t.t2 - 0.35, t.t2 - 0.2)); ok.style.transform = `scale(${(0.5 + 0.5 * oq).toFixed(3)})`;
-  const t1 = $('#t1'); const c1 = TK.pop(t1, tt, t.tot + 0.1, 0.4, 0.3, 2.4); t1.style.transform = `scale(${c1})`;
-  const t2 = $('#t2'); const c2 = TK.pop(t2, tt, t.t2, 0.45, 0.2, 2.6); t2.style.transform = `scale(${c2}) rotate(${6 + (1 - clamp(c2)) * 14}deg)`;
-  // end
-  $('#sEnd').style.opacity = vis(tt, t.end, 99);
+  // scenes
+  $('#sHook').style.opacity = vis(tt, -1, t.door); $('#sDoor').style.opacity = vis(tt, t.door, t.mat); $('#sMat').style.opacity = vis(tt, t.mat, t.can);
+  $('#sCan').style.opacity = vis(tt, t.can, t.mt); $('#sMt').style.opacity = vis(tt, t.mt, t.voi); $('#sVoi').style.opacity = vis(tt, t.voi, t.dep);
+  $('#sDep').style.opacity = vis(tt, t.dep, t.tot); $('#sTot').style.opacity = vis(tt, t.tot, t.end); $('#sEnd').style.opacity = vis(tt, t.end, 99);
+  // real clips (slow motion 0.5x from 60 fps)
+  if (tt < t.door) TK2.clip($('#vAv'), 'tapis_av', 123, tt, 0);
+  if (tt >= t.mat && tt < t.can) { TK2.clip($('#vAp'), 'tapis_ap', 79, tt, t.mat); TK2.clip($('#vPip'), 'tapis_av', 123, tt, t.mat - 0.4); }
+  // hook texts
+  const hk = 1 - P(tt, t.rv0 - 0.15, t.rv0 + 0.05);
+  const h1 = $('#h1'); const a1 = TK.pop(h1, tt, t.h1, 0.45, 0.3, 2.4); h1.style.transform = `scale(${a1}) rotate(${(1 - clamp(a1)) * -6}deg)`; h1.style.opacity = (clamp(P(tt, t.h1, t.h1 + 0.08)) * hk).toFixed(3);
+  const h2 = $('#h2'); const a2 = TK.pop(h2, tt, t.h2, 0.45, 0.2, 2.6); h2.style.transform = `scale(${a2}) rotate(${-3 + (1 - clamp(a2)) * 8}deg)`; h2.style.opacity = (clamp(P(tt, t.h2, t.h2 + 0.08)) * hk).toFixed(3);
+  const h3 = $('#h3'); const a3 = TK.pop(h3, tt, t.h3, 0.4, 0.4); h3.style.transform = `scale(${a3})`; h3.style.opacity = (clamp(P(tt, t.h3, t.h3 + 0.08)) * hk).toFixed(3);
+  // door: wipe-through reveal
+  const X = 100 - 100 * eio(P(tt, t.rv0, t.rv1));
+  $('#dap').style.clipPath = `inset(0 0 0 ${X.toFixed(2)}%)`; $('#dseam').style.left = X + '%'; $('#dseam').style.opacity = tt > t.rv0 - 0.05 && tt < t.rv1 + 0.1 ? 1 : 0;
+  const dla = $('#dla'); dla.style.transform = `scale(${TK.pop(dla, tt, t.door + 0.15, 0.35, 0.5)})`; dla.style.opacity = (clamp(P(tt, t.door + 0.15, t.door + 0.22)) * (1 - P(tt, t.rv1 - 0.2, t.rv1))).toFixed(3);
+  const dlp = $('#dlp'); dlp.style.transform = `scale(${TK.pop(dlp, tt, t.rv1 - 0.05, 0.35, 0.5)})`;
+  const hR = $('#hR'); const aR = TK.pop(hR, tt, t.rv1 - 0.05, 0.4, 0.3, 2.4); hR.style.transform = `scale(${aR}) rotate(${(1 - clamp(aR)) * -6}deg)`; hR.style.opacity = (clamp(P(tt, t.rv1 - 0.05, t.rv1 + 0.03)) * vis(tt, t.rv1 - 0.05, t.can)).toFixed(3);
+  T.sparks.forEach(sp => { const k = tt - t.rv1 - sp.d; const on_ = tt < t.mat && k > 0 && k < 1.0;
+    sp.s.style.opacity = on_ ? Math.sin(Math.min(1, k / 1.0) * Math.PI).toFixed(3) : 0;
+    sp.s.style.transform = `translate(${sp.x}px, ${sp.y}px) scale(${on_ ? 0.6 + Math.sin(k * 8) * 0.4 + 0.6 : 0}) rotate(${k * 90}deg)`; });
+  const pip = $('#pip'); const pq = eob(P(tt, t.mat + 0.05, t.mat + 0.4), 1.8); pip.style.transform = `scale(${(0.6 + 0.4 * pq).toFixed(3)}) rotate(${(-3 + (1 - clamp(pq)) * -8).toFixed(2)}deg)`; pip.style.opacity = clamp(P(tt, t.mat + 0.05, t.mat + 0.12)).toFixed(3);
+  const mlp = $('#mlp'); mlp.style.transform = `scale(${TK.pop(mlp, tt, t.mat + 0.1, 0.35, 0.5)})`;
+  // price scenes with the real site
+  [['#hC', t.can], ['#hM', t.mt], ['#hV', t.voi], ['#hD', t.dep], ['#hT', t.tot]].forEach(([s, a]) => { const e = $(s); const q = TK.pop(e, tt, a + 0.05, 0.4, 0.4); e.style.transform = `scale(${q})`; });
+  document.querySelectorAll('.phone').forEach(ph => { const sc = ph.closest('.full'); const a = { sCan: t.can, sMt: t.mt, sDep: t.dep }[sc.id];
+    const q = eob(P(tt, a + 0.02, a + 0.45), 1.6); ph.style.transform = `translateY(${((1 - q) * 260).toFixed(1)}px) rotate(${((1 - q) * 6 - 1.5).toFixed(2)}deg)`; });
+  TK2.ring($('#hlC'), tt, t.dCan); TK2.ring($('#hlM'), tt, t.dMat); TK2.ring($('#hlD'), tt, t.st - 0.3);
+  [['#pC', t.dCan + 0.05], ['#pM', t.dMat + 0.05]].forEach(([s, a], i) => { const e = $(s); const q = TK.pop(e, tt, a, 0.45, 0.3, 2.4); e.style.transform = `scale(${q}) rotate(${(i ? -4 : 4) + (1 - clamp(q)) * 10}deg)`; });
+  // voiture card with rolling price
+  const pc = $('#pcV'); const cq = eob(P(tt, t.voi + 0.05, t.voi + 0.5), 1.7); pc.style.transform = `translateY(${((1 - cq) * 220).toFixed(1)}px) scale(${(0.85 + 0.15 * cq).toFixed(3)})`;
+  $('#nV').textContent = Math.round(45 * eo(P(tt, t.dVoi, t.dVoi + 0.45)));
+  // déplacement offert
+  const st = $('#st'); const sq = P(tt, t.st, t.st + 0.22); st.style.opacity = sq > 0 ? 1 : 0; st.style.transform = `rotate(-10deg) scale(${(2.6 - 1.6 * eo4(sq)).toFixed(3)})`;
+  const km = $('#km'); km.style.transform = `scale(${TK.pop(km, tt, t.st + 0.45, 0.4, 0.4)})`;
+  // total: real recap
+  const rcd = $('#rcard'); const rq = eob(P(tt, t.tot + 0.02, t.tot + 0.45), 1.6); rcd.style.transform = `translateY(${((1 - rq) * 240).toFixed(1)}px) rotate(${((1 - rq) * 5 - 1).toFixed(2)}deg)`;
+  TK2.ring($('#hlO'), tt, t.tot + 0.5); TK2.ring($('#hlT'), tt, t.t2 - 0.2);
+  const ok = $('#okb'); const oq = TK.pop(ok, tt, t.t2, 0.45, 0.4); ok.style.transform = `scale(${oq})`;
+  const su = $('#sur'); const uq = TK.pop(su, tt, t.t2 + 0.35, 0.4, 0.3, 2.4); su.style.transform = `scale(${uq}) rotate(${6 + (1 - clamp(uq)) * 10}deg)`;
+  // end card
   const bd = $('#bd'); const bs = TK.pop(bd, tt, t.end + 0.05, 0.55, 0.2, 2.4); bd.style.transform = `scale(${bs}) rotate(${(1 - clamp(bs)) * 10}deg)`;
   bd.style.boxShadow = `0 20px 60px rgba(14,11,29,.5), 0 0 ${60 + 30 * Math.sin(tt * 3)}px rgba(139,124,199,.45)`;
-  [['#e1', t.e1], ['#e2', t.e2], ['#e3', t.e3]].forEach(([s, a]) => { const e = $(s); const q = TK.pop(e, tt, a, 0.4, 0.5); e.style.transform = `scale(${q})`; });
+  [['#e1', t.e1], ['#e2', t.e2], ['#e3', t.e3]].forEach(([s, a]) => { const e = $(s); e.style.transform = `scale(${TK.pop(e, tt, a, 0.4, 0.5)})`; });
   const c = TK.camera(tt, T.punch);
   $('#world').style.transform = `translate(${c.x.toFixed(1)}px, ${c.y.toFixed(1)}px) rotate(${c.r.toFixed(3)}deg) scale(${c.s.toFixed(4)})`;
   let fl = 0; for (const cu of T.cuts) if (tt >= cu) fl = Math.max(fl, 1 - P(tt, cu, cu + 0.16));
   $('#flash').style.opacity = (fl * 0.5).toFixed(3);
   $('#prog').style.width = (1080 * clamp(tt / D)).toFixed(1) + 'px';
-  $('#cap').style.top = (tt >= t.tot && tt < t.end) ? '1470px' : '1180px';
-  TK.captions(tt, x => x >= t.end);
+  $('#cap').style.top = (tt >= t.can && tt < t.end && !(tt >= t.voi && tt < t.dep)) ? '1420px' : (tt >= t.voi && tt < t.dep ? '1300px' : '1180px');
+  TK.captions(tt, x => x >= t.end || (x >= t.voi && x < t.voi));
 }
 window.__ready = K.boot('voB.json', build, render);
 </script></body></html>

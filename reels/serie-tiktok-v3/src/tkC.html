@@ -4,88 +4,95 @@
 <link rel="stylesheet" href="tk.css">
 <style>
 #bgd{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 42%,#2A1E4D 0%,#0E0B1D 75%)}
-.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
-.num{position:absolute;left:70px;top:150px;font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:380px;line-height:1;
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.num{position:absolute;left:60px;top:110px;font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:300px;line-height:1;
   background:linear-gradient(170deg,#ffffff 0%,#C9C2E3 40%,#8B7CC7 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 40px rgba(139,124,199,.6));z-index:20}
-.ttl{position:absolute;left:330px;top:300px;font-weight:900;font-size:64px;line-height:1.1;z-index:20}
-.ttl small{display:block;font-size:30px;color:#C9C2E3;letter-spacing:.14em;margin-bottom:10px}
+.ttl{position:absolute;left:300px;top:170px;font-weight:900;font-size:60px;line-height:1.08;z-index:20}
+.ttl small{display:block;font-size:28px;color:#C9C2E3;letter-spacing:.14em;margin-bottom:8px}
 .scn{position:absolute;inset:0}
-#gcard{position:absolute;left:140px;top:640px;width:800px;height:420px;border-radius:50px;background:#fff;color:#0E0B1D;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px rgba(139,124,199,.35)}
-#gcard b{display:block;font-size:180px;font-weight:900;line-height:1;margin-top:40px;letter-spacing:-.03em}
-#gstars{font-size:84px;letter-spacing:10px;margin-top:6px}
-#gcard small{display:block;font-size:34px;font-weight:800;color:#5A3B8C;margin-top:8px}
-.day{position:absolute;top:720px;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:46px;border:4px solid #3A3A52;color:#8A87A3;background:#151030}
-.day.on{background:linear-gradient(135deg,#8B7CC7,#5A3B8C);color:#fff;border-color:#C9C2E3;box-shadow:0 0 30px rgba(139,124,199,.6)}
-#phone{position:absolute;left:290px;top:560px;width:500px;height:900px;border-radius:70px;background:#0E0B1D;border:12px solid #1d1636;box-shadow:0 0 0 3px #3A3A52,0 40px 100px rgba(0,0,0,.6),0 0 80px rgba(139,124,199,.3);overflow:hidden;z-index:15}
-#phone img.shot{position:absolute;left:0;top:0;width:100%;height:auto;inset:auto;object-fit:contain}
-#done{position:absolute;inset:0;background:rgba(14,11,29,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
-#done i{width:170px;height:170px;border-radius:50%;background:linear-gradient(135deg,#8B7CC7,#5A3B8C);display:grid;place-items:center;font-style:normal;font-size:96px;box-shadow:0 0 60px rgba(139,124,199,.7)}
-#done b{font-size:50px;font-weight:900;margin-top:26px}
-#timer{position:absolute;left:380px;top:1490px;z-index:25}
+.spark{position:absolute;width:40px;height:40px;z-index:25}
+.circ{fill:none;stroke:#FF3B5C;stroke-width:12;stroke-linecap:round}
+#gcard{position:absolute;left:560px;top:960px;width:470px;height:250px;border-radius:36px;background:#fff;color:#0E0B1D;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px rgba(139,124,199,.35);z-index:30}
+#gcard b{display:block;font-size:110px;font-weight:900;line-height:1;margin-top:22px;letter-spacing:-.03em}
+#gstars{font-size:52px;letter-spacing:6px;margin-top:2px}
+#gcard small{display:block;font-size:26px;font-weight:800;color:#5A3B8C;margin-top:4px}
+#done{position:absolute;left:0;right:0;top:620px;text-align:center;z-index:40;opacity:0}
+#done i{display:inline-grid;place-items:center;width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,#8B7CC7,#5A3B8C);font-style:normal;font-size:110px;box-shadow:0 0 0 10px rgba(255,255,255,.9),0 0 70px rgba(139,124,199,.9)}
+#done b{display:block;margin:24px auto 0;width:max-content;padding:8px 30px 14px;border-radius:22px;background:#fff;color:#0E0B1D;font-size:64px;font-weight:900}
 #sEnd{background:radial-gradient(70% 45% at 50% 40%,#3a2870 0%,#1a1236 45%,#0E0B1D 80%)}
 #tag{position:absolute;left:0;right:0;top:860px;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:96px;color:#C9C2E3;text-shadow:0 0 40px rgba(139,124,199,.6);z-index:20}
 .cta{position:absolute;left:90px;right:90px;height:150px;border-radius:75px;display:grid;place-items:center;font-weight:900;font-size:62px;z-index:50}
 </style></head>
 <body><div id="stage"><div id="world"></div>
 <div id="cap"></div><div id="vig"></div><div id="flash"></div><div id="prog"></div></div>
-<script src="adkit.js"></script><script src="tk.js"></script>
+<script src="adkit.js"></script><script src="tk.js"></script><script src="tk2.js"></script>
 <script>
-const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, WE, typed} = K;
+const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, WE} = K;
 let T = {};
+const STAR = '<svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#fff"/></svg>';
 const num = (n, small, title) => `<div class="num">${n}</div><div class="ttl"><small>${small}</small>${title}</div>`;
 function build() {
   const w = $('#world');
   w.insertAdjacentHTML('beforeend', `
-  <div class="full" id="sHook"><img src="assets/seat_av.jpg"><img id="hap" src="assets/seat_ap.jpg" style="clip-path:inset(0 0 0 100%)"><div class="seam" id="hseam" style="left:100%"><i>✨</i></div>
-     <div class="lab av" style="left:50px;top:1560px">AVANT</div><div class="lab ap" style="right:50px;top:1560px">APRÈS</div>
+  <div class="full" id="sHook"><img src="assets/rear_av.jpg"><img id="hap" src="assets/rear_ap.jpg" style="clip-path:inset(0 0 0 100%)"><div class="seam" id="hseam" style="left:100%"><i>✨</i></div>
+     <svg class="abs" style="left:0;top:0;z-index:3" width="1080" height="1920"><path id="c1" class="circ" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-6 370 1690)" d="M110 1690 a260 130 0 1 0 520 0 a260 130 0 1 0 -520 0 l 30 -18"/></svg>
+     <div class="lab av" id="hla" style="left:50px;top:600px">AVANT</div><div class="lab ap" id="hlp" style="right:50px;top:600px">APRÈS</div>
      <div class="hook white" id="h1" style="top:250px;font-size:92px"><span>Pourquoi choisir</span></div>
-     <div class="hook violet" id="h2" style="top:400px;font-size:120px"><span>SublimNet ? 👇</span></div></div>
+     <div class="hook violet" id="h2" style="top:400px;font-size:110px"><span>SublimNet ? 👇</span></div></div>
   <div class="full" id="sList"><div id="bgd"></div><div class="blob" id="bl1" style="width:520px;height:520px;background:#5A3B8C"></div><div class="blob" id="bl2" style="width:460px;height:460px;background:#8B7CC7"></div>
-    <div class="scn" id="r1">${num('1', 'RAISON N°1', 'On vient<br>chez vous')}
-       <svg class="abs" style="left:0;top:0" width="1080" height="1920"><path id="route" d="M140 1560 C 320 1300, 760 1380, 800 1100 S 640 860, 560 820" fill="none" stroke="#8B7CC7" stroke-width="10" stroke-dasharray="4 26" stroke-linecap="round"/></svg>
-       <div class="abs" id="car" style="font-size:110px;font-family:'Noto Color Emoji'">🚗</div>
-       <div class="abs" id="pin" style="left:490px;top:650px;width:140px;height:170px"><svg viewBox="0 0 24 28" width="140" height="170"><path d="M12 27s10-8.6 10-16.4A10 10 0 002 10.6C2 18.4 12 27 12 27z" fill="#8B7CC7" stroke="#fff" stroke-width="1.2"/><circle cx="12" cy="10.5" r="4" fill="#fff"/></svg></div>
-       <div class="chip" id="chez" style="left:300px;top:860px">🏠 À domicile</div></div>
+    <div class="phone" id="ph" style="left:310px;top:400px">
+       <img id="scA" src="assets/sc_accueil.jpg"><img id="scB" src="assets/sc_creneau.jpg"><img id="scC" src="assets/sc_rayon.jpg"><img id="scD" src="assets/sc_calendrier.jpg">
+       <div class="hl" id="hl1" style="${TK2.hlStyle(130, 505, 345, 85)}"></div><div class="hl" id="hl2" style="${TK2.hlStyle(140, 838, 330, 40)}"></div>
+       <div class="hl" id="hl3" style="${TK2.hlStyle(36, 315, 530, 75)}"></div><div class="hl" id="hl4" style="${TK2.hlStyle(12, 250, 450, 70)}"></div>
+       <div class="tapdot" id="tp5" style="${TK2.tapStyle(231, 631)}"></div></div>
+    <div class="scn" id="r1">${num('1', 'RAISON N°1', 'On vient<br>chez vous')}<div class="chip" id="chez" style="left:560px;top:1060px">🏠 À domicile</div></div>
     <div class="scn" id="r2">${num('2', 'RAISON N°2', '5 étoiles<br>sur Google')}<div id="gcard"><b>5,0</b><div id="gstars"></div><small>Avis Google · 14 avis</small></div></div>
     <div class="scn" id="r3">${num('3', 'RAISON N°3', '7 jours<br>sur 7')}
-       ${['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((d, i) => `<div class="day" style="left:${44 + i * 142}px">${d}</div>`).join('')}
-       <div class="chip" id="sl1" style="left:150px;top:900px">🕖 07:30</div><div class="chip" id="sl2" style="left:570px;top:900px">🕝 14:30</div></div>
+       <div class="sticker" id="s7" style="left:640px;top:960px;font-size:110px">7j/7</div>
+       <div class="chip" id="sl1" style="left:40px;top:960px">🕖 07:30</div><div class="chip" id="sl2" style="left:40px;top:1090px">🕝 14:30</div></div>
     <div class="scn" id="r4">${num('4', 'RAISON N°4', 'Déplacement<br>offert')}
-       <div class="stamp" id="st" style="left:180px;top:700px;font-size:150px;color:#C9C2E3;background:rgba(90,59,140,.85);box-shadow:0 0 60px rgba(139,124,199,.6)">OFFERT</div>
-       <div class="chip" id="km" style="left:270px;top:1000px">📍 jusqu'à 20 km</div></div>
+       <div class="stamp" id="st" style="left:300px;top:930px;font-size:130px;color:#C9C2E3;background:rgba(90,59,140,.92);box-shadow:0 0 60px rgba(139,124,199,.6)">OFFERT</div>
+       <div class="chip" id="km" style="left:300px;top:1200px">📍 Rayon de 20 km</div></div>
     <div class="scn" id="r5">${num('5', 'RAISON N°5', 'Réservé en<br>1 minute')}
-       <div id="phone"><img class="shot" src="assets/s_service.jpg"><div id="done"><i>✓</i><b>C'est réservé !</b></div></div>
-       <div class="chip" id="timer">⏱ <span id="tm">00:00</span></div></div></div>
+       <div class="card" id="coord" style="left:150px;top:760px;width:780px"><img src="assets/sc_coord.jpg"></div>
+       <div class="chip" id="timer" style="left:380px;top:1250px">⏱ <span id="tm">00:00</span></div>
+       <div id="done"><i>✓</i><b>C'est réservé !</b></div></div></div>
   <div class="full" id="sEnd">
      <div class="badge" id="bd" style="left:300px;top:330px;width:480px;height:480px"><img src="assets/logo.png"></div>
      <div id="tag">Sublime, et net.</div>
      <div class="cta" id="e2" style="top:1060px;background:linear-gradient(95deg,#5A3B8C,#8B7CC7);box-shadow:0 0 50px rgba(139,124,199,.55)">sublimnet.com</div>
      <div class="hook dark" id="e3" style="top:1290px;font-size:44px"><span>Abonne-toi pour la suite 🔔</span></div></div>`);
+  T.sparks = Array.from({ length: 10 }, (_, i) => { const s = el('div', 'spark', STAR, w); return { s, x: 120 + (i * 97) % 860, y: 300 + (i * 211) % 1200, d: i * 0.13 }; });
   T.t = {
-    wipe0: 0.35, wipe1: 1.55, h1: 0.1, h2: W('c1', 'sublimnet') - 0.1,
+    c1: 0.2, wipe0: W('c1', 'choisir') - 0.05, wipe1: W('c1', 'choisir') + 0.65, h1: 0.1, h2: W('c1', 'sublimnet') - 0.1,
     r1: on('c2') - 0.1, chez: W('c2', 'chez') - 0.1, r2: on('c3') - 0.1, stars: W('c3', 'cinq') - 0.05,
-    r3: on('c4') - 0.1, days: W('c4', 'sept') - 0.05, r4: on('c5') - 0.1, st: W('c5', 'offert') - 0.08,
-    r5: on('c6') - 0.1, done: W('c6', 'minute') - 0.15, end: on('c7') - 0.12, tag: W('c7', 'sublime') - 0.08, e2: W('c8', 'sublim') - 0.05, e3: end('c8') - 0.1,
+    r3: on('c4') - 0.1, days: W('c4', 'sept') - 0.05, r4: on('c5') - 0.1, dep: W('c5', 'déplacement') - 0.1, st: W('c5', 'offert') - 0.08,
+    r5: on('c6') - 0.1, tap5: W('c6', 'réservez') - 0.05, form: W('c6', 'ligne') - 0.1, done: W('c6', 'minute') - 0.15,
+    end: on('c7') - 0.12, tag: W('c7', 'sublime') - 0.08, e2: W('c8', 'sublim') - 0.05, e3: end('c8') - 0.1,
   };
   const t = T.t;
   T.cuts = [t.r1, t.r2, t.r3, t.r4, t.r5, t.end];
-  T.punch = [{ t: 0.05, z: 0.12, shake: 10 }, { t: t.wipe1 - 0.2, z: 0.08, shake: 8 }, { t: t.h2, z: 0.06 }, ...[t.r1, t.r2, t.r3, t.r4, t.r5].map(x => ({ t: x, z: 0.14, shake: 10 })),
-    { t: t.stars + 0.6, z: 0.06, shake: 6 }, { t: t.st + 0.18, z: 0.14, shake: 22, dur: 0.6 }, { t: t.done, z: 0.08, shake: 8 }, { t: t.end, z: 0.12 }, { t: t.e2, z: 0.06, shake: 6 }];
+  T.punch = [...[t.r1, t.r2, t.r3, t.r4, t.r5].map(x => ({ t: x, z: 0.08, shake: 6 })), { t: t.stars + 0.6, z: 0.04, shake: 5 },
+    { t: t.st + 0.18, z: 0.1, shake: 18, dur: 0.6 }, { t: t.done, z: 0.06, shake: 6 }, { t: t.end, z: 0.1 }, { t: t.e2, z: 0.05, shake: 5 }];
   TK.buildCaptions(null, { replace: { cinq: '5', sept: '7', une: '1', sublimnet: 'SublimNet' }, dropFirst: ['c2', 'c3', 'c4', 'c5', 'c6'],
     merge: [[['sublim', 'net', 'point', 'com'], 'sublimnet.com'], [['sept', 'jours', 'sur', 'sept'], '7j/7']], skip: ['c1', 'c7', 'c8'] });
 }
 const vis = (tt, a, b) => tt >= a && tt < b ? 1 : 0;
 function render(tt) {
   const t = T.t, D = K.VO.duration;
-  // hook with before/after wipe
+  // hook: back seat, whole photos, before/after wipe
   $('#sHook').style.opacity = vis(tt, -1, t.r1);
-  const wq = eio(P(tt, t.wipe0, t.wipe1)); const X = 100 - 100 * wq;
+  $('#c1').setAttribute('stroke-dashoffset', (1 - eio(P(tt, t.c1, t.c1 + 0.45))).toFixed(3)); $('#c1').style.opacity = 1 - P(tt, t.wipe0 - 0.1, t.wipe0 + 0.05);
+  const X = 100 - 100 * eio(P(tt, t.wipe0, t.wipe1));
   $('#hap').style.clipPath = `inset(0 0 0 ${X.toFixed(2)}%)`; $('#hseam').style.left = X + '%'; $('#hseam').style.opacity = tt > t.wipe0 - 0.05 && tt < t.wipe1 + 0.1 ? 1 : 0;
-  $('#sHook').querySelectorAll('img').forEach(i => i.style.transform = `scale(${(1.12 + 0.03 * tt).toFixed(4)})`);
-  $('#sHook').querySelectorAll('.lab').forEach((l, i) => { const s = TK.pop(l, tt, 0.2 + i * 1.2, 0.35, 0.5); l.style.transform = `scale(${s})`; });
+  const hla = $('#hla'); hla.style.transform = `scale(${TK.pop(hla, tt, 0.2, 0.35, 0.5)})`; hla.style.opacity = (clamp(P(tt, 0.2, 0.28)) * (1 - P(tt, t.wipe1 - 0.2, t.wipe1))).toFixed(3);
+  const hlp = $('#hlp'); hlp.style.transform = `scale(${TK.pop(hlp, tt, t.wipe1 - 0.05, 0.35, 0.5)})`;
+  T.sparks.forEach(sp => { const k = tt - t.wipe1 - sp.d; const on_ = tt < t.r1 && k > 0 && k < 1.0;
+    sp.s.style.opacity = on_ ? Math.sin(Math.min(1, k / 1.0) * Math.PI).toFixed(3) : 0;
+    sp.s.style.transform = `translate(${sp.x}px, ${sp.y}px) scale(${on_ ? 0.6 + Math.sin(k * 8) * 0.4 + 0.6 : 0}) rotate(${k * 90}deg)`; });
   const h1 = $('#h1'); const a1 = TK.pop(h1, tt, t.h1, 0.45, 0.3, 2.4); h1.style.transform = `scale(${a1}) rotate(${(1 - clamp(a1)) * -6}deg)`;
   const h2 = $('#h2'); const a2 = TK.pop(h2, tt, t.h2, 0.45, 0.2, 2.6); h2.style.transform = `scale(${a2}) rotate(${-3 + (1 - clamp(a2)) * 8}deg)`;
-  // list scenes
+  // list scenes on the real site
   $('#sList').style.opacity = vis(tt, t.r1, t.end);
   $('#bl1').style.transform = `translate(${(120 + Math.sin(tt * 0.7) * 160).toFixed(1)}px, ${(300 + Math.cos(tt * 0.5) * 200).toFixed(1)}px)`;
   $('#bl2').style.transform = `translate(${(560 + Math.cos(tt * 0.6) * 160).toFixed(1)}px, ${(1100 + Math.sin(tt * 0.8) * 180).toFixed(1)}px)`;
@@ -94,24 +101,26 @@ function render(tt) {
     const n = e.querySelector('.num'); const q = eob(P(tt, a, a + 0.45), 2.0); n.style.transform = `translateX(${((1 - q) * -260).toFixed(1)}px) rotate(${(1 - clamp(q)) * -14}deg)`;
     const ti = e.querySelector('.ttl'); const q2 = eo(P(tt, a + 0.12, a + 0.5)); ti.style.opacity = q2; ti.style.transform = `translateX(${((1 - q2) * 80).toFixed(1)}px)`;
   });
-  // r1 route
-  const rq = eio(P(tt, t.r1 + 0.1, t.chez + 0.15)); const route = $('#route'); const pt = route.getPointAtLength(route.getTotalLength() * rq);
-  $('#car').style.left = (pt.x - 55) + 'px'; $('#car').style.top = (pt.y - 70) + 'px'; $('#car').style.transform = `rotate(${Math.sin(tt * 9) * 3}deg)`;
-  const pq = P(tt, t.chez - 0.15, t.chez + 0.45); $('#pin').style.opacity = clamp(pq * 5); $('#pin').style.transform = `translateY(${(-(1 - K.spring(pq * 3, 9, 5)) * 120).toFixed(1)}px)`;
-  const ch = $('#chez'); ch.style.transform = `scale(${TK.pop(ch, tt, t.chez + 0.1, 0.4, 0.4)})`;
+  // phone: slides in once, then changes page per reason (1-2 home, 3 slots, 4 radius, 5 calendar)
+  const ph = $('#ph'); const phq = eob(P(tt, t.r1 + 0.02, t.r1 + 0.45), 1.6); ph.style.transform = `translateY(${((1 - phq) * 300).toFixed(1)}px) rotate(${((1 - phq) * 6 - 1.5).toFixed(2)}deg)`;
+  [['#scB', t.r3], ['#scC', t.r4], ['#scD', t.r5]].forEach(([s, a]) => { const e = $(s); const q = eio(P(tt, a, a + 0.3)); e.style.opacity = vis(tt, a, 99) * q; e.style.transform = `translateX(${((1 - q) * 120).toFixed(1)}px)`; });
+  TK2.ring($('#hl1'), tt, t.chez - 0.2, t.r2); TK2.ring($('#hl2'), tt, t.stars, t.r3); TK2.ring($('#hl3'), tt, t.days, t.r4); TK2.ring($('#hl4'), tt, t.dep, t.r5);
+  TK2.tap($('#tp5'), tt, t.tap5);
+  const ch = $('#chez'); ch.style.transform = `scale(${TK.pop(ch, tt, t.chez + 0.1, 0.4, 0.4)}) rotate(4deg)`;
   // r2 google card
-  const g = $('#gcard'); const gq = eob(P(tt, t.r2 + 0.05, t.r2 + 0.5), 1.8); g.style.transform = `translateY(${((1 - gq) * 200).toFixed(1)}px) scale(${(0.85 + 0.15 * gq).toFixed(3)}) rotate(${(1 - clamp(gq)) * 4}deg)`;
+  const g = $('#gcard'); const gq = eob(P(tt, t.stars - 0.1, t.stars + 0.35), 1.8); g.style.transform = `translateY(${((1 - gq) * 160).toFixed(1)}px) scale(${(0.85 + 0.15 * gq).toFixed(3)}) rotate(${(4 + (1 - clamp(gq)) * 6).toFixed(2)}deg)`;
+  g.style.opacity = clamp(P(tt, t.stars - 0.1, t.stars)).toFixed(3);
   const ns = Math.round(5 * P(tt, t.stars, t.stars + 0.7));
   $('#gstars').innerHTML = `<span style="color:#F2B630">${'★'.repeat(ns)}</span><span style="color:#d9d5e8">${'★'.repeat(5 - ns)}</span>`;
-  // r3 days
-  $('#r3').querySelectorAll('.day').forEach((d, i) => { const a = t.days + i * 0.1; d.classList.toggle('on', tt >= a); d.style.transform = `scale(${tt >= a ? 1 + 0.25 * Math.max(0, 1 - (tt - a) / 0.25) : 0.9})`; });
-  [['#sl1', t.days + 0.8], ['#sl2', t.days + 0.95]].forEach(([s, a]) => { const e = $(s); e.style.transform = `scale(${TK.pop(e, tt, a, 0.4, 0.4)})`; });
+  // r3
+  const s7 = $('#s7'); const q7 = TK.pop(s7, tt, t.days + 0.1, 0.45, 0.3, 2.4); s7.style.transform = `scale(${q7}) rotate(${-5 + (1 - clamp(q7)) * -10}deg)`;
+  [['#sl1', t.days + 0.6], ['#sl2', t.days + 0.75]].forEach(([s, a]) => { const e = $(s); e.style.transform = `scale(${TK.pop(e, tt, a, 0.4, 0.4)})`; });
   // r4 stamp
   const st = $('#st'); const sq = P(tt, t.st, t.st + 0.22); st.style.opacity = sq > 0 ? 1 : 0; st.style.transform = `rotate(-10deg) scale(${(2.6 - 1.6 * eo4(sq)).toFixed(3)})`;
   const km = $('#km'); km.style.transform = `scale(${TK.pop(km, tt, t.st + 0.45, 0.4, 0.4)})`;
-  // r5 phone + timer + done
-  const ph = $('#phone'); const phq = eob(P(tt, t.r5 + 0.05, t.r5 + 0.5), 1.6); ph.style.transform = `translateY(${((1 - phq) * 300).toFixed(1)}px) rotate(${(1 - phq) * 8 - 2}deg)`;
-  ph.querySelector('.shot').style.transform = `translateY(${(-160 * eio(P(tt, t.r5 + 0.5, t.done))).toFixed(1)}px)`;
+  // r5 calendar tap -> real contact form -> booked
+  const co = $('#coord'); const cq = eob(P(tt, t.form, t.form + 0.4), 1.7); co.style.opacity = clamp(P(tt, t.form, t.form + 0.06)) * (1 - P(tt, t.done, t.done + 0.2));
+  co.style.transform = `translateY(${((1 - cq) * 200).toFixed(1)}px) scale(${(0.8 + 0.2 * cq).toFixed(3)}) rotate(${(-2 + (1 - clamp(cq)) * -6).toFixed(2)}deg)`;
   const sec = Math.min(59, Math.floor(58 * P(tt, t.r5 + 0.3, t.done))); $('#tm').textContent = `00:${String(sec).padStart(2, '0')}`;
   const tmr = $('#timer'); tmr.style.transform = `scale(${TK.pop(tmr, tt, t.r5 + 0.3, 0.4, 0.4)})`;
   const dn = $('#done'); const dq = P(tt, t.done, t.done + 0.3); dn.style.opacity = dq.toFixed(3); dn.querySelector('i').style.transform = `scale(${(0.3 + 0.7 * eob(dq, 2.4)).toFixed(3)})`;
@@ -126,7 +135,7 @@ function render(tt) {
   let fl = 0; for (const cu of T.cuts) if (tt >= cu) fl = Math.max(fl, 1 - P(tt, cu, cu + 0.16));
   $('#flash').style.opacity = (fl * 0.5).toFixed(3);
   $('#prog').style.width = (1080 * clamp(tt / D)).toFixed(1) + 'px';
-  $('#cap').style.top = (tt >= t.r5 && tt < t.end) ? '1610px' : '1180px';
+  $('#cap').style.top = (tt >= t.r1 && tt < t.end) ? '1420px' : '1180px';
   TK.captions(tt, x => x >= t.end);
 }
 window.__ready = K.boot('voC.json', build, render);

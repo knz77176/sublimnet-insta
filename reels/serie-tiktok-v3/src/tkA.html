@@ -3,44 +3,43 @@
 <link rel="stylesheet" href="pfd/pfd.css">
 <link rel="stylesheet" href="tk.css">
 <style>
-#s3{background:radial-gradient(80% 55% at 50% 40%,#2A1E4D 0%,#0E0B1D 70%)}
-#s7 .bgb{position:absolute;inset:-40px;background:url(assets/seat_ap.jpg) center/cover;filter:blur(18px) brightness(.45) saturate(.8)}
 #s8{background:radial-gradient(70% 45% at 50% 40%,#3a2870 0%,#1a1236 45%,#0E0B1D 80%)}
 .spark{position:absolute;width:40px;height:40px;z-index:25}
 .cta{position:absolute;left:90px;right:90px;height:150px;border-radius:75px;display:grid;place-items:center;font-weight:900;font-size:62px;z-index:50}
+.circ{fill:none;stroke:#FF3B5C;stroke-width:12;stroke-linecap:round}
 </style></head>
 <body><div id="stage"><div id="world"></div>
 <div id="cap"></div><div id="vig"></div><div id="flash"></div><div id="prog"></div></div>
-<script src="adkit.js"></script><script src="tk.js"></script>
+<script src="adkit.js"></script><script src="tk.js"></script><script src="tk2.js"></script>
 <script>
-const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, WE, typed, noise} = K;
+const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, WE} = K;
 let T = {};
 const STAR = '<svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#fff"/></svg>';
+const ell = (id, cx, cy, rx, ry, rot) => `<path id="${id}" class="circ" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(${rot} ${cx} ${cy})"
+  d="M${cx - rx} ${cy} a${rx} ${ry} 0 1 0 ${2 * rx} 0 a${rx} ${ry} 0 1 0 ${-2 * rx} 0 l 30 -18"/>`;
 function build() {
   const w = $('#world');
   w.insertAdjacentHTML('beforeend', `
-  <div class="full" id="s1"><div class="full" id="z1"><img src="assets/seat_av.jpg">
-     <svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
-       <path id="c1" d="M180 700 C 260 560, 600 560, 660 690 C 710 810, 520 900, 330 880 C 170 860, 120 770, 200 690" fill="none" stroke="#FF3B5C" stroke-width="12" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
-       <path id="c2" d="M640 660 C 780 610, 930 710, 920 900 C 910 1090, 780 1150, 670 1080 C 570 1010, 560 770, 660 670" fill="none" stroke="#FF3B5C" stroke-width="12" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
-     </svg></div></div>
+  <div class="full" id="s1"><img src="assets/seat_av.jpg">
+     <svg class="abs" style="left:0;top:0;z-index:3" width="1080" height="1920">${ell('c1', 330, 700, 200, 105, -8)}${ell('c2', 380, 1250, 300, 190, -6)}${ell('c3', 880, 650, 150, 270, 4)}</svg></div>
   <div class="full" id="s2"><img src="assets/seat_ap.jpg"></div>
   <div class="seam" id="seam2" style="opacity:0"><i>✨</i></div>
-  <div class="full" id="s3">
+  <div class="lab av" id="la1" style="left:50px;top:1560px">AVANT</div><div class="lab ap" id="lp1" style="right:50px;top:1560px">APRÈS</div>
+  <div class="full dark" id="s3">
      <svg class="abs" style="left:0;top:0" width="1080" height="1920"><path id="route" d="M150 1560 C 300 1260, 700 1360, 760 1060 S 640 820, 540 770" fill="none" stroke="#8B7CC7" stroke-width="10" stroke-dasharray="4 26" stroke-linecap="round" opacity=".9"/></svg>
      <div class="abs" id="car" style="font-size:110px;font-family:'Noto Color Emoji'">🚗</div>
      <div class="abs" id="pin" style="left:470px;top:600px;width:140px;height:170px"><svg viewBox="0 0 24 28" width="140" height="170"><path d="M12 27s10-8.6 10-16.4A10 10 0 002 10.6C2 18.4 12 27 12 27z" fill="#8B7CC7" stroke="#fff" stroke-width="1.2"/><circle cx="12" cy="10.5" r="4" fill="#fff"/></svg></div>
      <div class="chip" id="chez" style="left:280px;top:810px">🏠 Chez vous · Bordeaux</div>
-     <div class="badge" id="bdg3" style="left:390px;top:200px;width:300px;height:300px"><img src="assets/logo.png"></div>
-  </div>
+     <div class="badge" id="bdg3" style="left:390px;top:200px;width:300px;height:300px"><img src="assets/logo.png"></div></div>
   <div class="full" id="s45"><img src="assets/wheel_av.jpg"><img id="wap" src="assets/wheel_ap.jpg" style="clip-path:inset(0 0 0 100%)">
      <div class="seam" id="seam5" style="left:100%"><i>⇆</i></div>
-     <div class="lab av" style="left:50px;top:1560px">AVANT</div><div class="lab ap" style="right:50px;top:1560px">APRÈS</div></div>
-  <div class="full" id="s6"><div class="abs" style="left:0;top:0;width:1080px;height:958px;overflow:hidden"><img src="assets/seat_av.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 35%"></div>
-     <div class="abs" style="left:0;top:962px;width:1080px;height:958px;overflow:hidden"><img src="assets/seat_ap.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 35%"></div>
-     <div class="abs" style="left:0;top:952px;width:1080px;height:16px;background:#fff;box-shadow:0 0 30px rgba(255,255,255,.8)"></div>
-     <div class="lab av" style="left:50px;top:820px">AVANT</div><div class="lab ap" style="left:50px;top:1000px">APRÈS</div></div>
-  <div class="full" id="s7"><div class="bgb"></div>
+     <div class="lab av" style="left:50px;top:1560px">AVANT</div><div class="lab ap" id="lp5" style="right:50px;top:1560px">APRÈS</div></div>
+  <div class="full dark" id="s6">
+     <div class="phone" id="ph6" style="left:310px;top:380px"><img src="assets/sc_choix.jpg"><img id="sc6b" src="assets/sc_formules.jpg" style="opacity:0">
+        <div class="tapdot" id="tp6a" style="${TK2.tapStyle(120, 382)}"></div><div class="tapdot" id="tp6b" style="${TK2.tapStyle(300, 830)}"></div>
+        <div class="hl" id="hl6" style="${TK2.hlStyle(36, 590, 530, 155)}"></div></div>
+     <div class="hook white" id="h6" style="top:170px;font-size:76px"><span>Les sièges en plus ✨</span></div></div>
+  <div class="full" id="s7"><img src="assets/seat_ap.jpg"><div class="dim"></div>
      <div class="chip" id="k1" style="left:330px;top:430px;font-size:80px;padding:26px 60px">7j/7</div>
      <div class="chip" id="k2" style="left:250px;top:640px">🕖 07:30 · 🕝 14:30</div>
      <div class="chip" id="k3" style="left:150px;top:800px">📍 Bordeaux &amp; alentours</div>
@@ -50,45 +49,42 @@ function build() {
      <div class="hook white" id="e1" style="top:900px;font-size:66px"><span>Réservez en 1 minute 👇</span></div>
      <div class="cta" id="e2" style="top:1060px;background:linear-gradient(95deg,#5A3B8C,#8B7CC7);box-shadow:0 0 50px rgba(139,124,199,.55)">sublimnet.com</div>
      <div class="hook dark" id="e3" style="top:1290px;font-size:44px"><span>Abonne-toi pour + d'avant/après ✨</span></div></div>
-  <div class="hook white" id="h1" style="top:240px;font-size:100px"><span>Ce siège… 😳</span></div>
-  <div class="hook violet" id="h2" style="top:400px;font-size:54px"><span>attends la fin 👀</span></div>
+  <div class="hook white" id="h1" style="top:100px;font-size:100px"><span>Ce siège… 😳</span></div>
+  <div class="hook violet" id="h2" style="top:262px;font-size:54px"><span>attends la fin 👀</span></div>
   <div class="hook white" id="h4" style="top:240px;font-size:96px"><span>Et le volant… 🤢</span></div>
-  <div class="sticker" id="p5" style="left:250px;top:560px;font-size:96px"><small>Formule Express</small>dès 50 €</div>
-  <div class="sticker" id="p6" style="left:240px;top:780px;font-size:96px"><small>Formule Confort</small>dès 90 €</div>`);
+  <div class="sticker" id="p5" style="left:250px;top:470px;font-size:96px"><small>Formule Express</small>dès 50 €</div>
+  <div class="sticker" id="p6" style="left:520px;top:1000px;font-size:84px"><small>Formule Confort</small>dès 90 €</div>`);
   T.sparks = Array.from({ length: 10 }, (_, i) => { const s = el('div', 'spark', STAR, w); return { s, x: 120 + (i * 97) % 860, y: 300 + (i * 211) % 1200, d: i * 0.13 }; });
   T.t = {
-    h1: 0.12, h2: 1.15, c1: W('a1', 'taches') - 0.1, c2: W('a1', 'sièges') - 0.05,
-    wipe0: W('a2', 'mérite') - 0.1, wipe1: W('a2', 'mieux') + 0.25,
+    h1: 0.12, h2: 1.15, c1: W('a1', 'poils') - 0.05, c2: W('a1', 'taches') - 0.05, c3: W('a1', 'sièges') - 0.05,
+    wipe0: on('a2') - 0.05, wipe1: on('a2') + 0.75,
     s3: on('a3') - 0.08, bdg: W('a3', 'sublimnet') - 0.05, chez: W('a3', 'chez') - 0.1,
-    s4: on('a4') - 0.08, sl0: W('a5', 'aspiration') - 0.1, sl1: W('a5', 'vitres') + 0.35, p5: W('a5', 'dès') - 0.08,
-    s6: on('a6') - 0.08, p6: W('a6', 'dès') - 0.08,
+    s4: on('a4') - 0.08, sl0: W('a5', 'aspiration') - 0.1, sl1: W('a5', 'vitres') + 0.2, p5: W('a5', 'dès') - 0.08,
+    s6: on('a6') - 0.08, tapA: on('a6') + 0.15, tapB: W('a6', 'sièges') - 0.25, swap6: W('a6', 'sièges') + 0.2, p6: W('a6', 'dès') - 0.08,
     s7: on('a7') - 0.08, k1: W('a7', 'sept') - 0.05, k2: W('a7', 'sept', 1) - 0.05, k3: W('a7', 'bordeaux') - 0.05, k4: W('a7', 'alentours') + 0.05,
     s8: on('a8') - 0.12, e1: W('a8', 'réservez') - 0.1, e2: W('a8', 'sublim', 1) - 0.05, e3: end('a8') - 0.1,
   };
   const t = T.t;
-  T.punch = [{ t: 0.05, z: 0.12, shake: 10 }, { t: t.wipe1 - 0.2, z: 0.1, shake: 8 }, { t: t.s3, z: 0.12 }, { t: t.bdg, z: 0.06 }, { t: t.s4, z: 0.14, shake: 14 },
-    { t: t.p5, z: 0.08, shake: 8 }, { t: t.s6, z: 0.1 }, { t: t.p6, z: 0.08, shake: 8 }, { t: t.s7, z: 0.1 }, { t: t.k1, z: 0.05 }, { t: t.s8, z: 0.12 }, { t: t.e2, z: 0.06, shake: 6 }];
+  // camera punches only on graphic scenes: photos stay whole and unzoomed
+  T.punch = [{ t: t.s3, z: 0.1 }, { t: t.bdg, z: 0.05 }, { t: t.s6, z: 0.08 }, { t: t.p6, z: 0.05, shake: 6 }, { t: t.s8, z: 0.1 }, { t: t.e2, z: 0.05, shake: 5 }];
   T.cuts = [t.s3, t.s4, t.s6, t.s7, t.s8];
   TK.buildCaptions(null, { replace: { cinquante: '50', euros: '€', 'quatre-vingt-dix': '90', sept: '7', sublimnet: 'SublimNet' },
     merge: [[['sublim', 'net', 'point', 'com'], 'sublimnet.com'], [['sept', 'jours', 'sur', 'sept'], '7j/7']], skip: ['a8'] });
 }
-function show(id, a, b) { $(id).style.display = 'block'; $(id).style.opacity = (a <= 0 ? 1 : 1); return; }
-function vis(tt, a, b) { return tt >= a && tt < b ? 1 : 0; }
+const vis = (tt, a, b) => tt >= a && tt < b ? 1 : 0;
 function render(tt) {
   const t = T.t, D = K.VO.duration;
-  // scene visibility (hard cuts)
   $('#s1').style.opacity = vis(tt, -1, t.s3); $('#s2').style.opacity = vis(tt, t.wipe0, t.s3);
   $('#s3').style.opacity = vis(tt, t.s3, t.s4); $('#s45').style.opacity = vis(tt, t.s4, t.s6);
   $('#s6').style.opacity = vis(tt, t.s6, t.s7); $('#s7').style.opacity = vis(tt, t.s7, t.s8); $('#s8').style.opacity = vis(tt, t.s8, 99);
-  // S1: Ken Burns + annotation circles
-  $('#z1').style.transform = `scale(${(1.08 + 0.022 * tt).toFixed(4)}) translate(${(-tt * 4).toFixed(1)}px, ${(tt * 3).toFixed(1)}px)`;
-  $('#c1').setAttribute('stroke-dashoffset', (1 - eio(P(tt, t.c1, t.c1 + 0.45))).toFixed(3));
-  $('#c2').setAttribute('stroke-dashoffset', (1 - eio(P(tt, t.c2, t.c2 + 0.45))).toFixed(3));
-  // S2: wipe reveal
+  // S1: annotation circles on the stains
+  [['#c1', t.c1], ['#c2', t.c2], ['#c3', t.c3]].forEach(([s, a]) => { const c = $(s); c.setAttribute('stroke-dashoffset', (1 - eio(P(tt, a, a + 0.45))).toFixed(3)); c.style.opacity = 1 - P(tt, t.wipe0 - 0.15, t.wipe0); });
+  // S2: wipe reveal (whole photos, no zoom)
   const wq = eio(P(tt, t.wipe0, t.wipe1)); const X = 100 - wq * 100;
   $('#s2').style.clipPath = `inset(0 0 0 ${X.toFixed(2)}%)`;
-  $('#s2 img').style.transform = `scale(${(1.12 - 0.04 * wq + Math.max(0, tt - t.wipe1) * 0.01).toFixed(4)})`;
-  const sm = $('#seam2'); sm.style.left = X + '%'; sm.style.opacity = tt > t.wipe0 && tt < t.wipe1 + 0.15 ? 1 : 0;
+  const sm = $('#seam2'); sm.style.left = X + '%'; sm.style.opacity = tt > t.wipe0 && tt < t.wipe1 + 0.1 ? 1 : 0;
+  const la1 = $('#la1'); la1.style.transform = `scale(${TK.pop(la1, tt, 0.3, 0.35, 0.5)})`; la1.style.opacity = (vis(tt, 0.3, t.s3) * clamp(P(tt, 0.3, 0.38))).toFixed(3);
+  const lp1 = $('#lp1'); lp1.style.transform = `scale(${TK.pop(lp1, tt, t.wipe1 - 0.1, 0.35, 0.5)})`; lp1.style.opacity = (vis(tt, t.wipe1 - 0.1, t.s3) * clamp(P(tt, t.wipe1 - 0.1, t.wipe1))).toFixed(3);
   T.sparks.forEach(sp => { const k = tt - t.wipe1 - sp.d; const on_ = tt < t.s3 && k > 0 && k < 1.2;
     sp.s.style.opacity = on_ ? Math.sin(Math.min(1, k / 1.2) * Math.PI).toFixed(3) : 0;
     sp.s.style.transform = `translate(${sp.x}px, ${sp.y}px) scale(${on_ ? 0.6 + Math.sin(k * 8) * 0.4 + 0.6 : 0}) rotate(${k * 90}deg)`; });
@@ -100,36 +96,37 @@ function render(tt) {
   const h4 = $('#h4'); const h4s = TK.pop(h4, tt, t.s4 + 0.05, 0.4, 0.3, 2.4); h4.style.transform = `scale(${h4s}) rotate(${(1 - clamp(h4s)) * 5}deg)`;
   h4.style.opacity = (vis(tt, t.s4, t.s6) * clamp(P(tt, t.s4 + 0.05, t.s4 + 0.12)) * (1 - P(tt, t.sl0, t.sl0 + 0.25))).toFixed(3);
   // S3: route, car, pin, badge, chip
-  const rq = eio(P(tt, t.s3 + 0.1, t.chez + 0.2)); const route = $('#route'); const L = route.getTotalLength(); const pt = route.getPointAtLength(L * rq);
+  const rq = eio(P(tt, t.s3 + 0.1, t.chez + 0.2)); const route = $('#route'); const pt = route.getPointAtLength(route.getTotalLength() * rq);
   const car = $('#car'); car.style.left = (pt.x - 55) + 'px'; car.style.top = (pt.y - 70) + 'px'; car.style.transform = `rotate(${Math.sin(tt * 9) * 3}deg)`;
   const pin = $('#pin'); const pq = P(tt, t.chez - 0.15, t.chez + 0.45); pin.style.opacity = clamp(pq * 5);
   pin.style.transform = `translateY(${(-(1 - K.spring(pq * 3, 9, 5)) * 120).toFixed(1)}px)`;
-  const ch = $('#chez'); const chs = TK.pop(ch, tt, t.chez + 0.1, 0.4, 0.4); ch.style.transform = `scale(${chs})`;
+  const ch = $('#chez'); ch.style.transform = `scale(${TK.pop(ch, tt, t.chez + 0.1, 0.4, 0.4)})`;
   const b3 = $('#bdg3'); const b3s = TK.pop(b3, tt, t.bdg, 0.5, 0.2, 2.6); b3.style.transform = `scale(${b3s}) rotate(${(1 - clamp(b3s)) * -12}deg)`;
-  // S4/S5 wheel: zoom + slider reveal
-  const s45 = $('#s45'); const imgs = s45.querySelectorAll('img');
-  const wz = 1.2 - 0.12 * eio(P(tt, t.s4, t.sl0)) + 0.03 * Math.max(0, tt - t.sl1);
-  imgs.forEach(i => i.style.transform = `scale(${wz.toFixed(4)})`);
-  let SL = 100 - 100 * eio(P(tt, t.sl0, t.sl1)); SL = lerp(SL, 50, eio(P(tt, t.sl1, t.sl1 + 0.6)));
-  $('#wap').style.clipPath = `inset(0 0 0 ${SL.toFixed(2)}%)`; $('#seam5').style.left = SL + '%'; $('#seam5').style.opacity = tt > t.sl0 - 0.1 ? 1 : 0;
-  s45.querySelectorAll('.lab').forEach((l, i) => { const s = TK.pop(l, tt, t.sl0 + 0.2 + i * 0.1, 0.35, 0.5); l.style.transform = `scale(${s})`; });
+  // S4/S5 wheel: full wipe-through reveal, whole photos
+  const SL = 100 - 100 * eio(P(tt, t.sl0, t.sl1));
+  $('#wap').style.clipPath = `inset(0 0 0 ${SL.toFixed(2)}%)`; $('#seam5').style.left = SL + '%'; $('#seam5').style.opacity = tt > t.sl0 - 0.05 && tt < t.sl1 + 0.1 ? 1 : 0;
+  const s45l = $('#s45').querySelector('.lab.av'); s45l.style.transform = `scale(${TK.pop(s45l, tt, t.s4 + 0.3, 0.35, 0.5)})`; s45l.style.opacity = (clamp(P(tt, t.s4 + 0.3, t.s4 + 0.38)) * (1 - P(tt, t.sl1 - 0.2, t.sl1))).toFixed(3);
+  const lp5 = $('#lp5'); lp5.style.transform = `scale(${TK.pop(lp5, tt, t.sl1 - 0.05, 0.35, 0.5)})`;
   const p5 = $('#p5'); const p5s = TK.pop(p5, tt, t.p5, 0.45, 0.3, 2.4); p5.style.transform = `scale(${p5s}) rotate(${-4 + (1 - clamp(p5s)) * -10}deg)`; p5.style.opacity = (clamp(P(tt, t.p5, t.p5 + 0.08)) * vis(tt, t.s4, t.s6)).toFixed(3);
-  // S6 split
-  $('#s6').querySelectorAll('img').forEach((i, k) => i.style.transform = `scale(${(1.1 + 0.02 * (tt - t.s6)).toFixed(4)})`);
-  $('#s6').querySelectorAll('.lab').forEach((l, i) => { const s = TK.pop(l, tt, t.s6 + 0.15 + i * 0.12, 0.35, 0.5); l.style.transform = `scale(${s})`; });
-  const p6 = $('#p6'); const p6s = TK.pop(p6, tt, t.p6, 0.45, 0.3, 2.4); p6.style.transform = `scale(${p6s}) rotate(${3 + (1 - clamp(p6s)) * 10}deg)`; p6.style.opacity = (clamp(P(tt, t.p6, t.p6 + 0.08)) * vis(tt, t.s6, t.s7)).toFixed(3);
-  // S7 chips
+  // S6 phone: real site, choose Citadine then Confort, prices page with ring on Confort 90 €
+  const ph = $('#ph6'); const phq = eob(P(tt, t.s6 + 0.02, t.s6 + 0.45), 1.6); ph.style.transform = `translateY(${((1 - phq) * 260).toFixed(1)}px) rotate(${((1 - phq) * 6 - 1.5).toFixed(2)}deg)`;
+  TK2.tap($('#tp6a'), tt, t.tapA); TK2.tap($('#tp6b'), tt, t.tapB);
+  const sw = eio(P(tt, t.swap6, t.swap6 + 0.3)); const sb = $('#sc6b'); sb.style.opacity = sw.toFixed(3); sb.style.transform = `translateY(${((1 - sw) * 60).toFixed(1)}px)`;
+  TK2.ring($('#hl6'), tt, t.p6 - 0.1);
+  const h6 = $('#h6'); h6.style.transform = `scale(${TK.pop(h6, tt, t.s6 + 0.1, 0.4, 0.4)})`;
+  const p6 = $('#p6'); const p6s = TK.pop(p6, tt, t.p6, 0.45, 0.3, 2.4); p6.style.transform = `scale(${p6s}) rotate(${4 + (1 - clamp(p6s)) * 10}deg)`; p6.style.opacity = (clamp(P(tt, t.p6, t.p6 + 0.08)) * vis(tt, t.s6, t.s7)).toFixed(3);
+  // S7 chips over the cleaned seat
   [['#k1', t.k1], ['#k2', t.k2], ['#k3', t.k3], ['#k4', t.k4]].forEach(([s, a]) => { const e = $(s); const q = TK.pop(e, tt, a, 0.4, 0.4); e.style.transform = `scale(${q}) rotate(${(1 - clamp(q)) * -8}deg)`; });
   // S8 end card
   const b8 = $('#bdg8'); const b8s = TK.pop(b8, tt, t.s8 + 0.05, 0.55, 0.2, 2.4); b8.style.transform = `scale(${b8s}) rotate(${(1 - clamp(b8s)) * 10}deg)`;
   b8.style.boxShadow = `0 20px 60px rgba(14,11,29,.5), 0 0 ${60 + 30 * Math.sin(tt * 3)}px rgba(139,124,199,.45)`;
-  [['#e1', t.e1], ['#e2', t.e2], ['#e3', t.e3]].forEach(([s, a]) => { const e = $(s); const q = TK.pop(e, tt, a, 0.4, 0.5); e.style.transform = `scale(${q})`; });
-  // camera punch + cuts flash
+  [['#e1', t.e1], ['#e2', t.e2], ['#e3', t.e3]].forEach(([s, a]) => { const e = $(s); e.style.transform = `scale(${TK.pop(e, tt, a, 0.4, 0.5)})`; });
   const c = TK.camera(tt, T.punch);
   $('#world').style.transform = `translate(${c.x.toFixed(1)}px, ${c.y.toFixed(1)}px) rotate(${c.r.toFixed(3)}deg) scale(${c.s.toFixed(4)})`;
-  let fl = 0; for (const cu of T.cuts) fl = Math.max(fl, 1 - P(tt, cu, cu + 0.16)) * (tt >= cu ? 1 : 0) || fl;
-  $('#flash').style.opacity = (fl * 0.55).toFixed(3);
+  let fl = 0; for (const cu of T.cuts) if (tt >= cu) fl = Math.max(fl, 1 - P(tt, cu, cu + 0.16));
+  $('#flash').style.opacity = (fl * 0.5).toFixed(3);
   $('#prog').style.width = (1080 * clamp(tt / D)).toFixed(1) + 'px';
+  $('#cap').style.top = (tt >= t.s6 && tt < t.s7) ? '1420px' : '1180px';
   TK.captions(tt, x => x >= t.s8);
 }
 window.__ready = K.boot('voA.json', build, render);
