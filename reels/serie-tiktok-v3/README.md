@@ -39,6 +39,20 @@ comptes (servies de modèle de style uniquement).
 - **03** – banquette « Pourquoi choisir SublimNet ? 👇 » avec curseur avant/après → 1 à domicile, 2 5,0 Google, 3 7j/7,
   4 rayon de 20 km offert, 5 calendrier → formulaire → « C'est réservé ! » → « Sublime, et net. » + sublimnet.com.
 
+## Couvertures TikTok (`covers/`)
+
+Une couverture par vidéo, 1080×1920, sur le modèle fourni : photo avant en haut, après en bas, pastilles « • AVANT »
+(rose #EC4899) et « • APRÈS » (cyan #22D3EE), bandeau sombre au centre avec « SUBLIMNET · DETAILING À DOMICILE »,
+titre en Playfair Display italique, trait en dégradé rose → violet #8B5CF6 → cyan, sous-titre en italique.
+
+| Couverture | Photos | Titre | Sous-titre |
+|---|---|---|---|
+| `01-cover.jpg` | siège beige avant/après | Avant / Après | Sièges & volant, chez vous |
+| `02-cover.jpg` | tapis avant/après (images des vidéos) | Le vrai prix | Nettoyage à domicile · Bordeaux |
+| `03-cover.jpg` | banquette arrière avant/après | 5 raisons | de choisir SublimNet |
+
+Modèle : `src/cover.html` + `src/cover.js` (titres et cadrages modifiables en haut de `cover.js`).
+
 ## Légendes proposées
 
 **01** – Ce siège n'avait pas vu un nettoyage depuis longtemps… 😳 Résultat à domicile, à Bordeaux ✨

@@ -1,0 +1,37 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Couverture</title>
+<link rel="stylesheet" href="pfd/pfd.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#121113}
+body{font-family:'Playfair Display',serif;color:#fff}
+.half{position:absolute;left:0;width:1080px;height:960px;overflow:hidden}
+.half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#top{top:0}#bot{top:960px}
+#top:after,#bot:after{content:"";position:absolute;inset:0}
+#top:after{background:linear-gradient(180deg,rgba(18,17,19,.10) 0%,rgba(18,17,19,0) 35%,rgba(18,17,19,.55) 75%,rgba(18,17,19,.92) 100%)}
+#bot:after{background:linear-gradient(0deg,rgba(18,17,19,.10) 0%,rgba(18,17,19,0) 35%,rgba(18,17,19,.55) 75%,rgba(18,17,19,.92) 100%)}
+.pill{position:absolute;left:62px;height:70px;padding:0 34px 0 30px;border-radius:35px;background:rgba(26,26,28,.74);display:flex;align-items:center;gap:20px;
+  font-weight:600;font-size:38px;letter-spacing:.32em;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.pill i{width:17px;height:17px;border-radius:50%;flex:none}
+#pa{top:302px}#pa i{background:#EC4899;box-shadow:0 0 12px rgba(236,72,153,.8)}
+#pp{top:1542px}#pp i{background:#22D3EE;box-shadow:0 0 12px rgba(34,211,238,.8)}
+#mid{position:absolute;left:0;right:0;top:960px;transform:translateY(-50%);text-align:center;text-shadow:0 4px 30px rgba(0,0,0,.55)}
+#over{font-size:29px;font-weight:600;letter-spacing:.24em;opacity:.95;text-transform:uppercase}
+#title{font-style:italic;font-weight:700;font-size:150px;line-height:1.12;margin-top:30px;white-space:nowrap;letter-spacing:-.005em;display:inline-block}
+#rule{width:560px;height:5px;margin:28px auto 0;border-radius:3px;background:linear-gradient(90deg,#EC4899,#8B5CF6 50%,#22D3EE)}
+#sub{font-style:italic;font-weight:400;font-size:46px;margin-top:22px}
+</style></head><body>
+<div class="half" id="top"><img id="ia"></div><div class="half" id="bot"><img id="ip"></div>
+<div class="pill" id="pa"><i></i>AVANT</div><div class="pill" id="pp"><i></i>APRÈS</div>
+<div id="mid"><div id="over">SublimNet &nbsp;·&nbsp; Detailing à domicile</div><div id="title"></div><div id="rule"></div><div id="sub"></div></div>
+<script>
+window.setup = async c => {
+  const a = document.getElementById('ia'), p = document.getElementById('ip');
+  a.src = c.av; a.style.objectPosition = c.avPos; p.src = c.ap; p.style.objectPosition = c.apPos;
+  document.getElementById('title').textContent = c.title; document.getElementById('sub').textContent = c.sub;
+  await document.fonts.ready; await Promise.all([a, p].map(i => i.decode()));
+  const t = document.getElementById('title'); let fs = 150; t.style.fontSize = fs + 'px';
+  while (t.getBoundingClientRect().width > 940 && fs > 90) { fs -= 2; t.style.fontSize = fs + 'px'; }
+  return fs;
+};
+</script></body></html>
