@@ -1,6 +1,8 @@
 {
  "t": {
   "uiIn": 0.05,
+  "titleIn": 0.49999999999999994,
+  "titleOut": 2.362,
   "chip": 1.408,
   "live": 2.312,
   "liveHi": 3.337,
@@ -28,24 +30,25 @@
   "url": [
    18.683,
    20.619
-  ]
+  ],
+  "cta": 18.583
  },
  "clicks": [],
  "steps": [
   [
    2.712,
    "01",
-   "À domicile"
+   "On vient chez vous"
   ],
   [
    4.636,
    "02",
-   "Google · 5,0"
+   "5 étoiles sur Google"
   ],
   [
    7.1370000000000005,
    "03",
-   "7j/7"
+   "7 jours sur 7"
   ],
   [
    9.584,

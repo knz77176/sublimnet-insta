@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="fonts/playfair.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:1600px;height:1000px;overflow:hidden;background:#F7F7F5}
-#ad{position:absolute;inset:0;overflow:hidden;background:#F7F7F5;font-family:Manrope,sans-serif;color:#222}
+html,body{width:1600px;height:1000px;overflow:hidden;background:#F6F5FA}
+#ad{position:absolute;inset:0;overflow:hidden;background:#F6F5FA;font-family:Manrope,sans-serif;color:#0E0B1D}
 .abs{position:absolute}
 .pill{position:absolute;display:flex;align-items:center;gap:16px;padding:12px 30px 12px 12px;border-radius:999px;background:#fff;
-  box-shadow:0 10px 30px rgba(20,20,40,.08),0 2px 6px rgba(20,20,40,.05);font-weight:700;font-size:34px;color:#222;white-space:nowrap}
-.pill .ic{width:58px;height:58px;border-radius:50%;background:#F3F1F5;display:grid;place-items:center;font-size:32px;font-family:'Noto Color Emoji'}
+  box-shadow:0 10px 30px rgba(20,20,40,.08),0 2px 6px rgba(20,20,40,.05);font-weight:700;font-size:34px;color:#0E0B1D;white-space:nowrap}
+.pill .ic{width:58px;height:58px;border-radius:50%;background:#EEEBF7;display:grid;place-items:center;font-size:32px;font-family:'Noto Color Emoji'}
 #logo{left:420px;top:390px;width:760px}
 #logo img{width:760px;display:block}
 #shine{position:absolute;inset:0;mix-blend-mode:screen;opacity:0}
@@ -18,13 +18,13 @@ html,body{width:1600px;height:1000px;overflow:hidden;background:#F7F7F5}
 #bar .lg{width:118px;display:grid;place-items:center}
 #bar .lg img{width:84px}
 #bar .f{height:84px;border-radius:42px;padding:16px 30px;display:flex;flex-direction:column;justify-content:center}
-#bar .f b{font-size:20px;font-weight:800;color:#222}
-#bar .f span{font-size:23px;color:#9A9A9A;font-weight:500;white-space:nowrap;margin-top:2px}
-#bar .f span.v{color:#222;font-weight:600}
+#bar .f b{font-size:20px;font-weight:800;color:#0E0B1D}
+#bar .f span{font-size:23px;color:#8A87A3;font-weight:500;white-space:nowrap;margin-top:2px}
+#bar .f span.v{color:#0E0B1D;font-weight:600}
 #f1{width:330px;background:#fff}
 #f1.act{background:#fff;box-shadow:0 6px 26px rgba(20,20,40,.12)}
 #bar .sep{width:1.5px;height:44px;background:#E6E6E6}
-#go{margin-left:auto;margin-right:22px;width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#8A55A8,#6E4A9E);display:grid;place-items:center;box-shadow:0 8px 20px rgba(123,75,148,.35)}
+#go{margin-left:auto;margin-right:22px;width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#8B7CC7,#5A3B8C);display:grid;place-items:center;box-shadow:0 8px 20px rgba(90,59,140,.35)}
 .caret{display:inline-block;width:2px;height:24px;background:#222;vertical-align:middle;margin-left:1px}
 #drop{left:358px;top:568px;width:420px;border-radius:26px;background:#fff;padding:14px;box-shadow:0 18px 50px rgba(20,20,40,.12)}
 #drop div{display:flex;align-items:center;gap:16px;padding:12px 14px;border-radius:16px;font-size:22px;font-weight:600}
@@ -32,54 +32,58 @@ html,body{width:1600px;height:1000px;overflow:hidden;background:#F7F7F5}
 #drop div small{display:block;font-size:16px;color:#9a9a9a;font-weight:500}
 /* map */
 #map{left:0;top:0;width:1600px;height:1000px;transform-origin:50% 60%}
-.mp{position:absolute;padding:9px 18px;border-radius:999px;background:#fff;font-weight:800;font-size:20px;color:#222;white-space:nowrap;
+.mp{position:absolute;padding:9px 18px;border-radius:999px;background:#fff;font-weight:800;font-size:20px;color:#0E0B1D;white-space:nowrap;
   box-shadow:0 6px 18px rgba(20,20,40,.10),0 1px 3px rgba(20,20,40,.06);transform:translate(-50%,-50%)}
-.lbl{position:absolute;font-size:15px;font-weight:800;letter-spacing:.16em;color:#B1B1AC;transform:translate(-50%,-50%);white-space:nowrap}
+.lbl{position:absolute;font-size:15px;font-weight:800;letter-spacing:.16em;color:#A9A3C4;transform:translate(-50%,-50%);white-space:nowrap}
 #home{left:800px;top:640px}
-#home .dot{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;background:#7B4B94;border:5px solid #fff;box-shadow:0 4px 12px rgba(123,75,148,.5)}
-#home .ring{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;border:3px solid rgba(123,75,148,.55)}
-#home .tag{position:absolute;left:0;top:-58px;transform:translateX(-50%);background:#222;color:#fff;font-weight:800;font-size:20px;padding:8px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+#home .dot{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;background:#5A3B8C;border:5px solid #fff;box-shadow:0 4px 12px rgba(90,59,140,.5)}
+#home .ring{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;border:3px solid rgba(90,59,140,.55)}
+#home .tag{position:absolute;left:0;top:-58px;transform:translateX(-50%);background:#2A1E4D;color:#fff;font-weight:800;font-size:20px;padding:8px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.2)}
 /* card -> panel */
 #panel{position:absolute;background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 24px 70px rgba(20,20,40,.16),0 4px 14px rgba(20,20,40,.06)}
 #photo{position:absolute;left:0;top:0;overflow:hidden}
-#photo img{position:absolute;height:100%;left:50%;transform:translateX(-50%)}
+.pair{position:absolute;inset:0}
+.half{position:absolute;top:0;bottom:0;width:50%;overflow:hidden}.half.l{left:0}.half.r{right:0}
+.pair img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+#slider{position:absolute;top:0;bottom:0;width:4px;margin-left:-2px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.7)}
+#slider i{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(14,11,29,.35);display:grid;place-items:center;font-style:normal;color:#5A3B8C;font-weight:800;font-size:18px}
 #photo .seam{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 10px rgba(255,255,255,.8)}
-.ptag{position:absolute;top:18px;padding:8px 16px;border-radius:999px;background:#fff;font-weight:800;font-size:17px;color:#222;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.ptag{position:absolute;top:18px;padding:8px 16px;border-radius:999px;background:#fff;font-weight:800;font-size:17px;color:#0E0B1D;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .ba{position:absolute;bottom:18px;padding:6px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:.12em;color:#fff}
 #heart{position:absolute;top:16px;right:16px;width:42px;height:42px}
 #cinfo{position:absolute;left:24px;right:24px;bottom:18px}
 #cinfo b{font-size:23px;font-weight:800}
-#cinfo div{display:flex;justify-content:space-between;font-size:20px;color:#717171;margin-top:4px}
+#cinfo div{display:flex;justify-content:space-between;font-size:20px;color:#6E6A88;margin-top:4px}
 #det{position:absolute;top:0;bottom:0;right:0;padding:40px 46px;opacity:0}
-#det .k{font-size:17px;font-weight:800;letter-spacing:.14em;color:#9b9b9b;text-transform:uppercase}
-#det h3{font-family:'Playfair Display',serif;font-weight:700;font-size:42px;color:#1d1d1f;margin:6px 0 20px}
+#det .k{font-size:17px;font-weight:800;letter-spacing:.14em;color:#8A87A3;text-transform:uppercase}
+#det h3{font-family:'Playfair Display',serif;font-weight:700;font-size:42px;color:#0E0B1D;margin:6px 0 20px}
 .opt{display:flex;align-items:center;gap:18px;border:2px solid #EBEBEB;border-radius:18px;padding:16px 20px;margin-bottom:14px;background:#fff}
 .opt .rd{width:26px;height:26px;border-radius:50%;border:2.5px solid #C9C9C9;flex:none;position:relative}
-.opt .rd i{position:absolute;inset:4px;border-radius:50%;background:#7B4B94;transform:scale(0)}
+.opt .rd i{position:absolute;inset:4px;border-radius:50%;background:#5A3B8C;transform:scale(0)}
 .opt b{font-size:25px;font-weight:800;display:block}
-.opt span{font-size:18px;color:#8a8a8a;font-weight:500}
+.opt span{font-size:18px;color:#8A87A3;font-weight:500}
 .opt em{margin-left:auto;font-style:normal;font-weight:800;font-size:27px}
 .slots{display:flex;align-items:center;gap:12px;margin:6px 0 18px}
 .slots .s{padding:10px 20px;border-radius:12px;border:2px solid #EBEBEB;font-weight:800;font-size:21px}
-.slots .s.on{border-color:#7B4B94;background:#F6F1FA;color:#7B4B94}
-.slots span{font-size:19px;color:#8a8a8a;font-weight:600;margin-left:6px}
+.slots .s.on{border-color:#5A3B8C;background:#F1EEF9;color:#5A3B8C}
+.slots span{font-size:19px;color:#8A87A3;font-weight:600;margin-left:6px}
 .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1.5px solid #EFEFEF;padding-top:16px}
-.tot span{font-size:22px;font-weight:700;color:#555}
+.tot span{font-size:22px;font-weight:700;color:#3A3A52}
 .tot b{font-size:44px;font-weight:800}
-#btn{margin-top:18px;height:74px;border-radius:18px;background:linear-gradient(95deg,#8A55A8,#6C4E9F);color:#fff;font-weight:800;font-size:27px;display:grid;place-items:center;box-shadow:0 10px 24px -6px rgba(123,75,148,.5)}
-#fill{position:absolute;border-radius:18px;background:radial-gradient(120% 140% at 50% 45%,#9B66BF 0%,#7B4B94 45%,#5D5FB0 100%);opacity:0}
+#btn{margin-top:18px;height:74px;border-radius:18px;background:linear-gradient(95deg,#5A3B8C,#8B7CC7);color:#fff;font-weight:800;font-size:27px;display:grid;place-items:center;box-shadow:0 10px 24px -6px rgba(90,59,140,.5)}
+#fill{position:absolute;border-radius:18px;background:radial-gradient(120% 140% at 50% 42%,#8B7CC7 0%,#5A3B8C 48%,#2A1E4D 100%);opacity:0}
 #ok{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;opacity:0}
-#ok .c{width:108px;height:108px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(40,10,60,.3)}
+#ok .c{width:108px;height:108px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(14,11,29,.35)}
 #ok h2{font-family:'Playfair Display',serif;font-weight:800;font-size:78px;margin-top:30px;letter-spacing:-.01em}
 #ok p{font-size:28px;font-weight:600;opacity:.88;margin-top:10px}
 .cf{position:absolute;border-radius:50%}
 #cursor{position:absolute;left:0;top:0;width:34px;height:50px;z-index:50;filter:drop-shadow(0 3px 4px rgba(0,0,0,.25))}
-#ring{position:absolute;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;border:3px solid rgba(123,75,148,.6);z-index:49;opacity:0}
-#tag2{left:0;right:0;top:668px;text-align:center;font-size:30px;font-weight:600;color:#8d8d8d;opacity:0}
-#tag2 b{color:#7B4B94;font-weight:800}
+#ring{position:absolute;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;border:3px solid rgba(90,59,140,.6);z-index:49;opacity:0}
+#tag2{left:0;right:0;top:668px;text-align:center;font-size:30px;font-weight:600;color:#8A87A3;opacity:0}
+#tag2 b{color:#5A3B8C;font-weight:800}
 #endlogo{left:420px;top:350px;width:760px}
 #endlogo img{width:760px;display:block}
-#pen{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#7B4B94;opacity:0}
+#pen{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#5A3B8C;opacity:0}
 </style></head>
 <body><div id="ad"></div>
 <script src="adkit.js"></script>
@@ -92,13 +96,13 @@ function build() {
   // ---------- map
   const map = el('div', 'abs', '', ad); map.id = 'map';
   map.innerHTML = `<svg width="1600" height="1000" viewBox="0 0 1600 1000">
-    <rect width="1600" height="1000" fill="#F1F1EE"/>
-    <g fill="#E9E9E5">
+    <rect width="1600" height="1000" fill="#EFEDF6"/>
+    <g fill="#E7E4F1">
       <rect x="60" y="80" width="260" height="170" rx="18"/><rect x="380" y="60" width="300" height="150" rx="18"/>
       <rect x="1220" y="70" width="320" height="140" rx="18"/><rect x="980" y="680" width="260" height="200" rx="18"/>
       <rect x="110" y="820" width="300" height="150" rx="18"/><rect x="1300" y="820" width="260" height="150" rx="18"/>
     </g>
-    <g fill="#D4EBCC">
+    <g fill="#DCD6EF">
       <path d="M90 300 q120 -60 230 10 q60 70 -20 130 q-120 60 -210 -20 q-50 -60 0 -120z"/>
       <path d="M560 110 q90 -40 170 20 q40 60 -30 100 q-100 40 -150 -20 q-30 -60 10 -100z"/>
       <path d="M1290 520 q80 -30 150 30 q30 60 -40 90 q-90 30 -130 -30 q-20 -60 20 -90z"/>
@@ -114,12 +118,12 @@ function build() {
       <path d="M1100 460 C 1300 430, 1450 420, 1650 400" stroke-width="9"/>
       <path d="M540 1020 C 560 900, 600 800, 700 700" stroke-width="8"/>
     </g>
-    <path id="river2" d="M-80 790 C 280 840, 520 640, 760 570 S 1180 330, 1700 250" fill="none" stroke="#CFE6F6" stroke-width="96" stroke-linecap="round"/>
-    <path id="river" d="M-80 790 C 280 840, 520 640, 760 570 S 1180 330, 1700 250" fill="none" stroke="#B9DCF3" stroke-width="80" stroke-linecap="round"/>
+    <path id="river2" d="M-80 790 C 280 840, 520 640, 760 570 S 1180 330, 1700 250" fill="none" stroke="#DDD8EE" stroke-width="96" stroke-linecap="round"/>
+    <path id="river" d="M-80 790 C 280 840, 520 640, 760 570 S 1180 330, 1700 250" fill="none" stroke="#C9C2E3" stroke-width="80" stroke-linecap="round"/>
     <g fill="#fff"><rect x="355" y="660" width="22" height="120" rx="4" transform="rotate(32 366 720)"/>
       <rect x="760" y="510" width="22" height="120" rx="4" transform="rotate(20 771 570)"/>
       <rect x="1120" y="345" width="22" height="120" rx="4" transform="rotate(12 1131 405)"/></g>
-    <text x="1010" y="440" fill="#8FBFE0" font-family="Manrope" font-weight="800" font-size="17" letter-spacing="4" font-style="italic" transform="rotate(-18 1010 440)">LA GARONNE</text>
+    <text x="1010" y="440" fill="#8B7CC7" font-family="Manrope" font-weight="800" font-size="17" letter-spacing="4" font-style="italic" transform="rotate(-18 1010 440)">LA GARONNE</text>
   </svg>`;
   const labels = [['CHARTRONS', 470, 250], ['CAUDÉRAN', 170, 500], ['LA BASTIDE', 1240, 560], ['SAINT-MICHEL', 680, 790], ['TALENCE', 330, 930], ['BÈGLES', 900, 950], ['CENON', 1420, 330], ['BORDEAUX', 820, 300]];
   labels.forEach(([s, x, y]) => { const l = el('div', 'lbl', s, map); l.style.left = x + 'px'; l.style.top = y + 'px'; });
@@ -130,19 +134,20 @@ function build() {
   T.pills = [['🍪', 'Miettes'], ['🐾', 'Poils'], ['☕', 'Taches']].map(([e, s], i) => {
     const p = el('div', 'pill', `<div class="ic">${e}</div>${s}`, ad); return p; });
   // ---------- logo
-  const lg = el('div', 'abs', '<img src="assets/logo.svg">', ad); lg.id = 'logo';
+  const lg = el('div', 'abs', '<img src="assets/logo_p.svg">', ad); lg.id = 'logo';
   // ---------- search
-  const bar = el('div', 'abs', `<div class="lg"><img src="assets/logo.svg"></div>
+  const bar = el('div', 'abs', `<div class="lg"><img src="assets/logo_p.svg"></div>
     <div class="f" id="f1"><b>Adresse</b><span id="q">Où intervenir ?</span></div><div class="sep"></div>
     <div class="f"><b>Service</b><span class="v">Auto · intérieur</span></div><div class="sep"></div>
     <div class="f"><b>Créneau</b><span class="v">Demain, 14:30</span></div>
     <div id="go"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg></div>`, ad); bar.id = 'bar';
   const drop = el('div', 'abs', `<div><i>📍</i><span>Bordeaux<small>Gironde, France</small></span></div><div><i>📍</i><span>Bordeaux-Bastide<small>Rive droite</small></span></div>`, ad); drop.id = 'drop';
   // ---------- card / panel
-  const panel = el('div', '', `<div id="photo"><img src="assets/ba.jpg"><div class="seam"></div>
+  const panel = el('div', '', `<div id="photo"><div class="pair" id="pairS"><div class="half l"><img src="assets/seat_av.jpg"></div><div class="half r"><img src="assets/seat_ap.jpg"></div><div class="seam"></div></div>
+      <div class="pair" id="pairW" style="opacity:0"><img src="assets/wheel_av.jpg"><img id="wAp" src="assets/wheel_ap.jpg"><div id="slider"><i>⇆</i></div></div>
       <div class="ptag" style="left:18px">Coup de cœur clients</div>
-      <svg id="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.3 2.3 4.5 6 4.5c2.2 0 3.6 1.2 4.4 2.4h3.2c.8-1.2 2.2-2.4 4.4-2.4 3.7 0 5.7 3.8 4 7.2C19.5 16.4 12 21 12 21z" fill="#7B4B94" stroke="#fff" stroke-width="1.6"/></svg>
-      <div class="ba" id="bAv" style="left:18px;background:rgba(20,20,26,.72)">AVANT</div><div class="ba" id="bAp" style="right:18px;background:linear-gradient(95deg,#8A55A8,#5D6FB5)">APRÈS</div></div>
+      <svg id="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.3 2.3 4.5 6 4.5c2.2 0 3.6 1.2 4.4 2.4h3.2c.8-1.2 2.2-2.4 4.4-2.4 3.7 0 5.7 3.8 4 7.2C19.5 16.4 12 21 12 21z" fill="#5A3B8C" stroke="#fff" stroke-width="1.6"/></svg>
+      <div class="ba" id="bAv" style="left:18px;background:rgba(14,11,29,.78)">AVANT</div><div class="ba" id="bAp" style="right:18px;background:linear-gradient(95deg,#5A3B8C,#8B7CC7)">APRÈS</div></div>
     <div id="cinfo"><b>Nettoyage intérieur · Citadine</b><div><span>dès 50 € · à domicile</span><span>★ 5,0</span></div></div>
     <div id="det"><div class="k">SublimNet · Bordeaux</div><h3>Votre formule</h3>
       <div class="opt" id="oE"><div class="rd"><i></i></div><div><b>Express</b><span>Aspiration · plastiques · vitres</span></div><em>50 €</em></div>
@@ -151,11 +156,11 @@ function build() {
       <div class="tot"><span>Total</span><b id="tot">50 €</b></div>
       <div id="btn">Réserver</div></div>
     <div id="fill"></div>
-    <div id="ok"><div class="c"><svg width="58" height="58" viewBox="0 0 24 24"><path id="ck" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#7B4B94" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24" stroke-dashoffset="24"/></svg></div>
+    <div id="ok"><div class="c"><svg width="58" height="58" viewBox="0 0 24 24"><path id="ck" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#5A3B8C" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24" stroke-dashoffset="24"/></svg></div>
       <h2>C'est réservé !</h2><p>À demain, 14:30 · Bordeaux</p></div>`, ad); panel.id = 'panel';
   // confetti
   T.cf = [];
-  const cols = ['#7B4B94', '#5B7CC9', '#B79AD6', '#E2CFF1', '#8A55A8', '#6F8FD6'];
+  const cols = ['#5A3B8C', '#8B7CC7', '#C9C2E3', '#2A1E4D', '#8B7CC7', '#3A3A52'];
   let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   for (let i = 0; i < 46; i++) {
     const c = el('div', 'cf', '', ad); const s = 8 + rnd() * 10;
@@ -164,7 +169,7 @@ function build() {
     T.cf.push({ c, a: rnd() * Math.PI * 2, v: 380 + rnd() * 520, r: rnd() * 720 - 360, d: rnd() * 0.15 });
   }
   const pen = el('div', '', '', ad); pen.id = 'pen';
-  const endlogo = el('div', 'abs', '<img src="assets/logo.svg">', ad); endlogo.id = 'endlogo';
+  const endlogo = el('div', 'abs', '<img src="assets/logo_p.svg">', ad); endlogo.id = 'endlogo';
   const tag2 = el('div', 'abs', '', ad); tag2.id = 'tag2';
   el('div', '', '', ad).id = 'ring';
   const cur = el('div', '', `<svg viewBox="0 0 34 50" width="34" height="50"><path d="M3 3 L3 39 L12 30.5 L18.5 45 L24.5 42.3 L18 28 L30 28 Z" fill="#111" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/></svg>`, ad); cur.id = 'cursor';
@@ -177,7 +182,7 @@ function build() {
     logoOut: on('a3') - 0.3, barIn: on('a3') - 0.25, click1: on('a3') + 0.45, type: [on('a3') + 0.5, on('a3') + 0.9], drop: on('a3') + 0.62,
     go: a3on - 0.14, mapIn: a3on - 0.02, chez: chez - 0.1,
     card: W('a4', 'preuve') - 0.18, ba: W('a4', 'image') - 0.05,
-    panel: on('a5') - 0.4, express: W('a5', 'express') + 0.32, dès50: W('a5', 'dès'),
+    panel: on('a5') - 0.4, express: W('a5', 'express') + 0.32, dès50: W('a5', 'dès'), wipe0: W('a5', 'aspiration') - 0.1, wipe1: W('a5', 'vitres') + 0.3,
     confort: on('a6') + 0.32, dès90: W('a6', 'dès'),
     slot: on('a7') + 0.38, reserve: W('a7', 'bordeaux') - 0.08,
     shrink: on('a8') - 0.62, dot: on('a8') - 0.1, logo2: on('a8') + 0.08, tag: W('a8', 'réservez') - 0.05, tagEnd: end('a8') - 0.1,
@@ -284,6 +289,11 @@ function render(tt) {
   const phW = lerp(440, 500, pm), phH = lerp(300, 620, pm);
   Ph.style.width = phW + 'px'; Ph.style.height = phH + 'px';
   Ph.style.opacity = (1 - P(tt, t.reserve + 0.2, t.reserve + 0.45)).toFixed(3);
+  const wq = eio(P(tt, t.panel + 0.35, t.panel + 0.8)) * (1 - eio(P(tt, t.confort - 0.3, t.confort + 0.15)));
+  $('#pairW').style.opacity = wq.toFixed(3);
+  let SL = lerp(100, 34, eio(P(tt, t.wipe0, t.wipe1))); SL = lerp(SL, 50, eio(P(tt, t.wipe1, t.wipe1 + 0.6)));
+  $('#wAp').style.clipPath = `inset(0 0 0 ${SL.toFixed(2)}%)`; $('#slider').style.left = SL.toFixed(2) + '%';
+  $('#slider').style.opacity = clamp(P(tt, t.wipe0 - 0.2, t.wipe0)).toFixed(3);
   const ba = eob(P(tt, t.ba, t.ba + 0.4));
   [['#bAv', 0], ['#bAp', 0.1]].forEach(([s, d]) => { const e = $(s); const qq = eob(P(tt, t.ba + d, t.ba + d + 0.4)); e.style.opacity = clamp(P(tt, t.ba + d, t.ba + d + 0.15)); e.style.transform = `scale(${0.5 + 0.5 * qq})`; });
   $('#heart').style.transform = `scale(${1 + 0.25 * Math.sin(P(tt, t.ba + 0.2, t.ba + 0.6) * Math.PI)})`;
@@ -293,15 +303,15 @@ function render(tt) {
   // selections
   const selE = tt >= t.express && tt < t.confort, selC = tt >= t.confort;
   [['#oE', selE, t.express], ['#oC', selC, t.confort]].forEach(([s, on_, t0]) => {
-    const e = $(s); e.style.borderColor = on_ ? '#7B4B94' : '#EBEBEB'; e.style.background = on_ ? '#F7F2FA' : '#fff';
-    e.querySelector('.rd').style.borderColor = on_ ? '#7B4B94' : '#C9C9C9';
+    const e = $(s); e.style.borderColor = on_ ? '#5A3B8C' : '#EBEBEB'; e.style.background = on_ ? '#F1EEF9' : '#fff';
+    e.querySelector('.rd').style.borderColor = on_ ? '#5A3B8C' : '#C9C9C9';
     e.querySelector('.rd i').style.transform = `scale(${on_ ? eob(P(tt, t0, t0 + 0.3)) : 0})`;
     e.style.transform = `scale(${1 - 0.025 * P(tt, t0 - 0.05, t0) * (1 - P(tt, t0 + 0.05, t0 + 0.2))})`;
   });
   const tv = tt < t.dès90 ? 50 : Math.round(lerp(50, 90, eo(P(tt, t.dès90, t.dès90 + 0.6))));
   const tot = $('#tot'); tot.textContent = (tt < t.express ? '—' : tv + ' €');
   const pul = Math.max(Math.sin(P(tt, t.dès50, t.dès50 + 0.5) * Math.PI), Math.sin(P(tt, t.dès90, t.dès90 + 0.7) * Math.PI));
-  tot.style.color = pul > 0.05 ? `rgb(${lerp(34, 123, pul)},${lerp(34, 75, pul)},${lerp(34, 148, pul)})` : '#222';
+  tot.style.color = pul > 0.05 ? `rgb(${lerp(14, 90, pul)},${lerp(11, 59, pul)},${lerp(29, 140, pul)})` : '#0E0B1D';
   tot.style.transform = `scale(${1 + 0.1 * pul})`; tot.style.display = 'inline-block'; tot.style.transformOrigin = '100% 70%';
   $('#s2').classList.toggle('on', tt >= t.slot);
   $('#btn').style.transform = `scale(${1 - 0.04 * P(tt, t.reserve - 0.05, t.reserve) * (1 - P(tt, t.reserve + 0.05, t.reserve + 0.2))})`;

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>SublimNet – Pourquoi (plein écran)</title>
+<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="fonts/playfair.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0E0B1D;--in:#2A1E4D;--pu:#5A3B8C;--la:#8B7CC7;--li:#C9C2E3;--sl:#3A3A52;--glow:rgba(139,124,199,.55)}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#ad{position:absolute;inset:0;overflow:hidden;background:radial-gradient(90% 60% at 50% 38%,#1C1538 0%,#0E0B1D 62%,#09071300 100%),#0E0B1D;font-family:Manrope,sans-serif;color:#fff}
+.abs{position:absolute}
+#cam{position:absolute;inset:0;perspective:2200px}
+#ui{position:absolute;left:0;top:0;width:1080px;height:3000px;transform-origin:0 0}
+.chip{position:absolute;top:200px;height:78px;padding:0 36px;border-radius:999px;background:#191331;color:var(--li);font-weight:700;font-size:31px;display:flex;align-items:center;border:2px solid var(--sl);white-space:nowrap}
+.chip.on{background:var(--la);color:var(--bg);border-color:var(--la);box-shadow:0 0 26px var(--glow),0 0 70px rgba(139,124,199,.25)}
+.card{position:absolute;left:60px;width:960px;border-radius:34px;background:#171030;border:1.5px solid var(--in)}
+#ba{top:330px;height:600px}
+.ph{position:absolute;top:22px;width:448px;height:440px;border-radius:24px;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph b{position:absolute;bottom:16px;left:16px;padding:7px 16px;border-radius:999px;font-size:18px;letter-spacing:.12em;font-weight:800}
+#ba h3{position:absolute;left:34px;top:486px;font-size:36px;font-weight:800}
+#ba p{position:absolute;left:34px;top:536px;font-size:25px;color:#a9a3c4;font-weight:600}
+#live{top:970px;height:250px;background:linear-gradient(90deg,rgba(139,124,199,.18),rgba(139,124,199,.05) 70%);border:2px solid rgba(139,124,199,.6);box-shadow:0 0 34px rgba(139,124,199,.2)}
+#live .k{position:absolute;left:38px;top:32px;font-size:24px;font-weight:800;letter-spacing:.14em;color:var(--la)}
+#live .k i{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--la);margin-right:12px;box-shadow:0 0 12px var(--la)}
+#live .on{position:absolute;right:38px;top:32px;font-size:23px;font-weight:700;color:var(--li)}
+.av{position:absolute;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:32px;color:#fff;border:4px solid #171030}
+#live .txt{position:absolute;left:270px;top:100px;font-size:40px;font-weight:800;line-height:1.2}
+#live .txt small{display:block;font-size:26px;color:#a9a3c4;font-weight:600}
+.sec{position:absolute;left:64px;top:1290px;font-size:40px;font-weight:800}
+.sec span{position:absolute;left:640px;top:6px;white-space:nowrap;font-size:28px;color:var(--li);font-weight:700}
+.rv{position:absolute;left:60px;width:960px;height:150px;border-radius:28px}
+.rv .av{left:22px;top:33px}
+.rv b{position:absolute;left:128px;top:34px;font-size:33px;font-weight:800}
+.rv small{position:absolute;left:128px;top:82px;font-size:23px;color:#a9a3c4;font-weight:600}
+.rv .st{position:absolute;right:86px;top:50px;font-size:34px;letter-spacing:4px}
+.rv .chev{position:absolute;right:26px;top:54px;width:38px;height:38px}
+#exp{position:absolute;left:60px;width:960px;overflow:hidden;border-radius:0 0 28px 28px;background:#171030}
+#exp .in{padding:4px 40px 20px 128px}
+.lab{font-size:24px;color:#a9a3c4;font-weight:700;margin:14px 0 12px}
+.re{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border-radius:999px;background:#1d1638;border:2px solid var(--sl);font-weight:800;font-size:27px;margin-right:12px}
+.re.on{border-color:var(--la);color:#efeaff;box-shadow:0 0 18px rgba(139,124,199,.35)}
+.cm{display:flex;align-items:flex-start;gap:18px;margin:14px 0}
+.cm .av{position:relative;width:60px;height:60px;font-size:24px;border-width:2px;flex:none}
+.cm b{font-size:26px;font-weight:800;display:block}
+.cm span{font-size:28px;color:#e6e1f5;font-weight:600}
+.cm em{font-style:normal;font-size:20px;color:#8A87A3;font-weight:600;margin-left:10px}
+#inp{position:absolute;left:60px;width:960px;height:124px;border-radius:62px;background:#171030;border:2px solid var(--sl);display:flex;align-items:center;padding:0 22px 0 26px;gap:20px}
+#inp .t{font-size:34px;color:#8A87A3;font-weight:600;flex:1;white-space:nowrap}
+#inp .t.v{color:#fff}
+#send{width:84px;height:84px;border-radius:50%;background:var(--la);display:grid;place-items:center;box-shadow:0 0 26px var(--glow)}
+.caret{display:inline-block;width:4px;height:40px;background:var(--la);vertical-align:middle;margin-left:3px}
+.bub{position:absolute;padding:22px 34px;border-radius:36px;font-size:34px;font-weight:700;white-space:nowrap}
+/* overlays */
+#title{position:absolute;left:0;right:0;top:330px;text-align:center;font-family:'Playfair Display',serif;font-weight:800;font-size:110px;line-height:1.08;letter-spacing:-.02em;z-index:6}
+#title .w{display:inline-block;margin:0 .1em}
+#title .a{font-style:italic;color:var(--la);text-shadow:0 0 34px var(--glow)}
+#dim{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 30%,rgba(14,11,29,.55),rgba(14,11,29,.85));z-index:5;opacity:0}
+#band{position:absolute;left:0;right:0;top:1220px;height:700px;background:linear-gradient(180deg,rgba(14,11,29,0) 0%,rgba(14,11,29,.9) 32%,rgba(14,11,29,.97) 100%);opacity:0;z-index:4}
+#step{position:absolute;display:flex;align-items:baseline;gap:20px;z-index:6}
+#step .n{font-family:'Playfair Display',serif;font-style:italic;font-weight:800;font-size:96px;color:var(--la);text-shadow:0 0 28px var(--glow)}
+#step .l{font-size:30px;font-weight:800;letter-spacing:.12em;color:var(--li);text-transform:uppercase}
+.kt{position:absolute;left:0;right:0;top:760px;text-align:center;font-family:'Playfair Display',serif;font-weight:700;font-size:108px;line-height:1.16;letter-spacing:-.01em;z-index:6}
+.kt .w{display:inline-block;margin:0 .1em}
+.kt .a{color:var(--la);font-style:italic;text-shadow:0 0 34px var(--glow)}
+.kpill{display:inline-flex;align-items:center;gap:12px;padding:10px 26px;border-radius:999px;border:3px solid var(--la);font-family:Manrope;font-size:50px;font-weight:800;color:#efeaff;margin:0 .15em;box-shadow:0 0 22px var(--glow);vertical-align:middle}
+#icon{left:540px;top:700px;width:230px;height:230px;margin:-115px 0 0 -115px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#C9C2E3,#8B7CC7 45%,#5A3B8C 85%);box-shadow:0 0 60px rgba(139,124,199,.75),0 0 170px rgba(139,124,199,.35);display:grid;place-items:center;z-index:7}
+#icon img{height:150px}
+#wm{left:150px;top:860px;width:780px;z-index:7}
+#wm img{width:780px;display:block;filter:drop-shadow(0 0 24px rgba(139,124,199,.45))}
+#tagl{left:0;right:0;top:1150px;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:70px;color:var(--la);text-shadow:0 0 30px var(--glow);z-index:7}
+#url{left:0;right:0;top:1268px;text-align:center;font-size:44px;font-weight:700;color:var(--li);z-index:7}
+#cta{left:290px;top:1360px;width:500px;height:104px;border-radius:52px;background:linear-gradient(95deg,#5A3B8C,#8B7CC7);display:grid;place-items:center;font-size:38px;font-weight:800;box-shadow:0 0 40px rgba(139,124,199,.5);z-index:7}
+#vig{position:absolute;inset:0;background:radial-gradient(100% 70% at 50% 45%,rgba(0,0,0,0) 55%,rgba(5,4,12,.6) 100%);pointer-events:none;z-index:8}
+</style></head>
+<body><div id="ad"></div>
+<script src="adkit.js"></script>
+<script>
+const {clamp, lerp, P, eio, eo, eo4, eob, $, el, on, end, W, typed, noise} = K;
+let T = {};
+const AVC = ['#C26A5A', '#3D8C6E', '#5A3B8C', '#B0617E', '#C79A2E'];
+function build() {
+  const ad = $('#ad');
+  const cam = el('div', '', '', ad); cam.id = 'cam';
+  const ui = el('div', '', '', cam); ui.id = 'ui';
+  ui.insertAdjacentHTML('beforeend', `<img class="abs" src="assets/logo_w2.svg" style="left:56px;top:60px;height:96px">
+    <div class="abs" style="right:60px;top:70px;width:78px;height:78px;border-radius:50%;background:#2A1E4D;display:grid;place-items:center;font-weight:800;font-size:30px;color:#C9C2E3;border:2px solid #3A3A52">C<span style="position:absolute;right:2px;top:4px;width:18px;height:18px;border-radius:50%;background:#8B7CC7;box-shadow:0 0 10px #8B7CC7"></span></div>`);
+  T.chips = ['Tous', 'Avis', 'Auto', 'Canapé', 'Matelas'].map(s => el('div', 'chip', s, ui));
+  let x = 60; T.chips.forEach(c => { c.style.left = x + 'px'; x += c.textContent.length * 19 + 72 + 16; });
+  el('div', 'card', `<div class="ph" style="left:22px"><img src="assets/seat_av.jpg"><b style="background:rgba(14,11,29,.8)">AVANT</b></div>
+     <div class="ph" style="left:490px"><img src="assets/seat_ap.jpg"><b style="background:linear-gradient(95deg,#5A3B8C,#8B7CC7)">APRÈS</b></div>
+     <h3>Avant / Après</h3><p>Sièges en tissu · intérieur auto · Bordeaux</p>`, ui).id = 'ba';
+  el('div', 'card', `<div class="k"><i></i>INTERVENANT EN ROUTE</div><div class="on">● en ligne</div>
+     <div class="av" style="left:38px;top:110px;background:${AVC[2]}">S</div><div class="av" style="left:104px;top:110px;background:${AVC[0]}">N</div><div class="av" style="left:170px;top:110px;background:${AVC[1]}">+3</div>
+     <div class="txt">Arrive dans <span id="mins">14</span> min<small>chez vous, Bordeaux</small></div>`, ui).id = 'live';
+  el('div', 'sec', 'Avis récents<span>★ 5,0 · Google</span>', ui);
+  const revs = [['J', 'Julie M.', 'Canapé 3 places · Talence', 0], ['K', 'Karim B.', 'Auto Confort · Mérignac', 1], ['S', 'Sophie L.', 'Matelas 2 places · Bordeaux', 3]];
+  T.revs = revs.map(r => el('div', 'rv', `<div class="av" style="background:${AVC[r[3]]}">${r[0]}</div><b>${r[1]}</b><small>${r[2]}</small><div class="st"></div>
+     <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="#8A87A3" stroke-width="2.4" stroke-linecap="round"/></svg>`, ui));
+  el('div', '', `<div class="in"><div class="lab">Réactions</div><span class="re on">★ 5,0</span><span class="re">❤️ 14</span><span class="re">👏 9</span>
+     <div class="lab" style="margin-top:24px">Commentaires</div>
+     <div class="cm"><div class="av" style="background:${AVC[0]}">J</div><div><b>Julie M.<em>il y a 2 j</em></b><span>Canapé comme neuf, merci ! 😍</span></div></div>
+     <div class="cm"><div class="av" style="background:#5A3B8C">S</div><div><b>SublimNet<em>il y a 2 j</em></b><span>Merci Julie, à bientôt ✨</span></div></div></div>`, ui).id = 'exp';
+  el('div', '', `<div class="av" style="position:relative;width:72px;height:72px;font-size:28px;background:${AVC[4]};border-width:2px;flex:none">C</div><div class="t" id="it">Écrire un message…</div>
+     <div id="send"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="#0E0B1D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`, ui).id = 'inp';
+  el('div', 'bub', 'Dispo ce dimanche ?', ui).id = 'b1';
+  el('div', 'bub', 'Oui ! 7j/7 · 07:30 ou 14:30 ✨', ui).id = 'b2';
+  el('div', '', '', ad).id = 'dim';
+  el('div', '', ['Pourquoi', 'choisir'].map(w => `<span class="w">${w}</span>`).join('') + '<br>' + `<span class="w a">SublimNet</span><span class="w">?</span>`, ad).id = 'title';
+  el('div', '', '', ad).id = 'band';
+  el('div', 'abs', '<span class="n"></span><span class="l"></span>', ad).id = 'step';
+  el('div', 'kt', `<span class="w">Le</span><span class="w">déplacement</span><br><span class="w">est</span><span class="w kpill"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z" fill="#8B7CC7"/><circle cx="12" cy="10" r="2.6" fill="#0E0B1D"/></svg>20 km</span><span class="w a">offert.</span>`, ad).id = 'k1';
+  el('div', 'kt', `<span class="w">Vous</span><span class="w">réservez</span><br><span class="w a">en</span><span class="w a">ligne.</span>`, ad).id = 'k2';
+  el('div', 'kt', `<span class="w">En</span><span class="w">une</span><br><span class="w a">minute.</span>`, ad).id = 'k3';
+  el('div', 'abs', '<img src="assets/logo_S.svg">', ad).id = 'icon';
+  el('div', 'abs', '<img src="assets/logo_w2.svg">', ad).id = 'wm';
+  el('div', 'abs', 'Sublime, et net.', ad).id = 'tagl';
+  el('div', 'abs', '', ad).id = 'url';
+  el('div', 'abs', 'Réserver en ligne', ad).id = 'cta';
+  el('div', '', '', ad).id = 'vig';
+
+  T.t = {
+    uiIn: 0.05, titleIn: on('c1') - 0.2, titleOut: on('c2') - 0.4, chip: W('c1', 'sublimnet') - 0.1,
+    live: on('c2') - 0.45, liveHi: W('c2', 'on'),
+    revs: on('c3') - 0.45, stars: W('c3', 'cinq') - 0.05, expand: W('c3', 'google') - 0.2,
+    inp: on('c4') - 0.45, type: [W('c4', 'trois') + 0.05, W('c4', 'jours') - 0.12], send: W('c4', 'jours') + 0.02, reply: end('c4') - 0.22,
+    uiOut: end('c4') + 0.42,
+    k1: W('c5', 'le') - 0.08, kE: W('c5', 'est') - 0.05, kO: W('c5', 'offert') - 0.05, k1o: on('c6') - 0.3,
+    k2: W('c6', 'vous') - 0.05, k3: W('c6', 'en', 1) - 0.08, k3o: on('c7') - 0.55,
+    icon: on('c7') - 0.45, wm: on('c7') + 0.15, tag: W('c7', 'sublime') - 0.05, url: [W('c8', 'réservez'), end('c8')], cta: W('c8', 'réservez') - 0.1,
+  };
+  T.steps = [[on('c2') - 0.05, '01', 'On vient chez vous'], [on('c3') - 0.05, '02', '5 étoiles sur Google'], [on('c4') - 0.05, '03', '7 jours sur 7'], [on('c5') - 0.05, '04', 'Déplacement'], [on('c6') - 0.05, '05', 'En ligne'], [on('c7') - 0.6, '', '']];
+  const t = T.t;
+  T.camStart = { cx: 540, cy: 700, s: 0.92, rx: 32, rz: -9 };
+  T.cam = [
+    [t.uiIn, 2.1, { cx: 540, cy: 560, s: 1.0, rx: 10, rz: -3 }],
+    [t.live, t.live + 0.7, { cx: 540, cy: 1095, s: 1.2, rx: 6, rz: -2 }],
+    [t.revs, t.revs + 0.75, { cx: 540, cy: 1480, s: 1.08, rx: 6, rz: 1.5 }],
+    [t.expand, t.expand + 0.7, { cx: 540, cy: 1640, s: 1.1, rx: 4, rz: 1 }],
+    [t.inp, t.inp + 0.65, { cx: 470, cy: 0, s: 1.55, rx: 2, rz: -1, inp: true }],
+    [t.reply - 0.15, t.reply + 0.5, { cx: 540, cy: 0, s: 1.06, rx: 4, rz: -2, bub: true }],
+  ];
+}
+function layoutUI(tt) {
+  const t = T.t;
+  const ex = eio(P(tt, t.expand, t.expand + 0.55)); const exH = 520 * ex;
+  T.revs.forEach((r, i) => { r.style.top = (1370 + i * 162 + (i > 0 ? exH : 0)) + 'px'; });
+  const E = $('#exp'); E.style.top = (1370 + 146) + 'px'; E.style.height = exH + 'px'; E.style.opacity = ex.toFixed(3);
+  T.revs[0].style.background = ex > 0 ? `rgba(23,16,48,${ex})` : 'transparent';
+  T.revs[0].style.borderRadius = ex > 0.05 ? '28px 28px 0 0' : '28px';
+  T.revs[0].querySelector('.chev').style.transform = `rotate(${ex * 180}deg)`;
+  const base = 1370 + 3 * 162 + exH + 30; T.inpY = base;
+  $('#inp').style.top = base + 'px';
+  const b1 = $('#b1'), b2 = $('#b2');
+  const s1 = eob(P(tt, t.send, t.send + 0.4)), s2 = eob(P(tt, t.reply, t.reply + 0.4));
+  b1.style.right = '60px'; b1.style.top = (base + 160) + 'px'; b1.style.background = '#8B7CC7'; b1.style.color = '#0E0B1D';
+  b1.style.opacity = clamp(P(tt, t.send, t.send + 0.12)).toFixed(3); b1.style.transform = `translateY(${(1 - s1) * 40}px) scale(${0.7 + 0.3 * s1})`; b1.style.transformOrigin = '100% 50%';
+  b2.style.left = '60px'; b2.style.top = (base + 290) + 'px'; b2.style.background = '#2A1E4D'; b2.style.border = '2px solid #3A3A52';
+  b2.style.opacity = clamp(P(tt, t.reply, t.reply + 0.12)).toFixed(3); b2.style.transform = `translateY(${(1 - s2) * 30}px) scale(${0.7 + 0.3 * s2})`; b2.style.transformOrigin = '0 50%';
+}
+function camAt(tt) {
+  let st = { ...T.camStart }, speed = 0;
+  for (const [a, b, to0] of T.cam) {
+    if (tt < a) break;
+    const to = { ...to0 };
+    if (to.inp) to.cy = T.inpY + 62; if (to.bub) to.cy = T.inpY + 240;
+    const p = P(tt, a, b), q = eio(p);
+    const nx = {}; for (const k of ['cx', 'cy', 's', 'rx', 'rz']) nx[k] = lerp(st[k], to[k], q);
+    if (p > 0 && p < 1) speed = Math.max(speed, Math.sin(p * Math.PI));
+    st = nx;
+  }
+  st.cx += noise(tt * 0.5, 1) * 5; st.cy += noise(tt * 0.45, 3) * 6;
+  return { ...st, speed };
+}
+function words(sel, tt, tin, tout, per) {
+  const k = $(sel); const ws = k.querySelectorAll('.w'); const o = eio(P(tt, tout, tout + 0.35));
+  k.style.opacity = tt >= tin - 0.05 && tt < tout + 0.4 ? 1 : 0;
+  ws.forEach((w, i) => {
+    const d = per ? per(i) : tin + i * 0.12; const q = eo(P(tt, d, d + 0.45));
+    w.style.opacity = (q * (1 - o)).toFixed(3);
+    w.style.filter = `blur(${((1 - q) * 16 + o * 12).toFixed(1)}px)`;
+    w.style.letterSpacing = `${((1 - q) * 0.3).toFixed(3)}em`;
+    w.style.transform = `translateY(${((1 - q) * 24).toFixed(1)}px) scale(${(1 + o * 0.06).toFixed(3)})`;
+  });
+}
+function render(tt) {
+  const t = T.t, D = K.VO.duration;
+  layoutUI(tt);
+  T.chips.forEach((c, i) => c.classList.toggle('on', i === (tt < t.chip ? 0 : 1)));
+  T.chips[1].style.transform = `scale(${1 + 0.08 * Math.sin(P(tt, t.chip, t.chip + 0.4) * Math.PI)})`;
+  const lh = Math.sin(P(tt, t.liveHi, t.liveHi + 0.8) * Math.PI);
+  $('#live').style.boxShadow = `0 0 ${34 + 60 * lh}px rgba(139,124,199,${0.2 + 0.35 * lh})`;
+  $('#mins').textContent = tt < t.liveHi ? 14 : Math.max(12, 14 - Math.floor((tt - t.liveHi) * 2.5));
+  $('#live .k i').style.opacity = 0.4 + 0.6 * (Math.sin(tt * 6) * 0.5 + 0.5);
+  T.revs.forEach((r, i) => { const s = P(tt, t.stars + i * 0.18, t.stars + 0.6 + i * 0.18); const n = Math.round(s * 5);
+    r.querySelector('.st').innerHTML = `<span style="color:#F2C14E;text-shadow:0 0 12px rgba(242,193,78,.45)">${'★'.repeat(n)}</span><span style="color:#3A3A52">${'★'.repeat(5 - n)}</span>`; });
+  const it = $('#it'); const s = typed('Dispo ce dimanche ?', tt, t.type[0], t.type[1]); const sent = tt >= t.send;
+  it.className = 't' + (s && !sent ? ' v' : ''); it.innerHTML = (sent || !s ? 'Écrire un message…' : s) + (tt > t.inp + 0.3 && !sent && Math.floor(tt * 2.4) % 2 === 0 ? '<i class="caret"></i>' : '');
+  $('#send').style.transform = `scale(${1 - 0.15 * P(tt, t.send - 0.06, t.send) * (1 - P(tt, t.send + 0.04, t.send + 0.18))})`;
+  // camera
+  const c = camAt(tt); const ui = $('#ui');
+  const uiIn = eo(P(tt, t.uiIn, t.uiIn + 0.9)), uiOut = eio(P(tt, t.uiOut, t.uiOut + 0.45));
+  ui.style.transform = `translate(540px, 900px) rotateX(${c.rx.toFixed(2)}deg) rotateZ(${c.rz.toFixed(2)}deg) scale(${(c.s * (1 + uiOut * 0.25)).toFixed(4)}) translate(${-c.cx.toFixed(1)}px, ${-c.cy.toFixed(1)}px)`;
+  ui.style.opacity = (uiIn * (1 - uiOut)).toFixed(3);
+  ui.style.filter = `blur(${((1 - uiIn) * 16 + c.speed * 2.4 + uiOut * 16).toFixed(2)}px)`;
+  // hook title over dimmed UI
+  const dq = eo(P(tt, t.titleIn - 0.2, t.titleIn + 0.3)) * (1 - eio(P(tt, t.titleOut, t.titleOut + 0.4)));
+  $('#dim').style.opacity = dq.toFixed(3);
+  words('#title', tt, t.titleIn, t.titleOut, i => t.titleIn + i * 0.14 + (i >= 2 ? 0.1 : 0));
+  // step lower-third / counter
+  const st = $('#step'); let cur = null;
+  for (let i = 0; i < T.steps.length; i++) if (tt >= T.steps[i][0]) cur = i;
+  if (cur === null || !T.steps[cur][1]) st.style.opacity = 0; else {
+    const [a, n, l] = T.steps[cur]; const q = eo(P(tt, a, a + 0.4)); st.style.opacity = q.toFixed(3);
+    st.querySelector('.n').textContent = n; st.querySelector('.l').textContent = l; st.style.transform = `translateY(${(1 - q) * 18}px)`;
+    const ui_ = tt <= t.uiOut + 0.2;
+    st.style.left = ui_ ? '64px' : '50%'; st.style.top = ui_ ? '1390px' : '600px'; st.style.marginLeft = ui_ ? '0' : '-170px';
+  }
+  const bandOn = cur !== null && cur <= 2 ? eo(P(tt, T.steps[0][0], T.steps[0][0] + 0.4)) : 0;
+  $('#band').style.opacity = (bandOn * (1 - eio(P(tt, t.uiOut, t.uiOut + 0.4)))).toFixed(3);
+  // kinetic
+  words('#k1', tt, t.k1, t.k1o, i => i < 2 ? t.k1 + i * 0.16 : i === 2 ? t.kE : i === 3 ? t.kE + 0.2 : t.kO);
+  words('#k2', tt, t.k2, t.k3 - 0.35, i => t.k2 + i * 0.16);
+  words('#k3', tt, t.k3, t.k3o, i => t.k3 + i * 0.14);
+  // icon -> logo -> tagline -> url -> CTA
+  const ic = $('#icon'); const iq = eo4(P(tt, t.icon, t.icon + 0.8)); const up = eio(P(tt, t.wm - 0.1, t.wm + 0.5)); const fin = P(tt, D - 0.7, D - 0.1);
+  ic.style.opacity = (clamp(P(tt, t.icon, t.icon + 0.25)) * (1 - fin)).toFixed(3);
+  ic.style.transform = `translateY(${(-up * 150).toFixed(1)}px) scale(${(lerp(7, 1, iq) * (1 - 0.35 * up)).toFixed(3)})`;
+  ic.style.filter = `blur(${((1 - iq) * 10).toFixed(1)}px)`;
+  const wm = $('#wm'); const wq = eio(P(tt, t.wm, t.wm + 0.8));
+  wm.style.opacity = (wq > 0 ? 1 - fin : 0).toFixed(3);
+  wm.style.webkitMaskImage = wm.style.maskImage = `linear-gradient(90deg,#000 ${(wq * 115 - 10).toFixed(1)}%, transparent ${(wq * 115 + 5).toFixed(1)}%)`;
+  const tg = $('#tagl'); const tq = eo(P(tt, t.tag, t.tag + 0.5));
+  tg.style.opacity = (tq * (1 - fin)).toFixed(3); tg.style.transform = `translateY(${(1 - tq) * 24}px)`; tg.style.filter = `blur(${(1 - tq) * 10}px)`;
+  const u = $('#url'); u.style.opacity = (P(tt, t.url[0], t.url[0] + 0.3) * (1 - fin)).toFixed(3); u.textContent = typed('sublimnet.com', tt, t.url[0] + 0.6, t.url[1]);
+  const ct = $('#cta'); const cq = P(tt, t.cta, t.cta + 0.45);
+  ct.style.opacity = (clamp(cq * 3) * (1 - fin)).toFixed(3); ct.style.transform = `scale(${(0.6 + 0.4 * eob(cq)).toFixed(3)})`;
+}
+window.__ready = K.boot('voC.json', build, render);
+</script>
+</body></html>
