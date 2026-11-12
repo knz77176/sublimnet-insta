@@ -10,7 +10,7 @@ textes (fichiers fournis, `src/pfd/`, licence OFL). Logo : `src/assets/logo.png`
 « Sophie » (`../serie-tiktok-insta/src/vo_sophie/`).
 
 **Couleurs d'origine** : les photos iPhone (Display P3) sont converties fidèlement en sRGB, les vidéos HDR du tapis
-sont converties en SDR sans dérive de teinte, aucun filtre ni assombrissement n'est appliqué sur les photos, et
+sont recalées sur le rendu de l'iPhone (captures fournies, `src/clips/grade_clips.py`), aucun filtre ni assombrissement n'est appliqué sur les photos, et
 l'export est en BT.709 (la norme lue par les téléphones et TikTok).
 
 **Photos affichées en entier** : aucune photo n'est recadrée ni zoomée. Les photos verticales remplissent l'écran
