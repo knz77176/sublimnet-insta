@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><title>SublimNet TikTok – Prix</title>
-<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="fonts/playfair.css"><link rel="stylesheet" href="fonts/tiktoksans.css">
+<link rel="stylesheet" href="pfd/pfd.css">
 <link rel="stylesheet" href="tk.css">
 <style>
 .dk{position:absolute;inset:0;background:rgba(14,11,29,.55)}
@@ -99,7 +99,7 @@ function render(tt) {
   // deplacement
   $('#sDep').style.opacity = vis(tt, t.dep, t.tot);
   const d1 = $('#d1'); const b1 = TK.pop(d1, tt, t.dep + 0.05, 0.4, 0.3, 2.4); d1.style.transform = `scale(${b1})`;
-  const pin = $('#pinA'); const pq = P(tt, t.dep + 0.1, t.dep + 0.7); pin.style.opacity = clamp(pq * 5); pin.style.transform = `translateY(${(-(1 - K.spring(pq * 3, 9, 5)) * 120).toFixed(1)}px)`;
+  const pin = $('#pinA'); const pq = P(tt, t.dep + 0.1, t.dep + 0.7); pin.style.opacity = (clamp(pq * 5) * (1 - P(tt, t.st, t.st + 0.12))).toFixed(3); pin.style.transform = `translateY(${(-(1 - K.spring(pq * 3, 9, 5)) * 120).toFixed(1)}px)`;
   const st = $('#st'); const sq = P(tt, t.st, t.st + 0.22); st.style.opacity = sq > 0 ? 1 : 0;
   st.style.transform = `rotate(-10deg) scale(${(2.6 - 1.6 * eo4(sq)).toFixed(3)})`;
   const ring = $('#ring'); const rr = eo(P(tt, t.d2 - 0.1, t.d2 + 0.8)); const R = 120 + 660 * rr; ring.style.width = R + 'px'; ring.style.height = R + 'px'; ring.style.opacity = clamp(rr * 3);

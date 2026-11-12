@@ -5,8 +5,10 @@ accroche dans la première seconde, vraies photos avant/après, révélations au
 temps forts, tampons et autocollants de prix, sous-titres mot à mot (style CapCut) synchronisés sur la voix,
 barre de progression, appel à l'action final avec le logo SublimNet complet dans un carré blanc.
 
-Palette : #0E0B1D · #2A1E4D · #5A3B8C · #8B7CC7 · #C9C2E3 · #3A3A52. Logo : `src/assets/logo.png` (logo complet,
-couleurs d'origine). Voix off : prises ElevenLabs « Sophie » (`../serie-tiktok-insta/src/vo_sophie/`).
+Palette : #0E0B1D · #2A1E4D · #5A3B8C · #8B7CC7 · #C9C2E3 · #3A3A52. Police : **Playfair Display** pour tous les
+textes (accroches, sous-titres, prix, étiquettes), à partir des fichiers fournis (`src/pfd/`, licence OFL). Logo :
+`src/assets/logo.png` (logo complet, couleurs d'origine). Voix off : prises ElevenLabs « Sophie »
+(`../serie-tiktok-insta/src/vo_sophie/`).
 
 | Fichier | Durée | Accroche | Déroulé |
 |---|---|---|---|

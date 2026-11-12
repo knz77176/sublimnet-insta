@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><title>SublimNet TikTok – 5 raisons</title>
-<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="fonts/playfair.css"><link rel="stylesheet" href="fonts/tiktoksans.css">
+<link rel="stylesheet" href="pfd/pfd.css">
 <link rel="stylesheet" href="tk.css">
 <style>
 #bgd{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 42%,#2A1E4D 0%,#0E0B1D 75%)}
@@ -126,6 +126,7 @@ function render(tt) {
   let fl = 0; for (const cu of T.cuts) if (tt >= cu) fl = Math.max(fl, 1 - P(tt, cu, cu + 0.16));
   $('#flash').style.opacity = (fl * 0.5).toFixed(3);
   $('#prog').style.width = (1080 * clamp(tt / D)).toFixed(1) + 'px';
+  $('#cap').style.top = (tt >= t.r5 && tt < t.end) ? '1610px' : '1180px';
   TK.captions(tt, x => x >= t.end);
 }
 window.__ready = K.boot('voC.json', build, render);
