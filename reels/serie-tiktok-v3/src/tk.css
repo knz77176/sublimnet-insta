@@ -32,7 +32,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
 .badge{position:absolute;z-index:50;background:#fff;border-radius:22%;display:grid;place-items:center;box-shadow:0 14px 40px rgba(14,11,29,.45)}
 .badge img,.full .badge img{position:static;inset:auto;width:86%;height:auto;object-fit:contain;display:block}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:90;pointer-events:none}
-#vig{position:absolute;inset:0;z-index:35;pointer-events:none;background:radial-gradient(90% 70% at 50% 45%,rgba(0,0,0,0) 50%,rgba(8,6,18,.55) 100%)}
+#vig{display:none;position:absolute;inset:0;z-index:35;pointer-events:none;background:radial-gradient(90% 70% at 50% 45%,rgba(0,0,0,0) 50%,rgba(8,6,18,.55) 100%)}
 #prog{position:absolute;left:0;top:0;height:10px;background:linear-gradient(90deg,var(--pu),var(--la));z-index:95}
 /* v5: phone mockup with real site screenshots, highlight rings, cards, clips */
 .dark{background:radial-gradient(80% 55% at 50% 40%,#2A1E4D 0%,#0E0B1D 72%)}

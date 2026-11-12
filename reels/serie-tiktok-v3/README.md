@@ -9,6 +9,10 @@ Palette : #0E0B1D · #2A1E4D · #5A3B8C · #8B7CC7 · #C9C2E3 · #3A3A52. Police
 textes (fichiers fournis, `src/pfd/`, licence OFL). Logo : `src/assets/logo.png`. Voix off : prises ElevenLabs
 « Sophie » (`../serie-tiktok-insta/src/vo_sophie/`).
 
+**Couleurs d'origine** : les photos iPhone (Display P3) sont converties fidèlement en sRGB, les vidéos HDR du tapis
+sont converties en SDR sans dérive de teinte, aucun filtre ni assombrissement n'est appliqué sur les photos, et
+l'export est en BT.709 (la norme lue par les téléphones et TikTok).
+
 **Photos affichées en entier** : aucune photo n'est recadrée ni zoomée. Les photos verticales remplissent l'écran
 telles quelles ; la photo 3:4 du siège beige est affichée complète sur un fond flouté d'elle-même. Les vidéos du tapis
 (iPhone 4K HDR) sont converties en SDR et passées au ralenti ×0,5.
