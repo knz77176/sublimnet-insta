@@ -1,0 +1,62 @@
+[
+ {
+  "id": "a1",
+  "speaker": "ai",
+  "text": "Bonsoir monsieur. Journée chargée : quatorze canapés, six matelas… et une Clio qui sentait le chien mouillé."
+ },
+ {
+  "id": "a2",
+  "speaker": "ai",
+  "text": "Votre avant-après du canapé blanc fait le tour de Bordeaux."
+ },
+ {
+  "id": "a3",
+  "speaker": "ai",
+  "text": "Votre messagerie déborde. Tout le monde veut savoir si vous faites des miracles."
+ },
+ {
+  "id": "f1",
+  "speaker": "founder",
+  "text": "On fait pas de miracles. On fait de l'injection-extraction."
+ },
+ {
+  "id": "a4",
+  "speaker": "ai",
+  "text": "Je transmettrai. Nouvelle demande, monsieur : canapé d'angle en velours beige, un chat… et du jus de raisin."
+ },
+ {
+  "id": "f2",
+  "speaker": "founder",
+  "text": "Ajoute les tapis du salon. Et lance un diagnostic."
+ },
+ {
+  "id": "a5",
+  "speaker": "ai",
+  "text": "Analyse du textile en cours."
+ },
+ {
+  "id": "a6",
+  "speaker": "ai",
+  "text": "Acariens : nombreux. Odeur : discutable. Couleur d'origine… je préfère ne pas commenter."
+ },
+ {
+  "id": "a7",
+  "speaker": "ai",
+  "text": "Rendez-vous demain, dix heures, aux Chartrons. J'ai pris la liberté de calculer l'itinéraire."
+ },
+ {
+  "id": "a8",
+  "speaker": "ai",
+  "text": "Appel entrant. Un garage de Mérignac, pour toute sa flotte. Je réponds ?"
+ },
+ {
+  "id": "f3",
+  "speaker": "founder",
+  "text": "Dis-leur qu'on arrive."
+ },
+ {
+  "id": "a9",
+  "speaker": "ai",
+  "text": "SublimNet. Particuliers et professionnels, partout autour de Bordeaux. On se déplace… vous, vous ne bougez pas."
+ }
+]

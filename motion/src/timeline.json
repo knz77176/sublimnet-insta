@@ -1,0 +1,1192 @@
+{
+ "fps": 30,
+ "duration": 66.0,
+ "drop": 48.6,
+ "beat": 0.42857,
+ "item": 1.71428,
+ "outro": 57.171,
+ "items": [
+  "canape",
+  "matelas",
+  "tapis",
+  "siege",
+  "phare"
+ ],
+ "voice": [
+  {
+   "id": "a1",
+   "speaker": "ai",
+   "text": "Bonsoir monsieur. Journée chargée : quatorze canapés, six matelas… et une Clio qui sentait le chien mouillé.",
+   "start": 1.3,
+   "end": 7.64,
+   "words": [
+    {
+     "w": "Bonsoir",
+     "s": 1.38,
+     "e": 1.68
+    },
+    {
+     "w": "monsieur.",
+     "s": 1.74,
+     "e": 2.06
+    },
+    {
+     "w": "Journée",
+     "s": 2.42,
+     "e": 2.7
+    },
+    {
+     "w": "chargée",
+     "s": 2.74,
+     "e": 3.08
+    },
+    {
+     "w": ":",
+     "s": 3.42,
+     "e": 3.42
+    },
+    {
+     "w": "quatorze",
+     "s": 3.46,
+     "e": 3.82
+    },
+    {
+     "w": "canapés,",
+     "s": 3.86,
+     "e": 4.24
+    },
+    {
+     "w": "six",
+     "s": 4.74,
+     "e": 4.84
+    },
+    {
+     "w": "matelas",
+     "s": 4.88,
+     "e": 5.22
+    },
+    {
+     "w": "et",
+     "s": 5.88,
+     "e": 5.94
+    },
+    {
+     "w": "une",
+     "s": 5.96,
+     "e": 6.12
+    },
+    {
+     "w": "Clio",
+     "s": 6.18,
+     "e": 6.48
+    },
+    {
+     "w": "qui",
+     "s": 6.54,
+     "e": 6.64
+    },
+    {
+     "w": "sentait",
+     "s": 6.68,
+     "e": 6.94
+    },
+    {
+     "w": "le",
+     "s": 6.98,
+     "e": 7.04
+    },
+    {
+     "w": "chien",
+     "s": 7.14,
+     "e": 7.32
+    },
+    {
+     "w": "mouillé",
+     "s": 7.36,
+     "e": 7.64
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "speaker": "ai",
+   "text": "Votre avant-après du canapé blanc fait le tour de Bordeaux.",
+   "start": 7.95,
+   "end": 10.55,
+   "words": [
+    {
+     "w": "Votre",
+     "s": 8.05,
+     "e": 8.23
+    },
+    {
+     "w": "avant-après",
+     "s": 8.27,
+     "e": 8.77
+    },
+    {
+     "w": "du",
+     "s": 8.81,
+     "e": 8.87
+    },
+    {
+     "w": "canapé",
+     "s": 8.93,
+     "e": 9.29
+    },
+    {
+     "w": "blanc",
+     "s": 9.33,
+     "e": 9.55
+    },
+    {
+     "w": "fait",
+     "s": 9.61,
+     "e": 9.69
+    },
+    {
+     "w": "le",
+     "s": 9.73,
+     "e": 9.83
+    },
+    {
+     "w": "tour",
+     "s": 9.87,
+     "e": 10.01
+    },
+    {
+     "w": "de",
+     "s": 10.05,
+     "e": 10.15
+    },
+    {
+     "w": "Bordeaux",
+     "s": 10.19,
+     "e": 10.55
+    }
+   ]
+  },
+  {
+   "id": "a3",
+   "speaker": "ai",
+   "text": "Votre messagerie déborde. Tout le monde veut savoir si vous faites des miracles.",
+   "start": 10.85,
+   "end": 14.79,
+   "words": [
+    {
+     "w": "Votre",
+     "s": 10.93,
+     "e": 11.15
+    },
+    {
+     "w": "messagerie",
+     "s": 11.19,
+     "e": 11.63
+    },
+    {
+     "w": "déborde.",
+     "s": 11.69,
+     "e": 12.17
+    },
+    {
+     "w": "Tout",
+     "s": 12.63,
+     "e": 12.71
+    },
+    {
+     "w": "le",
+     "s": 12.75,
+     "e": 12.81
+    },
+    {
+     "w": "monde",
+     "s": 12.87,
+     "e": 13.03
+    },
+    {
+     "w": "veut",
+     "s": 13.05,
+     "e": 13.17
+    },
+    {
+     "w": "savoir",
+     "s": 13.21,
+     "e": 13.59
+    },
+    {
+     "w": "si",
+     "s": 13.67,
+     "e": 13.73
+    },
+    {
+     "w": "vous",
+     "s": 13.77,
+     "e": 13.91
+    },
+    {
+     "w": "faites",
+     "s": 13.97,
+     "e": 14.13
+    },
+    {
+     "w": "des",
+     "s": 14.17,
+     "e": 14.25
+    },
+    {
+     "w": "miracles",
+     "s": 14.29,
+     "e": 14.79
+    }
+   ]
+  },
+  {
+   "id": "f1",
+   "speaker": "founder",
+   "text": "On fait pas de miracles. On fait de l'injection-extraction.",
+   "start": 15.05,
+   "end": 17.97,
+   "words": [
+    {
+     "w": "On",
+     "s": 15.13,
+     "e": 15.21
+    },
+    {
+     "w": "fait",
+     "s": 15.25,
+     "e": 15.37
+    },
+    {
+     "w": "pas",
+     "s": 15.41,
+     "e": 15.49
+    },
+    {
+     "w": "de",
+     "s": 15.53,
+     "e": 15.57
+    },
+    {
+     "w": "miracle,",
+     "s": 15.61,
+     "e": 16.09
+    },
+    {
+     "w": "on",
+     "s": 16.57,
+     "e": 16.63
+    },
+    {
+     "w": "fait",
+     "s": 16.69,
+     "e": 16.79
+    },
+    {
+     "w": "de",
+     "s": 16.83,
+     "e": 16.89
+    },
+    {
+     "w": "l'injection-extraction",
+     "s": 16.93,
+     "e": 17.97
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "speaker": "ai",
+   "text": "Je transmettrai. Nouvelle demande, monsieur : canapé d'angle en velours beige, un chat… et du jus de raisin.",
+   "start": 18.25,
+   "end": 24.33,
+   "words": [
+    {
+     "w": "Je",
+     "s": 18.33,
+     "e": 18.43
+    },
+    {
+     "w": "transmettrai.",
+     "s": 18.47,
+     "e": 19.05
+    },
+    {
+     "w": "Nouvelle",
+     "s": 19.73,
+     "e": 20.01
+    },
+    {
+     "w": "demande,",
+     "s": 20.07,
+     "e": 20.39
+    },
+    {
+     "w": "monsieur.",
+     "s": 20.45,
+     "e": 20.79
+    },
+    {
+     "w": "Canapé",
+     "s": 21.11,
+     "e": 21.47
+    },
+    {
+     "w": "d'angle",
+     "s": 21.51,
+     "e": 21.87
+    },
+    {
+     "w": "en",
+     "s": 21.91,
+     "e": 21.99
+    },
+    {
+     "w": "velours",
+     "s": 22.01,
+     "e": 22.269
+    },
+    {
+     "w": "beige,",
+     "s": 22.309,
+     "e": 22.61
+    },
+    {
+     "w": "un",
+     "s": 22.89,
+     "e": 22.95
+    },
+    {
+     "w": "chat",
+     "s": 23.07,
+     "e": 23.27
+    },
+    {
+     "w": "et",
+     "s": 23.63,
+     "e": 23.71
+    },
+    {
+     "w": "du",
+     "s": 23.75,
+     "e": 23.81
+    },
+    {
+     "w": "jus",
+     "s": 23.85,
+     "e": 23.95
+    },
+    {
+     "w": "de",
+     "s": 23.97,
+     "e": 24.03
+    },
+    {
+     "w": "raisin",
+     "s": 24.07,
+     "e": 24.33
+    }
+   ]
+  },
+  {
+   "id": "f2",
+   "speaker": "founder",
+   "text": "Ajoute les tapis du salon. Et lance un diagnostic.",
+   "start": 24.6,
+   "end": 27.36,
+   "words": [
+    {
+     "w": "Ajoute",
+     "s": 24.7,
+     "e": 24.96
+    },
+    {
+     "w": "les",
+     "s": 25.0,
+     "e": 25.1
+    },
+    {
+     "w": "tapis",
+     "s": 25.14,
+     "e": 25.42
+    },
+    {
+     "w": "du",
+     "s": 25.44,
+     "e": 25.52
+    },
+    {
+     "w": "salon",
+     "s": 25.6,
+     "e": 25.88
+    },
+    {
+     "w": "et",
+     "s": 26.24,
+     "e": 26.32
+    },
+    {
+     "w": "lance",
+     "s": 26.38,
+     "e": 26.56
+    },
+    {
+     "w": "un",
+     "s": 26.62,
+     "e": 26.68
+    },
+    {
+     "w": "diagnostic",
+     "s": 26.72,
+     "e": 27.36
+    }
+   ]
+  },
+  {
+   "id": "a5",
+   "speaker": "ai",
+   "text": "Analyse du textile en cours.",
+   "start": 27.75,
+   "end": 29.25,
+   "words": [
+    {
+     "w": "Analyse",
+     "s": 27.83,
+     "e": 28.21
+    },
+    {
+     "w": "du",
+     "s": 28.23,
+     "e": 28.33
+    },
+    {
+     "w": "textile",
+     "s": 28.35,
+     "e": 28.73
+    },
+    {
+     "w": "en",
+     "s": 28.77,
+     "e": 28.83
+    },
+    {
+     "w": "cours",
+     "s": 28.93,
+     "e": 29.25
+    }
+   ]
+  },
+  {
+   "id": "a6",
+   "speaker": "ai",
+   "text": "Acariens : nombreux. Odeur : discutable. Couleur d'origine… je préfère ne pas commenter.",
+   "start": 29.75,
+   "end": 35.75,
+   "words": [
+    {
+     "w": "Acariens",
+     "s": 29.83,
+     "e": 30.27
+    },
+    {
+     "w": ":",
+     "s": 30.45,
+     "e": 30.45
+    },
+    {
+     "w": "nombreux.",
+     "s": 30.51,
+     "e": 30.91
+    },
+    {
+     "w": "Odeur",
+     "s": 31.55,
+     "e": 31.95
+    },
+    {
+     "w": ":",
+     "s": 32.11,
+     "e": 32.11
+    },
+    {
+     "w": "discutable.",
+     "s": 32.17,
+     "e": 32.79
+    },
+    {
+     "w": "Couleur",
+     "s": 33.03,
+     "e": 33.27
+    },
+    {
+     "w": "d'origine",
+     "s": 33.31,
+     "e": 33.79
+    },
+    {
+     "w": ":",
+     "s": 33.95,
+     "e": 33.95
+    },
+    {
+     "w": "je",
+     "s": 34.61,
+     "e": 34.71
+    },
+    {
+     "w": "préfère",
+     "s": 34.75,
+     "e": 35.07
+    },
+    {
+     "w": "ne",
+     "s": 35.11,
+     "e": 35.19
+    },
+    {
+     "w": "pas",
+     "s": 35.23,
+     "e": 35.33
+    },
+    {
+     "w": "commenter",
+     "s": 35.37,
+     "e": 35.75
+    }
+   ]
+  },
+  {
+   "id": "a7",
+   "speaker": "ai",
+   "text": "Rendez-vous demain, dix heures, aux Chartrons. J'ai pris la liberté de calculer l'itinéraire.",
+   "start": 36.15,
+   "end": 40.91,
+   "words": [
+    {
+     "w": "Rendez-vous",
+     "s": 36.23,
+     "e": 36.59
+    },
+    {
+     "w": "demain,",
+     "s": 36.63,
+     "e": 36.91
+    },
+    {
+     "w": "10",
+     "s": 37.21,
+     "e": 37.41
+    },
+    {
+     "w": "h,",
+     "s": 37.43,
+     "e": 37.67
+    },
+    {
+     "w": "au",
+     "s": 37.91,
+     "e": 37.97
+    },
+    {
+     "w": "Chartron.",
+     "s": 38.03,
+     "e": 38.49
+    },
+    {
+     "w": "J'ai",
+     "s": 38.83,
+     "e": 38.97
+    },
+    {
+     "w": "pris",
+     "s": 38.99,
+     "e": 39.13
+    },
+    {
+     "w": "la",
+     "s": 39.17,
+     "e": 39.23
+    },
+    {
+     "w": "liberté",
+     "s": 39.27,
+     "e": 39.67
+    },
+    {
+     "w": "de",
+     "s": 39.71,
+     "e": 39.81
+    },
+    {
+     "w": "calculer",
+     "s": 39.83,
+     "e": 40.23
+    },
+    {
+     "w": "l'itinéraire",
+     "s": 40.25,
+     "e": 40.91
+    }
+   ]
+  },
+  {
+   "id": "a8",
+   "speaker": "ai",
+   "text": "Appel entrant. Un garage de Mérignac, pour toute sa flotte. Je réponds ?",
+   "start": 42.3,
+   "end": 46.26,
+   "words": [
+    {
+     "w": "Appel",
+     "s": 42.38,
+     "e": 42.6
+    },
+    {
+     "w": "entrant,",
+     "s": 42.64,
+     "e": 42.94
+    },
+    {
+     "w": "un",
+     "s": 43.28,
+     "e": 43.38
+    },
+    {
+     "w": "garage",
+     "s": 43.42,
+     "e": 43.76
+    },
+    {
+     "w": "de",
+     "s": 43.8,
+     "e": 43.86
+    },
+    {
+     "w": "Mérignac",
+     "s": 43.9,
+     "e": 44.4
+    },
+    {
+     "w": "pour",
+     "s": 44.6,
+     "e": 44.76
+    },
+    {
+     "w": "toute",
+     "s": 44.8,
+     "e": 44.96
+    },
+    {
+     "w": "sa",
+     "s": 45.02,
+     "e": 45.14
+    },
+    {
+     "w": "flotte.",
+     "s": 45.18,
+     "e": 45.48
+    },
+    {
+     "w": "Je",
+     "s": 45.88,
+     "e": 45.96
+    },
+    {
+     "w": "réponds",
+     "s": 46.0,
+     "e": 46.26
+    }
+   ]
+  },
+  {
+   "id": "f3",
+   "speaker": "founder",
+   "text": "Dis-leur qu'on arrive.",
+   "start": 46.5,
+   "end": 47.36,
+   "words": [
+    {
+     "w": "Dis-leur",
+     "s": 46.58,
+     "e": 46.86
+    },
+    {
+     "w": "qu'on",
+     "s": 46.92,
+     "e": 47.04
+    },
+    {
+     "w": "arrive",
+     "s": 47.1,
+     "e": 47.36
+    }
+   ]
+  },
+  {
+   "id": "a9",
+   "speaker": "ai",
+   "text": "SublimNet. Particuliers et professionnels, partout autour de Bordeaux. On se déplace… vous, vous ne bougez pas.",
+   "start": 57.3,
+   "end": 64.24,
+   "words": [
+    {
+     "w": "Sublime",
+     "s": 57.38,
+     "e": 57.7
+    },
+    {
+     "w": "Net,",
+     "s": 57.78,
+     "e": 58.04
+    },
+    {
+     "w": "particuliers",
+     "s": 58.62,
+     "e": 59.28
+    },
+    {
+     "w": "et",
+     "s": 59.32,
+     "e": 59.4
+    },
+    {
+     "w": "professionnels",
+     "s": 59.44,
+     "e": 60.24
+    },
+    {
+     "w": "partout",
+     "s": 60.28,
+     "e": 60.62
+    },
+    {
+     "w": "autour",
+     "s": 60.64,
+     "e": 60.88
+    },
+    {
+     "w": "de",
+     "s": 60.92,
+     "e": 61.0
+    },
+    {
+     "w": "Bordeaux.",
+     "s": 61.04,
+     "e": 61.359
+    },
+    {
+     "w": "On",
+     "s": 61.96,
+     "e": 62.0
+    },
+    {
+     "w": "se",
+     "s": 62.06,
+     "e": 62.14
+    },
+    {
+     "w": "déplace.",
+     "s": 62.18,
+     "e": 62.66
+    },
+    {
+     "w": "Vous,",
+     "s": 63.1,
+     "e": 63.22
+    },
+    {
+     "w": "vous",
+     "s": 63.62,
+     "e": 63.7
+    },
+    {
+     "w": "ne",
+     "s": 63.74,
+     "e": 63.8
+    },
+    {
+     "w": "bougez",
+     "s": 63.86,
+     "e": 64.1
+    },
+    {
+     "w": "pas",
+     "s": 64.14,
+     "e": 64.24
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "name": "lamp_click",
+   "t": 0.05,
+   "gain": 8
+  },
+  {
+   "name": "ui_boot",
+   "t": 0.85,
+   "gain": 0
+  },
+  {
+   "name": "ui_open",
+   "t": 1.45,
+   "gain": -2
+  },
+  {
+   "name": "ui_open2",
+   "t": 2.35,
+   "gain": -3
+  },
+  {
+   "name": "ui_count",
+   "t": 2.7,
+   "gain": -6
+  },
+  {
+   "name": "notif_one",
+   "t": 6.13,
+   "gain": -2
+  },
+  {
+   "name": "whoosh_soft",
+   "t": 7.75,
+   "gain": -4
+  },
+  {
+   "name": "ui_open",
+   "t": 8.0,
+   "gain": -3
+  },
+  {
+   "name": "data_blips",
+   "t": 8.55,
+   "gain": -6
+  },
+  {
+   "name": "whoosh_soft",
+   "t": 10.65,
+   "gain": -4
+  },
+  {
+   "name": "notif_stack",
+   "t": 10.95,
+   "gain": -3
+  },
+  {
+   "name": "notif_one",
+   "t": 12.6,
+   "gain": -6
+  },
+  {
+   "name": "notif_one",
+   "t": 13.7,
+   "gain": -7
+  },
+  {
+   "name": "glitch",
+   "t": 14.95,
+   "gain": -8
+  },
+  {
+   "name": "ui_open2",
+   "t": 15.25,
+   "gain": -3
+  },
+  {
+   "name": "spray",
+   "t": 16.88,
+   "gain": -10
+  },
+  {
+   "name": "extraction",
+   "t": 17.43,
+   "gain": -14,
+   "dur": 1.8,
+   "fade": 0.6
+  },
+  {
+   "name": "whoosh_soft",
+   "t": 18.05,
+   "gain": -4
+  },
+  {
+   "name": "ui_open",
+   "t": 18.3,
+   "gain": -3
+  },
+  {
+   "name": "ui_click",
+   "t": 19.55,
+   "gain": -2
+  },
+  {
+   "name": "ui_blip",
+   "t": 20.35,
+   "gain": 2
+  },
+  {
+   "name": "ui_blip",
+   "t": 20.75,
+   "gain": 2
+  },
+  {
+   "name": "ui_blip",
+   "t": 21.15,
+   "gain": 2
+  },
+  {
+   "name": "ui_blip",
+   "t": 21.55,
+   "gain": 2
+  },
+  {
+   "name": "ui_click",
+   "t": 21.95,
+   "gain": -2
+  },
+  {
+   "name": "typing",
+   "t": 22.2,
+   "gain": -4,
+   "dur": 3.4,
+   "fade": 0.3
+  },
+  {
+   "name": "ui_click",
+   "t": 25.14,
+   "gain": -2
+  },
+  {
+   "name": "ui_click",
+   "t": 26.97,
+   "gain": 0
+  },
+  {
+   "name": "ui_open2",
+   "t": 27.5,
+   "gain": -3
+  },
+  {
+   "name": "data_blips",
+   "t": 28.0,
+   "gain": -6
+  },
+  {
+   "name": "scan",
+   "t": 28.5,
+   "gain": -12,
+   "dur": 6.6,
+   "fade": 1.2
+  },
+  {
+   "name": "ui_open2",
+   "t": 29.75,
+   "gain": -5
+  },
+  {
+   "name": "ui_open2",
+   "t": 31.47,
+   "gain": -5
+  },
+  {
+   "name": "ui_open2",
+   "t": 32.95,
+   "gain": -5
+  },
+  {
+   "name": "ui_blip",
+   "t": 35.37,
+   "gain": 0
+  },
+  {
+   "name": "whoosh_soft",
+   "t": 35.85,
+   "gain": -4
+  },
+  {
+   "name": "ui_open",
+   "t": 36.1,
+   "gain": -3
+  },
+  {
+   "name": "map_ping",
+   "t": 37.98,
+   "gain": -3
+  },
+  {
+   "name": "map_ping",
+   "t": 40.25,
+   "gain": -5
+  },
+  {
+   "name": "ring",
+   "t": 40.9,
+   "gain": -2
+  },
+  {
+   "name": "ring",
+   "t": 44.3,
+   "gain": -12
+  },
+  {
+   "name": "riser",
+   "t": 45.6,
+   "gain": 0
+  },
+  {
+   "name": "ui_click",
+   "t": 47.45,
+   "gain": 0
+  },
+  {
+   "name": "glitch",
+   "t": 48.3,
+   "gain": -6
+  },
+  {
+   "name": "impact",
+   "t": 48.6,
+   "gain": 2
+  },
+  {
+   "name": "extraction",
+   "t": 48.95,
+   "gain": -13,
+   "dur": 1.1,
+   "fade": 0.3
+  },
+  {
+   "name": "sparkle",
+   "t": 49.75,
+   "gain": 0
+  },
+  {
+   "name": "whoosh_fast",
+   "t": 50.194,
+   "gain": -6
+  },
+  {
+   "name": "extraction",
+   "t": 50.664,
+   "gain": -13,
+   "dur": 1.1,
+   "fade": 0.3
+  },
+  {
+   "name": "sparkle",
+   "t": 51.464,
+   "gain": 0
+  },
+  {
+   "name": "whoosh_fast",
+   "t": 51.909,
+   "gain": -6
+  },
+  {
+   "name": "extraction",
+   "t": 52.379,
+   "gain": -13,
+   "dur": 1.1,
+   "fade": 0.3
+  },
+  {
+   "name": "sparkle",
+   "t": 53.179,
+   "gain": 0
+  },
+  {
+   "name": "whoosh_fast",
+   "t": 53.623,
+   "gain": -6
+  },
+  {
+   "name": "extraction",
+   "t": 54.093,
+   "gain": -13,
+   "dur": 1.1,
+   "fade": 0.3
+  },
+  {
+   "name": "sparkle",
+   "t": 54.893,
+   "gain": 0
+  },
+  {
+   "name": "whoosh_fast",
+   "t": 55.337,
+   "gain": -6
+  },
+  {
+   "name": "swipe_clean",
+   "t": 55.807,
+   "gain": -6,
+   "dur": 1.1,
+   "fade": 0.3
+  },
+  {
+   "name": "sparkle",
+   "t": 56.607,
+   "gain": 0
+  },
+  {
+   "name": "whoosh_soft",
+   "t": 57.071,
+   "gain": -3
+  },
+  {
+   "name": "impact",
+   "t": 57.171,
+   "gain": -10
+  },
+  {
+   "name": "sparkle",
+   "t": 57.571,
+   "gain": 2
+  },
+  {
+   "name": "ui_click",
+   "t": 63.4,
+   "gain": -2
+  },
+  {
+   "name": "ui_blip",
+   "t": 64.6,
+   "gain": 2
+  },
+  {
+   "name": "lamp_click",
+   "t": 65.25,
+   "gain": 8
+  }
+ ],
+ "music": [
+  {
+   "name": "music_amb",
+   "t": 0.5,
+   "until": 48.2,
+   "gain": -11,
+   "fadeIn": 1.5,
+   "fadeOut": 2.0,
+   "loop": true
+  },
+  {
+   "name": "music_beat",
+   "t": 47.980000000000004,
+   "until": 65.4,
+   "gain": -4,
+   "fadeIn": 0.4,
+   "fadeOut": 1.0,
+   "loop": true
+  },
+  {
+   "name": "room",
+   "t": 0.0,
+   "until": 66.0,
+   "gain": -26,
+   "fadeIn": 0.2,
+   "fadeOut": 0.8,
+   "loop": true
+  }
+ ]
+}
