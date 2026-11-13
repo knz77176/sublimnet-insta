@@ -53,6 +53,13 @@ titre en Playfair Display italique, trait en dégradé rose → violet #8B5CF6 �
 
 Modèle : `src/cover.html` + `src/cover.js` (titres et cadrages modifiables en haut de `cover.js`).
 
+## Image « Pourquoi choisir SublimNet ? » (`images/`)
+
+`pourquoi-choisir-sublimnet.png`, 1080×1920 (TikTok photo, story, Reel) : même style que les couvertures
+(Playfair Display, accents rose → violet → cyan), siège beige propre en fond, les 5 raisons (à domicile, 5,0 sur Google
+avec 14 avis, 7j/7 à 07:30 ou 14:30, déplacement offert dans un rayon de 20 km, réservé en 1 minute avec prix affiché),
+logo, sublimnet.com, « Bordeaux · Talence & alentours ». Source : `src/why.html` + `src/why.js`.
+
 ## Légendes proposées
 
 **01** – Ce siège n'avait pas vu un nettoyage depuis longtemps… 😳 Résultat à domicile, à Bordeaux ✨

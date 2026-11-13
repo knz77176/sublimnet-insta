@@ -1,0 +1,52 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Pourquoi SublimNet</title>
+<link rel="stylesheet" href="pfd/pfd.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#121113}
+body{font-family:'Playfair Display',serif;color:#fff;position:relative}
+#bg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+#shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(18,17,19,.30) 0%,rgba(18,17,19,.55) 18%,rgba(18,17,19,.86) 34%,rgba(18,17,19,.94) 50%,rgba(18,17,19,.94) 82%,rgba(18,17,19,.98) 100%)}
+.c{position:absolute;left:0;right:0;text-align:center}
+#over{top:150px;font-size:29px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;text-shadow:0 3px 18px rgba(0,0,0,.6)}
+#t1{top:212px;font-style:italic;font-weight:500;font-size:78px;line-height:1.1;text-shadow:0 4px 26px rgba(0,0,0,.6)}
+#t2{top:292px;font-style:italic;font-weight:700;font-size:152px;line-height:1.12;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+#rule{position:absolute;left:260px;width:560px;top:500px;height:5px;border-radius:3px;background:linear-gradient(90deg,#EC4899,#8B5CF6 50%,#22D3EE)}
+#sub{top:530px;font-style:italic;font-size:44px;color:rgba(255,255,255,.92)}
+#list{position:absolute;left:90px;right:90px;top:660px}
+.row{display:flex;align-items:center;height:160px;border-top:1.5px solid rgba(255,255,255,.12)}
+.row:last-child{border-bottom:1.5px solid rgba(255,255,255,.12)}
+.n{flex:none;width:130px;font-style:italic;font-weight:800;font-size:118px;line-height:1;padding-bottom:8px;
+  background:linear-gradient(160deg,#EC4899 0%,#8B5CF6 55%,#22D3EE 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tx{font-variant-numeric:lining-nums}
+.tx b{display:block;font-weight:700;font-size:54px;line-height:1.1}
+.tx span{display:block;font-style:italic;font-size:35px;color:rgba(255,255,255,.78);margin-top:6px}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;margin:0 14px 6px;vertical-align:middle}
+#foot{position:absolute;left:0;right:0;top:1520px;display:flex;align-items:center;justify-content:center;gap:34px}
+#badge{width:170px;height:170px;border-radius:38px;background:#fff;display:grid;place-items:center;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+#badge img{width:86%;height:auto;display:block}
+#cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+#cta small{font-style:italic;font-size:36px;color:rgba(255,255,255,.9)}
+#pill{position:relative;padding:18px 46px 22px;border-radius:999px;font-weight:700;font-size:50px;letter-spacing:.01em;background:rgba(26,26,28,.85)}
+#pill:before{content:"";position:absolute;inset:0;border-radius:999px;padding:3px;background:linear-gradient(90deg,#EC4899,#8B5CF6,#22D3EE);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+#zone{top:1760px;font-size:30px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+</style></head><body>
+<img id="bg" src="assets/seat_ap.jpg"><div id="shade"></div>
+<div class="c" id="over">SublimNet &nbsp;·&nbsp; Detailing à domicile</div>
+<div class="c" id="t1">Pourquoi choisir</div>
+<div class="c" id="t2">SublimNet ?</div>
+<div id="rule"></div>
+<div class="c" id="sub">5 bonnes raisons</div>
+<div id="list">
+  <div class="row"><div class="n">1</div><div class="tx"><b>On vient chez vous</b><span>Auto, canapé, tapis &amp; matelas</span></div></div>
+  <div class="row"><div class="n">2</div><div class="tx"><b>5,0 ★ sur Google</b><span>14 avis clients</span></div></div>
+  <div class="row"><div class="n">3</div><div class="tx"><b>7 jours sur 7</b><span>Créneaux à 07:30 ou 14:30</span></div></div>
+  <div class="row"><div class="n">4</div><div class="tx"><b>Déplacement offert</b><span>Dans un rayon de 20 km</span></div></div>
+  <div class="row"><div class="n">5</div><div class="tx"><b>Réservé en 1 minute</b><span>Prix affiché avant de réserver</span></div></div>
+</div>
+<div id="foot"><div id="badge"><img src="assets/logo.png"></div>
+  <div id="cta"><small>Réservez en ligne</small><div id="pill">sublimnet.com</div></div></div>
+<div class="c" id="zone"><span class="dot" style="background:#EC4899"></span>Bordeaux · Talence &amp; alentours<span class="dot" style="background:#22D3EE"></span></div>
+<script>window.__ready = (async () => { await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode())); return true; })();</script>
+</body></html>
