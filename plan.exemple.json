@@ -1,0 +1,249 @@
+{
+ "vehicule": "Cupra 2025",
+ "sous_titre": "Rénovation intérieure complète",
+ "accroche": {
+  "petit": "Avant → Après",
+  "texte": "1 an de saleté, *effacé* zone par zone.",
+  "plans": [
+   {
+    "video": "DJI_20251101_0003_D",
+    "debut": 30.0,
+    "duree": 1.2,
+    "zoom": 1.5,
+    "ancre": "bas"
+   },
+   {
+    "video": "DJI_20251101_0003_D",
+    "debut": 34.2,
+    "duree": 1.3,
+    "zoom": 1.5,
+    "ancre": "bas"
+   }
+  ]
+ },
+ "intro": {
+  "avant": [
+   {
+    "video": "DJI_20251101_0001_D",
+    "debut": 0.2,
+    "duree": 1.3,
+    "zoom": 1.5,
+    "ancre": "bas"
+   }
+  ],
+  "apres": [
+   {
+    "video": "DJI_20251101_0001_D",
+    "debut": 2.2,
+    "duree": 1.4,
+    "zoom": 1.5,
+    "ancre": "bas"
+   }
+  ]
+ },
+ "face_camera": {
+  "plans": [
+   {
+    "video": "DJI_20251101_0001_D",
+    "debut": 4.0,
+    "duree": 6.0,
+    "zoom": 1.0,
+    "ancre": "centre"
+   }
+  ],
+  "sous_titres": true
+ },
+ "zones": [
+  {
+   "titre": "Porte conducteur",
+   "matiere": "Plastiques",
+   "etapes": [
+    "Pinceau, en détail",
+    "Soufflette dans les recoins",
+    "Finition microfibre"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0002_D",
+     "debut": 4.2,
+     "duree": 1.8,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0002_D",
+     "debut": 6.7,
+     "duree": 2.4,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  },
+  {
+   "titre": "Siège conducteur",
+   "matiere": "Cuir & Alcantara",
+   "etapes": [
+    "Nettoyage adapté à la matière",
+    "Soin protecteur",
+    "Texture préservée"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0002_D",
+     "debut": 13.0,
+     "duree": 2.0,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0002_D",
+     "debut": 18.0,
+     "duree": 2.6,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  },
+  {
+   "titre": "Tableau de bord",
+   "matiere": "Plastiques",
+   "etapes": [
+    "Pinceau, en détail",
+    "Finition microfibre",
+    "Soin nourrissant"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0002_D",
+     "debut": 25.0,
+     "duree": 2.0,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0002_D",
+     "debut": 30.0,
+     "duree": 2.6,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  },
+  {
+   "titre": "Tapis passager",
+   "matiere": "Moquette",
+   "etapes": [
+    "Aspiration en profondeur",
+    "Tornador au cœur des fibres"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 5.0,
+     "duree": 2.0,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 10.0,
+     "duree": 1.9,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  },
+  {
+   "titre": "Places arrière",
+   "matiere": "Moquette",
+   "etapes": [
+    "Aspiration en profondeur",
+    "Tornador au cœur des fibres"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 17.5,
+     "duree": 2.0,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 22.0,
+     "duree": 2.4,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  },
+  {
+   "titre": "Banquette arrière",
+   "matiere": "Cuir & Alcantara",
+   "etapes": [
+    "Nettoyage adapté à la matière",
+    "Soin protecteur",
+    "Texture préservée"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 30.0,
+     "duree": 2.0,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 34.0,
+     "duree": 2.6,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  },
+  {
+   "titre": "Coffre",
+   "matiere": "Moquette",
+   "etapes": [
+    "Aspiration en profondeur",
+    "Tornador au cœur des fibres"
+   ],
+   "avant": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 44.2,
+     "duree": 2.0,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ],
+   "apres": [
+    {
+     "video": "DJI_20251101_0003_D",
+     "debut": 47.4,
+     "duree": 2.4,
+     "zoom": 1.5,
+     "ancre": "bas"
+    }
+   ]
+  }
+ ],
+ "fin": {
+  "duree": 4.5
+ },
+ "musique": "audio/boucle.mp3",
+ "volume_musique": 0.14
+}

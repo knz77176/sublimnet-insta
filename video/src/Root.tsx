@@ -1,6 +1,8 @@
 import React from 'react';
 import {Composition} from 'remotion';
 import {ReelTest} from './ReelTest';
+import {Montage, dureeMontage, type MontageProps} from './sublimnet/Montage';
+import montage from './montage.json';
 import {SublimReel, reelDuration, type SublimReelProps} from './sublimnet/SublimReel';
 
 // Démo : reproduit les plans du montage Cupra pour vérifier la DA
@@ -26,6 +28,9 @@ const demo: SublimReelProps = {
 
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition id="Montage" component={Montage} fps={30} width={1080} height={1920}
+      durationInFrames={dureeMontage(montage as MontageProps)} defaultProps={montage as MontageProps}
+      calculateMetadata={({props}) => ({durationInFrames: dureeMontage(props)})} />
     <Composition id="ReelTest" component={ReelTest} durationInFrames={90} fps={30} width={1080} height={1920}
       defaultProps={{titre: 'Sublimnet'}} />
     <Composition id="SublimReel" component={SublimReel} fps={30} width={1080} height={1920}
